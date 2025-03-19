@@ -52,52 +52,41 @@
         }
 
         table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-bottom: 40px;
-    background-color: #ffffff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    table-layout: fixed; /* Ensures even column widths */
-}
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
 
-th, td {
-    padding: 6px 8px; /* Reduced padding */
+        th, td {
+    padding: 8px 10px; /* Reduced padding */
     text-align: left;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    font-size: 0.8rem; /* Reduced font size */
+    font-size: 0.85rem; /* Reduced font size */
     line-height: 1.4;
 }
 
 th {
-    background-color: var(--accent-color);
-    color: #ffffff;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.75rem; /* Reduced font size */
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 8px 10px; /* Adjusted padding */
+    font-size: 0.8rem; /* Reduced font size */
+    padding: 8px 10px; /* Reduced padding */
 }
 
 td:first-child {
     font-weight: 600;
     color: var(--accent-color);
-    font-size: 0.85rem; /* Slightly larger font size for the first column */
+    font-size: 0.9rem; /* Slightly larger font size for the first column */
 }
 
 td:nth-child(2) {
     font-weight: 500;
     color: var(--accent-color);
-    font-size: 0.8rem; /* Reduced font size */
+    font-size: 0.85rem; /* Reduced font size */
 }
 
         th {
@@ -263,40 +252,49 @@ td:nth-child(2) {
 
         /* Responsive Design */
         @media screen and (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+                padding: 30px 0;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 8px 10px;
+            }
+
+            .warning {
+                padding: 15px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
     th, td {
-        padding: 4px 6px; /* Further reduced padding for smaller screens */
-        font-size: 0.75rem; /* Further reduced font size for smaller screens */
+        padding: 4px 6px; /* Even smaller padding for mobile screens */
+        font-size: 0.75rem; /* Even smaller font size for mobile screens */
     }
 
     th {
-        font-size: 0.7rem; /* Further reduced font size for smaller screens */
-    }
-
-    td:first-child {
-        font-size: 0.8rem; /* Slightly larger font size for the first column on smaller screens */
-    }
-
-    td:nth-child(2) {
-        font-size: 0.75rem; /* Further reduced font size for the second column on smaller screens */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    th, td {
-        padding: 3px 5px; /* Even smaller padding for mobile screens */
         font-size: 0.7rem; /* Even smaller font size for mobile screens */
     }
 
-    th {
-        font-size: 0.65rem; /* Even smaller font size for mobile screens */
-    }
-
     td:first-child {
-        font-size: 0.75rem; /* Slightly larger font size for the first column on mobile screens */
+        font-size: 0.8rem; /* Slightly larger font size for the first column on mobile screens */
     }
 
     td:nth-child(2) {
-        font-size: 0.7rem; /* Even smaller font size for the second column on mobile screens */
+        font-size: 0.75rem; /* Even smaller font size for the second column on mobile screens */
     }
 }
 
