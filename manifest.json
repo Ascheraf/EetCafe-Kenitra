@@ -1,0 +1,21 @@
+{
+  "name": "Eetcafé Kenitra",
+  "short_name": "Kenitra",
+  "description": "Digitaal menu van Eetcafé Kenitra - Verse burgers, pasta's en meer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 
