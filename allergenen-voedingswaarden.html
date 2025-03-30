@@ -40,7 +40,7 @@ body {
 h1 {
     color: var(--primary-color);
     text-align: center;
-    padding: 40px 0;
+    padding: 50px 0;
     border-bottom: 3px solid var(--accent-color);
     margin-bottom: 40px;
     font-weight: 700;
@@ -54,10 +54,10 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     border-collapse: collapse;
-    margin-bottom: 250x;
+    margin-bottom: 250px;
     background-color: var(--card-background);
     box-shadow: 0 8px 16px var(--card-shadow);
-    border-radius: 2px;
+    border-radius: 8px;
     overflow: hidden;
     border: 1px solid var(--border-color);
 }
@@ -71,6 +71,10 @@ th, td {
     transition: all 0.3s ease;
 }
 
+td {
+    text-align: center; /* Center-align numerical values */
+}
+
 th {
     background-color: var(--accent-color);
     color: var(--primary-color);
@@ -82,6 +86,7 @@ th {
     top: 0;
     z-index: 1;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 td:first-child {
@@ -95,8 +100,8 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: var(--hover-highlight);
-    transform: scale(1.01);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: none; /* Remove scaling to avoid layout shifts */
 }
 
 .allergen-icon {
@@ -138,7 +143,7 @@ tr:hover {
 
 .warning {
     background-color: #fff3cd; /* Zachte gele achtergrond voor waarschuwingen */
-    color: #856404; /* Donkere tekstkleur voor leesbaarheid */
+    color: #5a3d00; /* Darker text for better contrast */
     border-left: 5px solid var(--accent-color); /* Accentkleur aan de linkerkant */
     padding: 20px;
     margin: 20px 0;
@@ -239,6 +244,7 @@ tr:hover {
 
 .footer-links a:hover {
     color: var(--accent-color);
+    text-decoration: underline;
 }
 
 .copyright {
@@ -260,11 +266,13 @@ tr:hover {
     }
 
     table {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
+        overflow-x: auto;
+        display: block;
     }
 
     th, td {
-        padding: 8px 10px;
+        padding: 6px 8px;
     }
 
     .footer-container {
@@ -306,7 +314,7 @@ tr:hover {
         <tbody>
             <!-- Burgers -->
             <tr>
-                <td><i><h2>Burgers# </h2></i></td>
+                <td><i><span>Burgers </span></i></td>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -317,7 +325,7 @@ tr:hover {
                 <td>Kenitra Classic</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                     <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
@@ -331,7 +339,7 @@ tr:hover {
                 <td>Homestyle Crispy Chicken</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                     <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
@@ -345,7 +353,7 @@ tr:hover {
                 <td>Cheesy Deluxe</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                     <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
@@ -359,7 +367,7 @@ tr:hover {
                 <td>Bacon Lover</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                     <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
@@ -373,7 +381,7 @@ tr:hover {
                 <td>Bleu Royale</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                     <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
@@ -387,7 +395,7 @@ tr:hover {
                 <td>Double Trouble</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                     <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
@@ -398,8 +406,8 @@ tr:hover {
                 <td>55</td>
             </tr>
             <tr>
-                <td><i><h2>Pasta's# </h2></i></td>
-                <br>
+                <td><i><span>Pasta's# </span></i></td>
+                
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -467,8 +475,8 @@ tr:hover {
                 <td>20</td>
             </tr>
             <tr>
-                <td><i><h2>Broodjes</h2></i></td>
-                <br>
+                <td><i><span>Broodjes</span></i></td>
+                
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -532,8 +540,8 @@ tr:hover {
                 <td>26</td>
             </tr>
             <tr>
-                <td><i><h2>Kapsalon# </h2></i></td>
-                <br>
+                <td><i><span>Kapsalon# </span></i></td>
+                
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -617,7 +625,7 @@ tr:hover {
           <td>65</td>
           </tr>
              <tr>
-                <td><i><h2>Bijgerechten</h2></i></td>
+                <td><i><span>Bijgerechten</span></i></td>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -728,8 +736,8 @@ tr:hover {
                 <td>22</td>
             </tr>
             <tr>
-                <td><i><h2>Desserts</h2></i></td>
-                <br>
+                <td><i><span>Desserts</span></i></td>
+                
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -772,7 +780,7 @@ tr:hover {
             <td>24</td>
              </tr> 
              <tr>
-                <td><i><h2><color: id="000000">Sauzen</color:></h2></i></td>
+                <td><i><span>Sauzen</span></i></td>
                 <td> </td>
                 <td> </td>
                 <td> </td>
