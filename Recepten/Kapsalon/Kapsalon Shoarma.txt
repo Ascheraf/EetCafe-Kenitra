@@ -22,13 +22,13 @@ Ingrediënten:
 ### Schatting van de Kosten per Ingrediënt:
 
 1. Friet (150 g)   - Kosten: €0,25 - €0,38  
-2. Lamsshoarma (125 g)  - Kosten: €1,88 - €2,25  
-3. Geraspte Kaas (50 g)  -  Kosten: €0,50 - €0,75  
-4. IJsbergsla (50 g)  - Kosten: €0,13 - €0,19  
-5. Komkommer (30 g)  - Kosten: €0,08 - €0,12  
-6. Rode Ui (30 g)  - Kosten: €0,09 - €0,15  
-7. Knoflooksaus (30 g)  - Kosten: €0,23 - €0,30  
-8. Andalouse (30 g)  - Kosten: €0,18 - €0,24  
+2. Lamsshoarma (125 g)  - Kosten: €2,00 
+3. Geraspte Kaas (50 g)  -  Kosten: €0,40
+4. IJsbergsla (50 g)  - Kosten: €0,20
+5. Komkommer (20 g)  - Kosten: €0,10
+6. Rode Ui (20 g)  - Kosten: €0,10
+7. Knoflooksaus (30 g)  - Kosten: €0,20
+8. Andalouse (30 g)  - Kosten: €0,20
 
 ### Totale Kosten:  
-- Laagste schatting: €3,34  -  Hoogste schatting: €4,38
+- Laagste schatting: €3,50  -  Hoogste schatting: €4,00

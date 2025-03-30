@@ -4,4 +4,4 @@ Prijs p/kg = €5,45 (zonder aanbieding)
 
 Winkel: Dirk
 Gewicht Portie: 30g
-Prijs p/portie = €0,16
+Prijs p/portie = €0,20

@@ -6,7 +6,6 @@ Ingrediënten:
 - 20g chocoladesiroop
 - 150ml volle melk
 - 1 bolletje chocolade-ijs (60g)
-- ½ theelepel Monin Vanille siroop
 - Optioneel: cacaopoeder
 
 Bereiding:
@@ -61,7 +60,7 @@ Kostprijs:
 Milkshake Banaan (Medium)
 
 Ingrediënten:
-- ½ rijpe banaan (60g)
+- ½ rijpe banaan (60g)-(bevroren)
 - 150ml melk
 - 1 bolletje vanille-ijs (60g)
 - ½ theelepel honing
@@ -80,10 +79,10 @@ Kostprijs:
 Milkshake Aardbei (Medium)
 
 Ingrediënten:
-- 50g verse aardbeien
+- 50g aardbeien (bevroren)
 - 150ml melk
-- 1 bolletje vanille-ijs (60g)
-- ½ theelepel Monin Vanille siroop
+- 1 bolletje aardbei roomijs (60g)
+- ½ theelepel honing
 
 Bereiding:
 1. Blend aardbeien met melk
@@ -93,7 +92,8 @@ Kostprijs:
 - Aardbeien: €0.40
 - Melk: €0.20
 - Ijs: €0.40
-→ Totaal: €1.00-€1.20
+- Honing: €0.10
+→ Totaal: €1.10-€1.20
 --------------------------------------------------------------------------
 Milkshake Karamel (Medium)
 
@@ -116,7 +116,7 @@ Kostprijs:
 Milkshake Cherry Vanilla (Medium)
 
 Ingrediënten:
-- 50g kersen (ontpit)
+- 50g kersen (bevroren, ontpit)
 - 150ml melk
 - 1 bolletje vanille-ijs (60g)
 - ½ eetlepel honing
@@ -137,7 +137,7 @@ Ingrediënten:
 - 15g pistachenoten
 - 10g pistachepasta
 - 150ml melk
-- 1 bolletje vanille-ijs (60g)
+- 1 bolletje pistache-vanille-ijs (60g)
 
 Bereiding:
 1. Maal noten fijn, blend met pasta en melk
@@ -156,7 +156,7 @@ Ingrediënten:
 - 1 eetlepel pindakaas (15g)
 - 1 eetlepel chocoladesiroop (15g)
 - 150ml melk
-- 1 bolletje vanille-ijs (60g)
+- 1 bolletje chocolade-ijs (60g)
 
 Bereiding:
 1. Blend pindakaas en chocolade met melk
@@ -192,7 +192,7 @@ Milkshake Vanille (Medium)
 Ingrediënten:
 - 150ml melk
 - 1 bolletje vanille-ijs (60g)
-- ½ theelepel Monin Vanille siroop
+- ½ theelepel Monin Vanille aroma
 
 Bereiding:
 1. Blend melk, ijs en vanille 20 sec
@@ -200,13 +200,13 @@ Bereiding:
 Kostprijs:
 - Melk: €0.20
 - Ijs: €0.40
-- Vanille: €0.10
-→ Totaal: €0.70-€0.90
+- Vanille: €0.15
+→ Totaal: €0.75-€0.90
 --------------------------------------------------------------------------------------
 Milkshake Raspberry Chocolate (Medium)
 
 Ingrediënten:
-- 50g frambozen (vers of bevroren)
+- 50g frambozen (bevroren)
 - 150ml volle melk
 - 1 bolletje chocolade-ijs (60g)
 - ½ eetlepel chocoladesiroop (10g)

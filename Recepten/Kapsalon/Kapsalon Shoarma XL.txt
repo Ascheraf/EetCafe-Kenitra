@@ -2,7 +2,7 @@ Recept voor een Kapsalon Shoarma XL
 
 Ingrediënten:
 
-250 gram Friet
+200 gram Friet
 200 gram Lamsshoarma (rauw gewicht)
 80 gram geraspte Kaas (belegen of jong belegen kaas)
 80 gram Ijsbergsla
@@ -22,13 +22,13 @@ Ingrediënten:
 ### Schatting van de Kosten per Ingrediënt:
 
 1. Friet (250 g)  - Kosten: €0,38 - €0,63  
-2. Lamsshoarma (200 g)  - Kosten: €3,00 - €3,60  
-3. Geraspte Kaas (80 g)  - Kosten: €0,80 - €1,20  
-4. IJsbergsla (80 g)   - Kosten: €0,20 - €0,30  
-5. Komkommer (50 g)  - Kosten: €0,13 - €0,20  
-6. Rode Ui (50 g)  - Kosten: €0,15 - €0,25  
-7. Knoflooksaus (45 g)  - Kosten: €0,34 - €0,45  
-8. Andalouse (45 g)  - Kosten: €0,27 - €0,36  
+2. Lamsshoarma (200 g)  - Kosten: €3,00 
+3. Geraspte Kaas (80 g)  - Kosten: €0,60 
+4. IJsbergsla (75 g)   - Kosten: €0,20
+5. Komkommer (40 g)  - Kosten: €0,15
+6. Rode Ui (30 g)  - Kosten: €0,15 
+7. Knoflooksaus (45 g)  - Kosten: €0,30
+8. Andalouse (45 g)  - Kosten: €0,30 
 
 ### Totale Kosten:  
-- Laagste schatting: €5,27  -  Hoogste schatting: €6,99
+- Laagste schatting: €5,27  -  Hoogste schatting: €6,00

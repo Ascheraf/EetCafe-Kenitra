@@ -1,6 +1,6 @@
 Milkshake Instructies:
 
-Hier is een overzicht van het volume en gewicht voor alle milkshake-varianten, gebaseerd op de ingrediëntenlijsten:
+Hier is een overzicht van het volume en gewicht voor alle milkshake-varianten:
 
 ### Standaardformaat per milkshake:
 | Kenmerk          | Specificatie                          |

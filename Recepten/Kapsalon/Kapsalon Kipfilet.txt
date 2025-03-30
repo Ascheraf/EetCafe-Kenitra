@@ -22,13 +22,13 @@ Ingrediënten:
 ### Schatting van de Kosten per Ingrediënt:
 
 1. Friet (150 g)  - Kosten: €0,25 - €0,38  
-2. Kipfilet (125 g)  - Kosten: €1,25 - €1,50  
-3. Geraspte Kaas (50 g)  - Kosten: €0,50 - €0,75  
-4. IJsbergsla (50 g)  - Kosten: €0,13 - €0,19  
-5. Komkommer (30 g)  - Kosten: €0,08 - €0,12  
-6. Rode Ui (30 g)  - Kosten: €0,09 - €0,15  
-7. Knoflooksaus (30 g)  - Kosten: €0,23 - €0,30  
+2. Kipfilet (125 g)  - Kosten: €1,25
+3. Geraspte Kaas (50 g)  - Kosten: €0,40 
+4. IJsbergsla (50 g)  - Kosten: €0,15  
+5. Komkommer (20 g)  - Kosten: €0,10  
+6. Rode Ui (20 g)  - Kosten: €0,10
+7. Knoflooksaus (45 g)  - Kosten: €0,20
 8. Andalouse (30 g)  - Kosten: €0,18 - €0,24  
 
 ### Totale Kosten:  
-- Laagste schatting: €2,71  -  Hoogste schatting: €3,63 
+- Laagste schatting: €2,71  -  Hoogste schatting: €3,15 
