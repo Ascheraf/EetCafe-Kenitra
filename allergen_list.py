@@ -9,7 +9,6 @@ allergen_list = {
     "Kenitra Classic": [
         GLUTEN_BROOD, 
         "Melk (cheddar)", 
-        GLUTEN_BROOD, 
         "Mosterd (in huisgemaakte saus)"
     ],
     "Homestyle Crispy Chicken": [
@@ -30,56 +29,51 @@ allergen_list = {
         "Ei (in BBQ saus)"
     ],
     "Bleu Royale": [
-        "Gluten (brood)", 
+        GLUTEN_BROOD, 
         "Melk (blauwe kaas)"
     ],
     "Double Trouble": [
-        "Gluten (brood)", 
+        GLUTEN_BROOD, 
         "Melk (cheddar)", 
         "Ei (in saus)", 
-        "Mosterd (in huisgemaakte saus)",
+        "Mosterd (in huisgemaakte saus)", 
         GLUTEN_PASTA
     ],
 
     # Pasta's
     "Pasta Bolognese": [
-        "Gluten (pasta)", 
+        GLUTEN_PASTA, 
         "Melk (parmezaanse kaas)"
     ],
     "Pasta Carbonara": [
-        "Gluten (pasta)", 
+        GLUTEN_PASTA, 
         "Melk (parmezaanse kaas)", 
         "Ei", 
         "Kalfsvlees (bacon)"
     ],
-    "Pasta Vegetarian": [
-        "Gluten (pasta)", 
+    "Pasta Arrabbiata": [
+        GLUTEN_PASTA, 
         "Melk (optionele kaas)", 
         "Noten (pijnboompitten in pesto)"
     ],
     "Pasta Chicken Pesto": [
-        "Gluten (pasta)", 
+        GLUTEN_PASTA, 
         "Melk (parmezaanse kaas)", 
         "Noten (pijnboompitten)"
     ],
     "Pasta Scampi Curry": [
-        "Gluten (pasta)", 
+        GLUTEN_PASTA, 
         "Schaaldieren (garnalen)", 
-        "Melk (optionele kaas)"
-    ],
-    "Pasta Puttanesca": [
-        "Gluten (pasta)", 
-        "Vis (ansjovis)", 
         "Melk (optionele kaas)"
     ],
 
     # Broodjes
     "Grilled Cheese Deluxe": [
-        "Gluten (brood)", 
+        GLUTEN_BROOD, 
         "Melk (goudse kaas, cheddar)"
     ],
     "Grilled Cheese Tuna Melt": [
-        "Gluten (brood)", 
+        GLUTEN_BROOD, 
         "Melk (goudse kaas, cheddar)", 
         "Vis (tonijn)"
     ],
@@ -90,35 +84,26 @@ allergen_list = {
         GLUTEN_BROOD
     ],
     "Club Sandwich": [
-        "Gluten (brood)", 
+        GLUTEN_BROOD, 
         "Melk (goudse kaas)", 
         "Ei", 
-        "Kalfsvlees (bacon)",
+        "Kalfsvlees (bacon)", 
         GLUTEN_FRIET
     ],
 
     # Kapsalon
     "Kapsalon Shoarma": [
-        MELK_GOUDSE_KAAS,
-        "Melk (goudse kaas)"
+        GLUTEN_FRIET, 
+        MELK_GOUDSE_KAAS
     ],
     "Kapsalon Kipfilet": [
-        "Gluten (friet)", 
-        "Melk (goudse kaas)"
+        GLUTEN_FRIET, 
+        MELK_GOUDSE_KAAS
     ],
 
     # Sides
     "Franse Friet": [
-        "Gluten"
-    ],
-    "Stokbrood": [
-        GLUTEN_STOKBROOD, 
-        "Gluten"
-    ],
-    "Garlic Bread": [
-        "Gluten (stokbrood)", 
-        "Melk (kaas)", 
-        "Knoflook"
+        GLUTEN_FRIET
     ],
     "Mini Loempia's": [
         "Gluten", 
@@ -147,7 +132,7 @@ allergen_list = {
         "Soja (in Oreo variant)"
     ],
     "Smashed Taco's": [
-        "Melk (in saus)",
+        "Melk (in saus)", 
         "Ei (in saus)"
     ]
 }
@@ -155,7 +140,7 @@ allergen_list = {
 # Additional Warnings
 additional_warnings = {
     "Vegetarische Opties": [
-        "Pasta Vegetarian",
+        "Pasta Arrabbiata",
         "Grilled Cheese Deluxe",
         "Milkshake"
     ],
@@ -177,24 +162,24 @@ additional_warnings = {
 
 def get_allergens_for_item(item_name):
     """
-    Retrieve allergens for a specific menu item.
+    Haal allergenen op voor een specifiek menu-item.
     
-    :param item_name: Name of the menu item
-    :return: List of allergens or None if item not found
+    :param item_name: Naam van het menu-item
+    :return: Lijst met allergenen of None als het item niet bestaat
     """
     return allergen_list.get(item_name, None)
 
 def print_all_allergens():
     """
-    Print all allergens for each menu item.
+    Print alle allergenen voor elk menu-item.
     """
-    print("Allergen List for Eetcafe Kenitra:")
+    print("Allergenlijst voor Eetcafe Kenitra:")
     for item, allergens in allergen_list.items():
         print(f"\n{item}:")
         for allergen in allergens:
             print(f"  - {allergen}")
     
-    print("\nAdditional Warnings:")
+    print("\nAanvullende Waarschuwingen:")
     for category, items in additional_warnings.items():
         print(f"\n{category}:")
         for item in items:

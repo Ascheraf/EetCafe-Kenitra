@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,362 +9,284 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #333;
-            --accent-color: #e67e22;
-            --text-color: #333;
-            --light-bg: #f8f8f8;
-            --border-color: #e0e0e0;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
+:root {
+    --primary-color: #ffffff;
+    --accent-color: #ff9f43;
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --border-color: #333;
+    --card-background: #2d2d2d;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --header-height: 60px;
+    --nav-height: 52px;
+    --container-padding: 1rem;
+    --hover-highlight: rgba(255, 159, 67, 0.2);
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+body {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+}
 
-        body {
-            font-family: 'Playfair Display', serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f5f5f5;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            font-weight: 400;
-        }
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 3px solid var(--accent-color);
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-        h1 {
-            color: var(--primary-color);
-            text-align: center;
-            padding: 40px 0;
-            border-bottom: 3px solid var(--accent-color);
-            margin-bottom: 40px;
-            font-weight: 700;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 250x;
+    background-color: var(--card-background);
+    box-shadow: 0 8px 16px var(--card-shadow);
+    border-radius: 2px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
 
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin-bottom: 40px;
-            background-color: #ffffff;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        th, td {
-    padding: 8px 10px; /* Reduced padding */
+th, td {
+    padding: 8px 20px;
     text-align: left;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    font-size: 0.85rem; /* Reduced font size */
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
     line-height: 1.4;
+    transition: all 0.3s ease;
 }
 
 th {
-    font-size: 0.8rem; /* Reduced font size */
-    padding: 8px 10px; /* Reduced padding */
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 td:first-child {
     font-weight: 600;
     color: var(--accent-color);
-    font-size: 0.9rem; /* Slightly larger font size for the first column */
 }
 
-td:nth-child(2) {
-    font-weight: 500;
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+tr:hover {
+    background-color: var(--hover-highlight);
+    transform: scale(1.01);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.allergen-icon {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 1.2rem;
     color: var(--accent-color);
-    font-size: 0.85rem; /* Reduced font size */
+    cursor: help;
+    position: relative;
 }
 
-        th {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            position: sticky;
-            top: 0;
-            z-index: 1;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 10px 15px;
-        }
+.allergen-icon:hover::after {
+    content: attr(data-allergen);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1000;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-        tr:last-child td {
-            border-bottom: none;
-        }
+.allergen-icon:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--primary-color);
+    margin-bottom: -5px;
+}
 
-        tr:nth-child(even) {
-            background-color: rgba(248, 248, 248, 0.5);
-        }
+.warning {
+    background-color: #fff3cd; /* Zachte gele achtergrond voor waarschuwingen */
+    color: #856404; /* Donkere tekstkleur voor leesbaarheid */
+    border-left: 5px solid var(--accent-color); /* Accentkleur aan de linkerkant */
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
 
-        tr:hover {
-            background-color: rgba(245, 245, 245, 0.8);
-            transform: scale(1.001);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
+.warning:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
 
-        td {
-            font-weight: 400;
-        }
+.warning h3 {
+    margin-bottom: 15px;
+    color: #856404; /* Zorg ervoor dat de koptekst dezelfde kleur heeft als de tekst */
+    border-bottom: 1px solid rgba(133, 100, 4, 0.2);
+    padding-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
 
-        td:first-child {
-            font-weight: 600;
-            color: var(--accent-color);
-        }
+.warning ul {
+    list-style-type: disc;
+    padding-left: 30px;
+    margin-top: 10px;
+}
 
-        td:nth-child(2) {
-            font-weight: 500;
-            color: var(--accent-color);
-        }
+.warning li {
+    margin-bottom: 5px;
+}
 
-        td:first-child {
-            background-color: transparent;
-        }
+.site-footer {
+    background-color: var(--card-background);
+    padding: 40px 0 20px;
+    margin-top: 60px;
+    border-top: 1px solid var(--border-color);
+}
 
-        .warning {
-            background-color: #fff3cd;
-            color: #856404;
-            border-left: 5px solid var(--accent-color);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px var(--shadow-color);
-            transition: all 0.3s ease;
-        }
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
 
-        .warning:hover {
-            box-shadow: 0 4px 6px var(--shadow-color);
-            transform: translateY(-2px);
-        }
+.footer-section h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
 
-        .warning h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-            border-bottom: 1px solid rgba(133, 100, 4, 0.2);
-            padding-bottom: 10px;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
+.footer-section address {
+    font-style: normal;
+    line-height: 1.6;
+    color: var(--text-color);
+}
 
-        .warning ul {
-            list-style-type: disc;
-            padding-left: 30px;
-            margin-top: 10px;
-        }
+.footer-section a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-        .warning li {
-            margin-bottom: 5px;
-        }
+.footer-section a:hover {
+    color: #d35400;
+}
 
-        /* Footer Styles */
-        .site-footer {
-            background-color: var(--light-bg);
-            padding: 40px 0 20px;
-            margin-top: 60px;
-            border-top: 1px solid var(--border-color);
-        }
+.opening-hours-list {
+    list-style: none;
+    padding: 0;
+}
 
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
+.opening-hours-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
 
-        .footer-section h3 {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
 
-        .footer-section address {
-            font-style: normal;
-            line-height: 1.6;
-            color: var(--secondary-color);
-        }
+.footer-links li {
+    margin-bottom: 10px;
+}
 
-        .footer-section a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-        .footer-section a:hover {
-            color: #d35400;
-        }
+.footer-links a:hover {
+    color: var(--accent-color);
+}
 
-        .opening-hours-list {
-            list-style: none;
-            padding: 0;
-        }
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color);
+}
 
-        .opening-hours-list li {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            color: var(--secondary-color);
-        }
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
 
-        .footer-links {
-            list-style: none;
-            padding: 0;
-        }
+    h1 {
+        font-size: 2rem;
+        padding: 30px 0;
+    }
 
-        .footer-links li {
-            margin-bottom: 10px;
-        }
+    table {
+        font-size: 0.85rem;
+    }
 
-        .footer-links a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            color: var(--secondary-color);
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-
-            h1 {
-                font-size: 2rem;
-                padding: 30px 0;
-            }
-
-            table {
-                font-size: 0.85rem;
-            }
-
-            th, td {
-                padding: 8px 10px;
-            }
-
-            .warning {
-                padding: 15px;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
     th, td {
-        padding: 4px 6px; /* Even smaller padding for mobile screens */
-        font-size: 0.75rem; /* Even smaller font size for mobile screens */
+        padding: 8px 10px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    th, td {
+        padding: 6px 8px;
+        font-size: 0.8rem;
     }
 
     th {
-        font-size: 0.7rem; /* Even smaller font size for mobile screens */
+        font-size: 0.75rem;
     }
 
     td:first-child {
-        font-size: 0.8rem; /* Slightly larger font size for the first column on mobile screens */
-    }
-
-    td:nth-child(2) {
-        font-size: 0.75rem; /* Even smaller font size for the second column on mobile screens */
+        font-size: 0.85rem;
     }
 }
-
-        /* Print Styles */
-        @media print {
-            body {
-                padding: 0;
-                max-width: none;
-                background-color: #ffffff;
-            }
-
-            table {
-                box-shadow: none;
-                border: 1px solid var(--border-color);
-            }
-
-            th {
-                background-color: var(--accent-color) !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            td:first-child {
-                background-color: transparent;
-            }
-
-            h1 {
-                border-bottom: 2px solid var(--accent-color);
-            }
-
-            footer {
-                display: none;
-            }
-        }
-
-        .allergen-icon {
-            display: inline-block;
-            margin: 0 2px;
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            cursor: help;
-            position: relative;
-        }
-
-        .allergen-icon:hover::after {
-            content: attr(data-allergen);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--primary-color);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            white-space: nowrap;
-            z-index: 1000;
-            margin-bottom: 5px;
-        }
-
-        .allergen-icon:hover::before {
-            content: '';
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 5px solid transparent;
-            border-top-color: var(--primary-color);
-            margin-bottom: -5px;
-        }
     </style>
 </head>
 <body>
@@ -384,82 +306,100 @@ td:nth-child(2) {
         <tbody>
             <!-- Burgers -->
             <tr>
+                <td><i><h2>Burgers# </h2></i></td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
                 <td>Kenitra Classic</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                     <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
                 </td>
-                <td>480</td>
-                <td>28</td>
-                <td>38</td>
-                <td>24</td>
+                <td>550</td>
+                <td>30</td>
+                <td>40</td>
+                <td>30</td>
             </tr>
             <tr>
                 <td>Homestyle Crispy Chicken</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
-                    <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
+                    <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
                 </td>
-                <td>560</td>
-                <td>42</td>
-                <td>48</td>
-                <td>26</td>
+                <td>620</td>
+                <td>30</td>
+                <td>50</td>
+                <td>30</td>
             </tr>
             <tr>
                 <td>Cheesy Deluxe</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
-                    <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
+                    <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
                 </td>
-                <td>520</td>
+                <td>700</td>
                 <td>30</td>
-                <td>36</td>
-                <td>26</td>
+                <td>40</td>
+                <td>45</td>
             </tr>
             <tr>
                 <td>Bacon Lover</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                    <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
                 </td>
-                <td>570</td>
-                <td>32</td>
-                <td>36</td>
-                <td>32</td>
+                <td>650</td>
+                <td>35</td>
+                <td>45</td>
+                <td>40</td>
             </tr>
             <tr>
                 <td>Bleu Royale</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                    <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                    <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
                 </td>
-                <td>490</td>
-                <td>27</td>
-                <td>36</td>
-                <td>26</td>
+                <td>600</td>
+                <td>30</td>
+                <td>40</td>
+                <td>35</td>
             </tr>
             <tr>
                 <td>Double Trouble</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Wheat"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
-                    <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
+                    <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
                 </td>
-                <td>670</td>
-                <td>42</td>
-                <td>36</td>
-                <td>36</td>
+                <td>900</td>
+                <td>50</td>
+                <td>45</td>
+                <td>55</td>
             </tr>
             <tr>
-                <td> </td>
+                <td><i><h2>Pasta's# </h2></i></td>
+                <br>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -473,10 +413,10 @@ td:nth-child(2) {
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                 </td>
-                <td>500</td>
-                <td>26</td>
-                <td>56</td>
-                <td>22</td>
+                <td>750</td>
+                <td>40</td>
+                <td>85</td>
+                <td>25</td>
             </tr>
             <tr>
                 <td>Pasta Carbonara</td>
@@ -485,22 +425,22 @@ td:nth-child(2) {
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                 </td>
-                <td>560</td>
-                <td>30</td>
-                <td>52</td>
-                <td>26</td>
+                <td>800</td>
+                <td>35</td>
+                <td>75</td>
+                <td>45</td>
             </tr>
             <tr>
-                <td>Pasta Vegetarian</td>
+                <td>Pasta Arrabbiata</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-seedling allergen-icon" data-allergen="Noten"></i>
                 </td>
-                <td>420</td>
-                <td>16</td>
-                <td>52</td>
-                <td>18</td>
+                <td>550</td>
+                <td>15</td>
+                <td>90</td>
+                <td>12</td>
             </tr>
             <tr>
                 <td>Pasta Chicken Pesto</td>
@@ -509,10 +449,10 @@ td:nth-child(2) {
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-seedling allergen-icon" data-allergen="Noten"></i>
                 </td>
-                <td>490</td>
-                <td>32</td>
-                <td>46</td>
-                <td>22</td>
+                <td>700</td>
+                <td>45</td>
+                <td>75</td>
+                <td>25</td>
             </tr>
             <tr>
                 <td>Pasta Scampi Curry</td>
@@ -521,13 +461,14 @@ td:nth-child(2) {
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-fish allergen-icon" data-allergen="Schaaldieren"></i>
                 </td>
-                <td>430</td>
-                <td>26</td>
-                <td>42</td>
-                <td>18</td>
+                <td>625</td>
+                <td>35</td>
+                <td>80</td>
+                <td>20</td>
             </tr>
             <tr>
-                <td> </td>
+                <td><i><h2>Broodjes</h2></i></td>
+                <br>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -591,7 +532,8 @@ td:nth-child(2) {
                 <td>26</td>
             </tr>
             <tr>
-                <td> </td>
+                <td><i><h2>Kapsalon# </h2></i></td>
+                <br>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -600,60 +542,82 @@ td:nth-child(2) {
             </tr>
             <!-- Kapsalon -->
             <tr>
-                <td>Kapsalon Shoarma</td>
-                <td>
-                    <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                    <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                </td>
-                <td>620</td>
-                <td>32</td>
-                <td>52</td>
-                <td>32</td>
-            </tr>
-            <tr>
                 <td>Kapsalon Kipfilet</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                    <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
+
                 </td>
-                <td>560</td>
-                <td>36</td>
-                <td>46</td>
-                <td>26</td>
+                <td>800</td>
+                <td>40</td>
+                <td>75</td>
+                <td>35</td>
             </tr>
              <td>Kapsalon Hete Kipfilet</td>
              <td>
-                 <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                 <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
              </td>
-             <td>560</td>
-             <td>36</td>
-             <td>46</td>
-             <td>26</td>
+             <td>820</td>
+             <td>45</td>
+             <td>80</td>
+             <td>40</td>
              </tr>
-              <td>Kapsalon XL Shoarma</td>
-              <td>
-                 <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                 <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-             </td>
-             <td>930</td>
-             <td>48</td>
-             <td>78</td>
-             <td>48</td>
-             </tr>
+             <tr>
+                <td>Kapsalon Shoarma</td>
+                <td>
+                    <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                    <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                    <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                    <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
+                </td>
+                <td>900</td>
+                <td>50</td>
+                <td>75</td>
+                <td>45</td>
+            </tr>
              <td>Kapsalon XL Kipfilet</td>
              <td>
                 <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                 <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
             </td>
-            <td>840</td>
+            <td>1080</td>
             <td>54</td>
-            <td>69</td>
-            <td>39</td>
+            <td>100</td>
+            <td>50</td>
             </tr>
-
+            <td>Kapsalon XL Hete Kipfilet</td>
+            <td>
+                <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
+           </td>
+           <td>1120</td>
+           <td>60</td>
+           <td>105</td>
+           <td>55</td>
+           </tr>
+           <td>Kapsalon XL Shoarma</td>
+           <td>
+            <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+            <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+            <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+            <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
+          </td>
+          <td>1230</td>
+          <td>70</td>
+          <td>105</td>
+          <td>65</td>
+          </tr>
              <tr>
-                <td> </td>
+                <td><i><h2>Bijgerechten</h2></i></td>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -720,8 +684,8 @@ td:nth-child(2) {
                 <td>10</td>
             </tr>
             <tr>
-                <td>Nacho's met Kaasdip</td>
-                <td>
+                <td>Nacho's</td>
+                <td> 
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                     <i class="fas fa-seedling allergen-icon" data-allergen="Soja"></i>
                 </td>
@@ -764,7 +728,8 @@ td:nth-child(2) {
                 <td>22</td>
             </tr>
             <tr>
-                <td> </td>
+                <td><i><h2>Desserts</h2></i></td>
+                <br>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -807,7 +772,7 @@ td:nth-child(2) {
             <td>24</td>
              </tr> 
              <tr>
-                <td> </td>
+                <td><i><h2><color: id="000000">Sauzen</color:></h2></i></td>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -928,7 +893,7 @@ td:nth-child(2) {
         <h3>Speciale Dieetopties</h3>
         <p>Halal Opties:</p>
         <ul>
-            <li>Al onze gerechten zijn 100% halal</li>
+            <li>Al onze vleesgerechten zijn 100% halal.</li>
         </ul>
     </div>
 
@@ -939,7 +904,7 @@ td:nth-child(2) {
                 <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                     <span itemprop="streetAddress">Hoefkade 782</span><br>
                     <span itemprop="postalCode">2526 CT</span> <span itemprop="addressLocality">Den Haag</span><br>
-                    <span>Tel: <a href="tel:+31687662199" itemprop="telephone">06-87662199</a></span>
+                    <span>Tel: <a href="tel:+31687662199" itemprop="telephone">06 87662199</a></span>
                 </address>
             </div>
             
