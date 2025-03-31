@@ -3,12 +3,14 @@ GLUTEN_PASTA = "Gluten (pasta)"
 GLUTEN_FRIET = "Gluten (friet)"
 GLUTEN_STOKBROOD = "Gluten (stokbrood)"
 MELK_GOUDSE_KAAS = "Melk (goudse kaas)"
+MELK_CHEDDAR = "Melk (cheddar)"
+MOSTERD_HUISGEMAAKTE_SAUS = "Mosterd (in huisgemaakte saus)"
 
 allergen_list = {
     # Burgers
     "Kenitra Classic": [
-        GLUTEN_BROOD, 
-        "Melk (cheddar)", 
+        MELK_CHEDDAR, 
+        MOSTERD_HUISGEMAAKTE_SAUS
         "Mosterd (in huisgemaakte saus)"
     ],
     "Homestyle Crispy Chicken": [

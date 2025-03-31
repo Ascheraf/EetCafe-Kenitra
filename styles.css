@@ -1052,23 +1052,46 @@ iframe.location-map {
 @media (max-width: 768px) {
     .map-image-wrapper,
     .map-container {
-        height: 250px;
+        height: 50px;
+    }
+
+    .map-container,
+    .contact-map {
+        height: 300px; /* Increase height for better visibility */
+    }
+
+    .map-image-wrapper,
+    .contact-map-wrapper {
+        height: 500px; /* Match the container height */
+    }
+
+    iframe.location-map {
+        height: 100%; /* Ensure iframe fills the container */
     }
 }
 
 /* Specifieke styling voor de kaart op de contactpagina */
 .contact-section .map-container,
 .contact-map {
-    height: 250px;
+    height: 100%;
+    max-height: 500px; /* Ensure the map doesn't exceed a reasonable height */
+    position: relative;
 }
 
 .contact-section .map-image-wrapper,
 .contact-map-wrapper {
-    height: 200px;
+    height: 100%;
+    max-height: 250px;
+    position: relative;
 }
 
 .contact-map-iframe {
     height: 100%;
+    width: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* Verbeterde styling voor Over Ons pagina links en telefoonnummer */
@@ -1132,4 +1155,25 @@ iframe.location-map {
     height: auto; /* Maintain aspect ratio */
     vertical-align: middle; /* Align with text */
     margin: 0 5px; /* Add spacing around the logo */
+}
+
+/* Scroll-to-top button styles */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #1a1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.scroll-to-top.visible {
+    display: block;
 }

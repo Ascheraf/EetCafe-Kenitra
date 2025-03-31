@@ -71,7 +71,7 @@ table {
 
 /* Algemene stijl voor de cellen */
 th, td {
-    padding: 6px 10px; /* Verminder padding voor alle schermen */
+    padding: 2px 4px; /* Nog minder padding voor dichte kolommen */
     text-align: left;
     border-bottom: 1px solid var(--border-color);
     font-size: 0.9rem;
@@ -186,41 +186,43 @@ tr:hover {
 
 .site-footer {
     background-color: var(--card-background);
-    padding: 40px 0 20px;
-    margin-top: 60px;
+    color: var(--text-color);
+    padding: 2rem 0;
+    margin-top: 3rem;
     border-top: 1px solid var(--border-color);
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--container-padding);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 }
 
 .footer-section h3 {
-    color: var(--primary-color);
+    color: var(--accent-color);
     font-size: 1.2rem;
-    margin-bottom: 20px;
-    font-weight: 600;
+    margin-bottom: 1rem;
+    font-weight: 500;
 }
 
 .footer-section address {
     font-style: normal;
     line-height: 1.6;
-    color: var(--text-color);
+    margin-bottom: 1rem;
 }
 
 .footer-section a {
-    color: var(--accent-color);
+    color: #ffffff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-    color: #d35400;
+    color: var(--accent-color);
+    text-decoration: underline;
 }
 
 .opening-hours-list {
@@ -231,8 +233,7 @@ tr:hover {
 .opening-hours-list li {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
-    color: var(--text-color);
+    margin-bottom: 0.5rem;
 }
 
 .footer-links {
@@ -241,26 +242,45 @@ tr:hover {
 }
 
 .footer-links li {
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
 }
 
-.footer-links a {
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
     color: var(--text-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-.footer-links a:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
+.social-links a:hover {
+    background-color: var(--accent-color);
+    text-decoration: none;
 }
 
 .copyright {
     text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
+    margin-top: 2rem;
+    padding-top: 1rem;
     border-top: 1px solid var(--border-color);
-    color: var(--text-color);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+th:nth-child(3), th:nth-child(4), th:nth-child(5),
+td:nth-child(3), td:nth-child(4), td:nth-child(5) {
+    width: 8%; /* Verminder de breedte van deze kolommen */
+}
+
+th:nth-child(1), th:nth-child(2),
+td:nth-child(1), td:nth-child(2) {
+    width: 15%; /* Verminder de breedte van deze kolommen */
 }
 
 /* Specifieke stijl voor mobiele apparaten */
@@ -285,6 +305,20 @@ tr:hover {
 
     th, td {
         padding: 4px 8px; /* Verminder padding verder voor tablets */
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr; /* Eén kolom op kleinere schermen */
+        gap: 20px;
+    }
+
+    .footer-section {
+        text-align: center; /* Centreer de tekst op mobiele apparaten */
+    }
+
+    .opening-hours-list li {
+        flex-direction: column; /* Zet de openingstijden onder elkaar */
+        text-align: center;
     }
 }
 
@@ -316,39 +350,29 @@ tr:hover {
             <thead>
                 <tr>
                     <th>Gerecht</th>
-                    <th>Allergenen</th>
                     <th>Kcal</th>
                     <th>Eiwit (g)</th>
                     <th>Koolh. (g)</th>
                     <th>Vet (g)</th>
+                    <th>Allergenen</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Burgers -->
                 <tr>
                     <td><span>Burgers </span></td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Kenitra Classic</td>
-                    <td>
-                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                        <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                        <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
-                        <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
-                    </td>
                     <td>550</td>
                     <td>30</td>
                     <td>40</td>
                     <td>30</td>
-                </tr>
-                <tr>
-                    <td>Homestyle Crispy Chicken</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
@@ -356,13 +380,13 @@ tr:hover {
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                         <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Homestyle Crispy Chicken</td>
                     <td>620</td>
                     <td>30</td>
                     <td>50</td>
                     <td>30</td>
-                </tr>
-                <tr>
-                    <td>Cheesy Deluxe</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
@@ -370,13 +394,13 @@ tr:hover {
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                         <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Cheesy Deluxe</td>
                     <td>700</td>
                     <td>30</td>
                     <td>40</td>
                     <td>45</td>
-                </tr>
-                <tr>
-                    <td>Bacon Lover</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
@@ -384,13 +408,13 @@ tr:hover {
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                         <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Bacon Lover</td>
                     <td>650</td>
                     <td>35</td>
                     <td>45</td>
                     <td>40</td>
-                </tr>
-                <tr>
-                    <td>Bleu Royale</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
@@ -398,13 +422,13 @@ tr:hover {
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                         <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Bleu Royale</td>
                     <td>600</td>
                     <td>30</td>
                     <td>40</td>
                     <td>35</td>
-                </tr>
-                <tr>
-                    <td>Double Trouble</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
@@ -412,488 +436,495 @@ tr:hover {
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                         <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Double Trouble</td>
                     <td>900</td>
                     <td>50</td>
                     <td>45</td>
                     <td>55</td>
+                    <td>
+                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                        <i class="fas fa-seedling allergen-icon" data-allergen="Tarwe"></i>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                        <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                        <i class="fas fa-hotdog allergen-icon" data-allergen="Mosterd"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td><span>Pasta's</span></td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <!-- Pasta's -->
                 <tr>
                     <td>Pasta Bolognese</td>
-                    <td>
-                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                    </td>
                     <td>750</td>
                     <td>40</td>
                     <td>85</td>
                     <td>25</td>
+                    <td>
+                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>Pasta Carbonara</td>
+                    <td>800</td>
+                    <td>35</td>
+                    <td>75</td>
+                    <td>45</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                     </td>
-                    <td>800</td>
-                    <td>35</td>
-                    <td>75</td>
-                    <td>45</td>
                 </tr>
                 <tr>
                     <td>Pasta Arrabbiata</td>
-                    <td>
-                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                        <i class="fas fa-seedling allergen-icon" data-allergen="Noten"></i>
-                    </td>
                     <td>550</td>
                     <td>15</td>
                     <td>90</td>
                     <td>12</td>
-                </tr>
-                <tr>
-                    <td>Pasta Chicken Pesto</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Noten"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Pasta Chicken Pesto</td>
                     <td>700</td>
                     <td>45</td>
                     <td>75</td>
                     <td>25</td>
+                    <td>
+                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                        <i class="fas fa-seedling allergen-icon" data-allergen="Noten"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>Pasta Scampi Curry</td>
+                    <td>625</td>
+                    <td>35</td>
+                    <td>80</td>
+                    <td>20</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-fish allergen-icon" data-allergen="Schaaldieren"></i>
                     </td>
-                    <td>625</td>
-                    <td>35</td>
-                    <td>80</td>
-                    <td>20</td>
                 </tr>
                 <tr>
                     <td><span>Broodjes</span></td>
-                    
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <!-- Broodjes -->
                 <tr>
                     <td>Grilled Cheese Deluxe</td>
-                    <td>
-                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                    </td>
                     <td>360</td>
                     <td>16</td>
                     <td>26</td>
                     <td>23</td>
+                    <td>
+                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>Grilled Cheese Tuna Melt</td>
+                    <td>390</td>
+                    <td>22</td>
+                    <td>26</td>
+                    <td>26</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-fish allergen-icon" data-allergen="Vis"></i>
                     </td>
-                    <td>390</td>
-                    <td>22</td>
-                    <td>26</td>
-                    <td>26</td>
                 </tr>
                 <tr>
                     <td>Köfte Sandwich</td>
-                    <td>
-                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                    </td>
                     <td>410</td>
                     <td>24</td>
                     <td>36</td>
                     <td>22</td>
-                </tr>
-                <tr>
-                    <td>Hot Chicken Sandwich</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Hot Chicken Sandwich</td>
                     <td>390</td>
                     <td>26</td>
                     <td>32</td>
                     <td>20</td>
+                    <td>
+                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>Club Sandwich</td>
-                    <td>
-                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                        <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
-                    </td>
                     <td>460</td>
                     <td>30</td>
                     <td>36</td>
                     <td>26</td>
+                    <td>
+                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                        <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td><span>Kapsalon</span></td>
-                    
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <!-- Kapsalon -->
                 <tr>
                     <td>Kapsalon Kipfilet</td>
-                    <td>
-                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                        <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
-                        <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
-                    </td>
                     <td>800</td>
                     <td>40</td>
                     <td>75</td>
                     <td>35</td>
-                </tr>
-                <tr>
-                    <td>Kapsalon Hete Kipfilet</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Kapsalon Hete Kipfilet</td>
                     <td>820</td>
                     <td>45</td>
                     <td>80</td>
                     <td>40</td>
-                </tr>
-                <tr>
-                    <td>Kapsalon Shoarma</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Kapsalon Shoarma</td>
                     <td>900</td>
                     <td>50</td>
                     <td>75</td>
                     <td>45</td>
-                </tr>
-                <tr>
-                    <td>Kapsalon XL Kipfilet</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Kapsalon XL Kipfilet</td>
                     <td>1080</td>
                     <td>54</td>
                     <td>100</td>
                     <td>50</td>
-                </tr>
-                <tr>
-                    <td>Kapsalon XL Hete Kipfilet</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Kapsalon XL Hete Kipfilet</td>
                     <td>1120</td>
                     <td>60</td>
                     <td>105</td>
                     <td>55</td>
-                </tr>
-                <tr>
-                    <td>Kapsalon XL Shoarma</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Kapsalon XL Shoarma</td>
                     <td>1230</td>
                     <td>70</td>
                     <td>105</td>
                     <td>65</td>
+                    <td>
+                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                        <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                        <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td><span>Bijgerechten</span></td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <!-- Sides -->
                 <tr>
                     <td>Franse Friet</td>
-                    <td>
-                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                        <i class="fas fa-garlic allergen-icon" data-allergen="Knoflook"></i>
-                    </td>
                     <td>320</td>
                     <td>4</td>
                     <td>38</td>
                     <td>16</td>
-                </tr>
-                <tr>
-                    <td>Twister Fries</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-garlic allergen-icon" data-allergen="Knoflook"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Twister Fries</td>
                     <td>340</td>
                     <td>5</td>
                     <td>40</td>
                     <td>18</td>
-                </tr>
-                <tr>
-                     <td>Onion Rings</td>
-                     <td>
-                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                        <i class="fas fa-garlic allergen-icon" data-allergen="Knoflook"></i>
-                    </td>
-                    <td>260</td>
-                    <td>8</td>
-                    <td>32</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                     <td>Kipnuggets</td>
-                     <td>
-                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                        <i class="fas fa-garlic allergen-icon" data-allergen="Knoflook"></i>
-                    </td>
-                    <td>280</td>
-                    <td>14</td>
-                    <td>20</td>
-                    <td>16</td>
-                </tr>
-                <tr>
-                    <td>Mini-Loempia's</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-garlic allergen-icon" data-allergen="Knoflook"></i>
                     </td>
+                </tr>
+                <tr>
+                     <td>Onion Rings</td>
+                     <td>260</td>
+                     <td>8</td>
+                     <td>32</td>
+                     <td>12</td>
+                     <td>
+                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                        <i class="fas fa-garlic allergen-icon" data-allergen="Knoflook"></i>
+                    </td>
+                </tr>
+                <tr>
+                     <td>Kipnuggets</td>
+                     <td>280</td>
+                     <td>14</td>
+                     <td>20</td>
+                     <td>16</td>
+                     <td>
+                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                        <i class="fas fa-garlic allergen-icon" data-allergen="Knoflook"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mini-Loempia's</td>
                     <td>220</td>
                     <td>6</td>
                     <td>28</td>
                     <td>10</td>
+                    <td>
+                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                        <i class="fas fa-garlic allergen-icon" data-allergen="Knoflook"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>Nacho's</td>
+                    <td>+</td>
+                    <td>+</td>
+                    <td>+</td>
+                    <td>+</td>
                     <td> 
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Soja"></i>
                     </td>
-                    <td>+</td>
-                    <td>+</td>
-                    <td>+</td>
-                    <td>+</td>
                 </tr>           
                 <tr>
                     <td>Kaassoufflé</td>
+                    <td>+</td>
+                    <td>+</td>
+                    <td>+</td>
+                    <td>+</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Soja"></i>
                     </td>
-                    <td>+</td>
-                    <td>+</td>
-                    <td>+</td>
-                    <td>+</td>
                 </tr>
                 <tr>
                     <td>Bamischijf</td>
+                    <td>+</td>
+                    <td>+</td>
+                    <td>+</td>
+                    <td>+</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     </td>
-                    <td>+</td>
-                    <td>+</td>
-                    <td>+</td>
-                    <td>+</td>
                 </tr>
                 <tr>
                     <td>Mixed Bar Bites</td>
-                    <td>
-                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
-                        <i class="fas fa-seedling allergen-icon" data-allergen="Soja"></i>
-                    </td>
                     <td>360</td>
                     <td>16</td>
                     <td>36</td>
                     <td>22</td>
+                    <td>
+                        <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
+                        <i class="fas fa-seedling allergen-icon" data-allergen="Soja"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td><span>Desserts</span></td>
-                    
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <!-- Desserts -->
                 <tr>
                     <td>Crème Brûlée</td>
-                    <td>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                        <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
-                    </td>
                     <td>310</td>
                     <td>6</td>
                     <td>36</td>
                     <td>16</td>
+                    <td>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                        <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>Lemon Cheesecake</td>
+                    <td>360</td>
+                    <td>8</td>
+                    <td>36</td>
+                    <td>22</td>
                     <td>
                         <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                         <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                     </td>
-                    <td>360</td>
-                    <td>8</td>
-                    <td>36</td>
-                    <td>22</td>
                 </tr>
                 <td>Sizzling Brownie</td>
+                <td>420</td>
+                <td>6</td>
+                <td>48</td>
+                <td>24</td>
                 <td>
                     <i class="fas fa-bread-slice allergen-icon" data-allergen="Gluten"></i>
                     <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
                     <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                 </td>
-                <td>420</td>
-                <td>6</td>
-                <td>48</td>
-                <td>24</td>
                  </tr> 
                  <tr>
                     <td><span>Sauzen</span></td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
 
                 <!-- Sauzen -->
                 <tr>
                     <td>Mayonaise</td>
-                    <td>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                        <i class="fas fa-garlic allergen-icon" data-allergen="Knoflook"></i>
-                    </td>
                     <td>120</td>
                     <td>2</td>
                     <td>3</td>
                     <td>12</td>
+                    <td>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                        <i class="fas fa-garlic allergen-icon" data-allergen="Knoflook"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>Ketchup</td>
-                    <td>
-                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
-                        <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
-                    </td>
                     <td>100</td>
                     <td>1</td>
                     <td>5</td>
                     <td>9</td>
+                    <td>
+                        <i class="fas fa-cheese allergen-icon" data-allergen="Melk"></i>
+                        <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>Curry</td>
-                    <td>
-                        <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
-                    </td>
                     <td>80</td>
                     <td>1</td>
                     <td>15</td>
                     <td>0</td>
+                    <td>
+                        <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>Andalouse</td>
-                    <td>
-                        <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
-                    </td>
                     <td>90</td>
                     <td>1</td>
                     <td>1</td>
                     <td>10</td>
-                </tr>
-                <tr>
-                    <td>Samurai</td>
                     <td>
                         <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Samurai</td>
                     <td>60</td>
                     <td>0</td>
                     <td>15</td>
                     <td>0</td>
+                    <td>
+                        <i class="fas fa-egg allergen-icon" data-allergen="Ei"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>Katjang</td>
-                    <td>
-                        <i class="fas fa-seedling allergen-icon" data-allergen="Pinda's"></i>
-                    </td>
                     <td>110</td>
                     <td>4</td>
                     <td>8</td>
                     <td>8</td>
+                    <td>
+                        <i class="fas fa-seedling allergen-icon" data-allergen="Pinda's"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>Knoflook</td>
-                    <td>-</td>
                     <td>40</td>
                     <td>0</td>
                     <td>10</td>
                     <td>0</td>
+                    <td>-</td>
                 </tr>
                 <tr>
                     <td>Chili</td>
-                    <td>
-                        <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
-                    </td>
                     <td>30</td>
                     <td>0,1</td>
                     <td>7</td>
                     <td>0,1</td>
-                </tr>
-                <tr>
-                    <td>Mosterd</td>
                     <td>
                         <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
                     </td>
+                </tr>
+                <tr>
+                    <td>Mosterd</td>
                     <td>11</td>
                     <td>0,6</td>
                     <td>0,2</td>
                     <td>0,6</td>
+                    <td>
+                        <i class="fas fa-seedling allergen-icon" data-allergen="Mosterd"></i>
+                    </td>
                 </tr>            
             </tbody>
         </table>

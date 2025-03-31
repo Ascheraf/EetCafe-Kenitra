@@ -4,6 +4,12 @@ class MobileEnhancer {
         // Add error boundary
         this.errorCount = 0;
         this.maxErrors = 3;  // Maximum number of errors before disabling features
+
+        // Initialize instance properties
+        this.addScrollHandler = this.addScrollHandler.bind(this);
+        this.sectionObserver = null;
+        this.imageObserver = null;
+        this.ticking = false;
         
         try {
             this.init();
@@ -39,10 +45,10 @@ class MobileEnhancer {
 
     destroy() {
         // Cleanup event listeners
-        window.removeEventListener('scroll', this.boundHandleScroll);
-        window.removeEventListener('scroll', this.boundSetViewportHeight);
+        window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('scroll', this.setViewportHeight);
         window.removeEventListener('resize', this.handleResize);
-        window.removeEventListener('orientationchange', this.handleOrientationChange);
+        window.removeEventListener('orientationchange', this.setupOrientationChange);
         // Remove intersection observers
         if (this.sectionObserver) {
             this.sectionObserver.disconnect();
@@ -55,7 +61,7 @@ class MobileEnhancer {
     handleScroll() {
         if (!this.ticking) {
             window.requestAnimationFrame(() => {
-                this.scrollHandlers.forEach(handler => handler());
+                this.addScrollHandler.forEach(handler => handler());
                 this.ticking = false;
             });
             this.ticking = true;
@@ -63,16 +69,16 @@ class MobileEnhancer {
     }
 
     addScrollHandler(handler) {
-        this.scrollHandlers.add(handler);
-        if (this.scrollHandlers.size === 1) {
-            window.addEventListener('scroll', this.boundHandleScroll, { passive: true });
+        this.addScrollHandler.add(handler);
+        if (this.addScrollHandler.size === 1) {
+            window.addEventListener('scroll', this.handleScroll, { passive: true });
         }
     }
 
     removeScrollHandler(handler) {
-        this.scrollHandlers.delete(handler);
-        if (this.scrollHandlers.size === 0) {
-            window.removeEventListener('scroll', this.boundHandleScroll);
+        this.addScrollHandler.delete(handler);
+        if (this.addScrollHandler.size === 0) {
+            window.removeEventListener('scroll', this.handleScroll);
         }
     }
 
@@ -158,6 +164,19 @@ class MobileEnhancer {
 
         button.addEventListener('click', () => {
             this.smoothScrollTo(0);
+        });
+
+        this.addScrollHandler();
+    }
+
+    addScrollHandler() {
+        window.addEventListener('scroll', () => {
+            const scrollToTopButton = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 200) {
+                scrollToTopButton.classList.add('visible');
+            } else {
+                scrollToTopButton.classList.remove('visible');
+            }
         });
     }
 
