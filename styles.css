@@ -538,7 +538,7 @@ button:focus {
     padding: 2rem 1rem;
     margin-top: 3rem;
     border-top: 1px solid var(--border-color);
-    text-align: center;
+    text-align: center; /* Center-align footer text */
 }
 
 .footer-container {
@@ -548,11 +548,14 @@ button:focus {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 2rem;
+    flex-direction: column; /* Stack footer sections vertically */
+    align-items: center; /* Center-align content */
 }
 
 .footer-section {
     flex: 1 1 250px;
     min-width: 200px;
+    text-align: center; /* Center-align individual footer sections */
 }
 
 .footer-section h3 {
