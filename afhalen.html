@@ -50,7 +50,10 @@
 
         iframe.location-map {
             width: 100%;
-            height: 200px;
+            height: 400px;
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .footer-container {
@@ -150,7 +153,8 @@
                                 class="location-map"
                                 allowfullscreen="" 
                                 loading="lazy"
-                                title="Google Maps locatie van Eetcafe Kenitra">
+                                title="Google Maps locatie van Eetcafe Kenitra"
+                                style="width: 100%; height: 400px; border: 0; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                             </iframe>
                         </div>
                         <p class="pickup-note">Ons restaurant is gunstig gelegen nabij een openbare parkeergelegenheid waar tegen betaling geparkeerd kan worden.</p>
@@ -164,21 +168,19 @@
         <div class="footer-container">
             <div class="footer-section">
                 <h3>Eetcafé Kenitra</h3>
-                <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                    <span itemprop="streetAddress">Hoefkade 782</span><br>
-                    <span itemprop="postalCode">2526 CT</span> <span itemprop="addressLocality">Den Haag</span><br>
-                    <span>Tel: <a href="tel:+31687662199" itemprop="telephone">06 87662199</a></span>
+                <address>
+                    Hoefkade 782<br>
+                    2526 CT Den Haag<br>
+                    Tel: <a href="tel:+31687662199">06 87662199</a>
                 </address>
             </div>
-            
             <div class="footer-section">
                 <h3>Openingstijden</h3>
                 <ul class="opening-hours-list">
-                    <li><span>Zondag - Donderdag:</span> <span> <strong>12:00 - 23:00</strong></span></li>
-                    <li><span>Vrijdag - Zaterdag:</span> <span> <strong>12:00 - 01:00</strong></span></li>
+                    <li><span>Zondag - Donderdag:</span> <span>12:00 - 23:00</span></li>
+                    <li><span>Vrijdag - Zaterdag:</span> <span>12:00 - 01:00</span></li>
                 </ul>
             </div>
-            
             <div class="footer-section">
                 <h3>Informatie</h3>
                 <ul class="footer-links">
@@ -190,7 +192,6 @@
                 </ul>
             </div>
         </div>
-        
         <div class="copyright">
             <p>&copy; <span id="current-year">2025</span> Eetcafé Kenitra. Alle rechten voorbehouden.</p>
         </div>
