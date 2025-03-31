@@ -924,6 +924,39 @@
     
     <script src="script.js"></script>
     <script src="mobile.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script>
+        // Swipe functionality for menu navigation
+        const menuNav = document.querySelector('.menu-nav');
+        const menuSections = document.querySelectorAll('.menu-section');
+        const buttons = document.querySelectorAll('.category-btn');
+        let currentIndex = 0;
+
+        const updateActiveSection = (index) => {
+            buttons.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+                btn.setAttribute('aria-pressed', i === index);
+            });
+            menuSections.forEach((section, i) => {
+                section.classList.toggle('active', i === index);
+            });
+        };
+
+        const hammer = new Hammer(menuNav);
+        hammer.on('swipeleft', () => {
+            if (currentIndex < buttons.length - 1) {
+                currentIndex++;
+                updateActiveSection(currentIndex);
+            }
+        });
+
+        hammer.on('swiperight', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateActiveSection(currentIndex);
+            }
+        });
+    </script>
     <script>
         // Update copyright year automatically
         document.getElementById('current-year').textContent = new Date().getFullYear();
