@@ -348,34 +348,6 @@ body {
     }
 }
 
-.theme-toggle {
-    position: fixed;
-    top: 1rem;
-    right: var(--container-padding);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: none;
-    background: var(--card-background);
-    box-shadow: 0 2px 4px var(--card-shadow);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    z-index: 1000;
-    touch-action: manipulation;
-    color: var(--text-color);
-}
-
-.theme-toggle:hover {
-    transform: scale(1.1);
-}
-
-[data-theme="dark"] .theme-toggle {
-    background: var(--primary-color);
-}
-
 /* Add smooth scrolling for better user experience */
 html {
     scroll-behavior: smooth;
@@ -1103,6 +1075,7 @@ iframe.location-map {
     height: 100%;
     max-height: 500px; /* Ensure the map doesn't exceed a reasonable height */
     position: relative;
+    display: block; /* Ensure the container is visible */
 }
 
 .contact-section .map-image-wrapper,
@@ -1110,6 +1083,7 @@ iframe.location-map {
     height: 100%;
     max-height: 250px;
     position: relative;
+    display: block; /* Ensure the wrapper is visible */
 }
 
 .contact-map-iframe {
@@ -1119,6 +1093,7 @@ iframe.location-map {
     position: absolute;
     top: 0;
     left: 0;
+    display: block; /* Ensure the iframe is visible */
 }
 
 /* Verbeterde styling voor Over Ons pagina links en telefoonnummer */
