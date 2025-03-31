@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Eetcafe Kenitra in Den Haag - Welkom bij Eetcafé Kenitra. Geniet van verse burgers, pasta's, kapsalon, broodjes en meer. Dagspecials en combo deals beschikbaar.">
     <meta name="keywords" content="Eetcafe Kenitra, Den Haag restaurant, Marokkaanse keuken, burgers, pasta, kapsalon, broodjes, dagspecials, halal eten, afhalen, bezorgen">
-    <meta name="theme-color" content="#1a1a1a">
+    <meta name="theme-color" content="#000000">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -30,6 +30,8 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
     <title>Welkom bij Eetcafé Kenitra | Menu</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -653,12 +655,12 @@
                             <h3>Onion Rings</h3>
                             <span class="price">€3,50</span>
                         </div>
-                        <p class="description">6 Krokante Uienringen | Saus naar Keuze</p>
+                        <p class="description">8 Krokante Uienringen | Saus naar Keuze</p>
                         <div class="upgrade-options">
                             <p><strong>Extra opties:</p>
                             <ul>
-                                <li>12 Stuks +€2,50</li>
-                                <li>20 Stuks +€4,50</strong></li>
+                                <li>12 Stuks +€1,50</li>
+                                <li>16 Stuks +€2,50</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -671,7 +673,7 @@
                         <div class="upgrade-options">
                             <p><strong>Extra opties:</p>
                             <ul>
-                                <li>12 Stuks +€2,00</li>
+                                <li>12 Stuks +€2,50</li>
                                 <li>20 Stuks +€4,50</strong></li>
                             </ul>
                         </div>
@@ -681,12 +683,12 @@
                             <h3>Mini Loempia's</h3>
                             <span class="price">€3,50</span>
                         </div>
-                        <p class="description">10 Krokante Mini Loempia's | Saus naar Keuze</p>
+                        <p class="description">8 Krokante Mini Loempia's | Saus naar Keuze</p>
                         <div class="upgrade-options">
                             <p><strong>Extra opties:</p>
                             <ul>
-                                <li>15 Stuks +€1,50</li>
-                                <li>20 Stuks +€2,50</strong></li>
+                                <li>12 Stuks +€1,50</li>
+                                <li>20 Stuks +€4,50</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -960,6 +962,12 @@
     <script>
         // Update copyright year automatically
         document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log('Service Worker Registered'));
+        }
     </script>
 </body>
 </html>

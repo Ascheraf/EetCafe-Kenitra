@@ -1177,3 +1177,7 @@ iframe.location-map {
     background-color: var(--accent-color);
     color: var(--primary-color);
 }
+
+@media (min-width: 768px) {
+  /* Niet-kritieke stijlen */
+}
