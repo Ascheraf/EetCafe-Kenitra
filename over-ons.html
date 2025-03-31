@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Over Eetcafe Kenitra in Den Haag - Leer meer over onze authentieke Marokkaanse en Nederlandse keuken">
     <meta name="keywords" content="Eetcafe Kenitra, Den Haag restaurant, over ons, geschiedenis, Marokkaanse keuken">
     <meta name="theme-color" content="#1a1a1a">
@@ -22,6 +22,43 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
+    <style>
+        /* Verbeterde mobielvriendelijkheid */
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-container {
+            padding: 10px;
+        }
+
+        .main-nav a {
+            display: block;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .footer-section {
+            text-align: center;
+        }
+    </style>
     <div class="menu-container" itemscope itemtype="http://schema.org/Restaurant">
         <header class="menu-header">
             <h1 itemprop="name">Eetcafé Kenitra</h1>
@@ -122,4 +159,4 @@
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
-</html> 
+</html>

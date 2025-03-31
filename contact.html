@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Neem contact op met Eetcafe Kenitra in Den Haag - Vind onze locatie, openingstijden en telefoonnummer">
     <meta name="keywords" content="Eetcafe Kenitra, Den Haag restaurant, contact, locatie, openingstijden, telefoonnummer">
     <meta name="theme-color" content="#1a1a1a">
@@ -11,6 +11,16 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Contact - Eetcafé Kenitra Den Haag">
+    <meta property="og:description" content="Neem contact op met Eetcafé Kenitra in Den Haag. Vind onze locatie, openingstijden en telefoonnummer.">
+    <meta property="og:url" content="https://eetcafekenitra.nl/contact">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://eetcafekenitra.nl/images/contact.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact - Eetcafé Kenitra Den Haag">
+    <meta name="twitter:description" content="Neem contact op met Eetcafé Kenitra in Den Haag. Vind onze locatie, openingstijden en telefoonnummer.">
+    <meta name="twitter:image" content="https://eetcafekenitra.nl/images/contact.jpg">
     
     <link rel="canonical" href="https://eetcafekenitra.nl/contact">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -22,6 +32,51 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
+    <style>
+        /* Verbeterde mobielvriendelijkheid */
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-container {
+            padding: 10px;
+        }
+
+        .main-nav a {
+            display: block;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-info-block, .map-container {
+            padding: 10px;
+        }
+
+        iframe.location-map {
+            width: 100%;
+            height: 200px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .footer-section {
+            text-align: center;
+        }
+    </style>
     <div class="menu-container" itemscope itemtype="http://schema.org/Restaurant">
         <header class="menu-header">
             <h1 itemprop="name">Eetcafé Kenitra</h1>
@@ -46,9 +101,9 @@
             <a href="afhalen.html">Afhalen</a>
         </nav>
 
-        <main class="content-page">
-            <section class="contact-section">
-                <h2>Contact</h2>
+        <main class="content-page" role="main">
+            <section class="contact-section" aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Contact</h2>
                 <div class="contact-content">
                     <div class="contact-info-block">
                         <h3>Adres</h3>
@@ -68,7 +123,7 @@
                         </ul>
                     </div>
                     
-                    <div class="map-container contact-map">
+                    <div class="map-container contact-map" aria-label="Locatie op Google Maps">
                         <h3>Onze Locatie</h3>
                         <div class="map-image-wrapper contact-map-wrapper">
                             <iframe 
@@ -77,7 +132,7 @@
                                 allowfullscreen="" 
                                 loading="lazy"
                                 title="Google Maps locatie van Eetcafe Kenitra"
-                                style="height: 250px; width: 100%;">
+                                style="height: 200px; width: 100%;">
                             </iframe>
                         </div>
                         <p class="directions">We zijn gemakkelijk bereikbaar met het openbaar vervoer.<br> Tram 6, 9, 11 en 12 stoppen op enkele minuten loopafstand.</p>

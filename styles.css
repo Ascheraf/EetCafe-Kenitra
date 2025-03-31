@@ -536,6 +536,16 @@ html {
     outline-offset: -2px;
 }
 
+a:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
 /* Fix dark mode contrast */
 [data-theme="dark"] .upgrade-options li {
     color: var(--text-color);
@@ -1157,23 +1167,18 @@ iframe.location-map {
     margin: 0 5px; /* Add spacing around the logo */
 }
 
-/* Scroll-to-top button styles */
-.scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none;
-    background-color: #1a1a1a;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1000;
+[role="table"] {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.scroll-to-top.visible {
-    display: block;
+[role="table"] th, [role="table"] td {
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    text-align: left;
+}
+
+[role="table"] th {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
 }
