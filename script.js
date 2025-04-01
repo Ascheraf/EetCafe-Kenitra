@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 menuItems.forEach(item => {
                     const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
                     const description = item.querySelector('.description')?.textContent.toLowerCase() || '';
-                    const isMatch = title.includes(searchTerm) || description.includes(searchTerm;
+                    const isMatch = title.includes(searchTerm) || description.includes(searchTerm);
                     
                     item.style.display = isMatch ? 'block' : 'none';
                     if (isMatch) {
@@ -79,11 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                // Smooth scroll to section
-                const section = document.getElementById(category);
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                }
+                // Removed the scrollIntoView behavior to prevent automatic scrolling when switching menu sections
+                // const section = document.getElementById(category);
+                // if (section) {
+                //     section.scrollIntoView({ behavior: 'smooth' });
+                // }
             });
         });
 

@@ -315,8 +315,7 @@ class MobileEnhancer {
     }
 
     smoothScrollTo(targetY) {
-        const container = document.querySelector('.menu-container');
-        container.scrollTo({
+        window.scrollTo({
             top: targetY,
             behavior: 'smooth'
         });

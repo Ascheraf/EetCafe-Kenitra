@@ -131,13 +131,22 @@ body {
 
 .menu-section {
     display: none;
-    animation: fadeIn 0.5s ease;
-    content-visibility: auto;
-    contain-intrinsic-size: 0 500px;
 }
 
 .menu-section.active {
     display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .menu-section h2 {
@@ -271,17 +280,6 @@ body {
     font-size: 1rem;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @media (max-width: 768px) {
     :root {
         --container-padding: 0.75rem;
@@ -391,151 +389,6 @@ body {
         padding: 0.75rem 1.25rem;
     }
 
-    .menu-nav {
-        justify-content: flex-start;
-        padding: 0.75rem;
-    }
-}
-
-/* Add smooth scrolling for better user experience */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Improve dark mode text contrast */
-[data-theme="dark"] .description {
-    color: #b0b0b0;  /* Lighter gray for better readability */
-}
-
-/* Performance Optimizations */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none !important;
-        transition: none !important;
-    }
-}
-
-/* Mobile Performance Optimizations */
-@media screen and (max-width: 768px) {
-    body {
-        overflow-y: auto !important;
-        height: auto !important;
-    }
-
-    .menu-container {
-        padding: 0.5rem;
-        contain: content;
-        height: auto;
-        overflow-y: visible;
-    }
-    
-    .menu-nav {
-        position: sticky;
-        top: 0;
-        background: var(--background-color);
-        z-index: 100;
-        padding: 0.5rem;
-        contain: layout;
-        overscroll-behavior-x: contain;
-        -webkit-overflow-scrolling: touch;
-        overflow-x: auto;
-        overflow-y: visible;
-    }
-
-    .menu-content {
-        height: auto;
-        overflow-y: visible;
-        padding-bottom: 60px; /* Add some padding at the bottom */
-    }
-
-    .menu-section {
-        height: auto;
-        overflow: visible;
-        contain: layout style paint;
-    }
-
-    .menu-items {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        contain: layout style;
-        height: auto;
-        overflow: visible;
-    }
-
-    .menu-item {
-        contain: content;
-        will-change: transform;
-        transform: translateZ(0);
-        backface-visibility: hidden;
-    }
-
-    /* Remove any fixed heights or overflow restrictions */
-    html, body, #main-content {
-        height: auto !important;
-        overflow: visible !important;
-    }
-
-    /* Optimize animations for mobile */
-    .menu-item:hover {
-        transform: none;
-    }
-
-    /* Reduce motion */
-    @media (prefers-reduced-motion: reduce) {
-        .menu-item {
-            transition: none !important;
-            transform: none !important;
-        }
-        
-        .menu-section {
-            animation: none !important;
-        }
-    }
-
-    /* Reduce repaints */
-    .menu-section {
-        contain: layout style paint;
-    }
-
-    /* Optimize touch targets */
-    .category-btn {
-        min-height: 48px;
-        padding: 0.75rem 1rem;
-        touch-action: manipulation;
-    }
-}
-
-/* Loading Performance */
-@media screen {
-    .menu-section:not(.active) {
-        display: none;
-        content-visibility: hidden;
-    }
-
-    .menu-section.active {
-        content-visibility: visible;
-        contain-intrinsic-size: 1px 5000px;
-    }
-}
-
-/* Memory Management */
-@media screen and (max-width: 768px) {
-    img {
-        content-visibility: auto;
-        contain-intrinsic-size: 0 300px;
-    }
-    
-    .menu-section:not(.active) {
-        content-visibility: hidden;
-        contain: strict;
-        height: 0;
-        overflow: hidden;
-    }
-}
-
-/* Touch Optimization */
-@media (hover: none) {
     .menu-nav {
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
