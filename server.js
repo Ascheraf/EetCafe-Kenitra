@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -10,22 +12,45 @@ const xss = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
 const winston = require('winston');
 const webPush = require('web-push');
+const cors = require('cors');
+const { v4: uuidv4 } = require('uuid');
 
-const app = express();
-const server = http.createServer(app);
-const io = new Server(server);
+const app = express(); // Initialize the app directly here
+const appServer = http.createServer(app);
+const io = new Server(appServer);
+const PORT = 3000;
 
-// Configure Winston Logger
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+
+// Update Winston logger configuration to exclude the `query` property
 const logger = winston.createLogger({
     level: 'info',
     format: winston.format.combine(
         winston.format.timestamp(),
-        winston.format.json()
+        winston.format.json({
+            replacer: (key, value) => {
+                try {
+                    // Exclude the `query` property entirely
+                    if (key === 'query') {
+                        return undefined;
+                    }
+                    // Avoid modifying objects with getters or non-extensible objects
+                    if (value && typeof value === 'object' && !Object.isExtensible(value)) {
+                        return { ...value }; // Create a shallow copy to avoid issues
+                    }
+                    return value;
+                } catch (error) {
+                    return undefined; // Fallback in case of unexpected issues
+                }
+            },
+        })
     ),
     transports: [
         new winston.transports.File({ filename: 'error.log', level: 'error' }),
-        new winston.transports.Console({ format: winston.format.simple() }),
-    ],
+        new winston.transports.Console({ format: winston.format.simple() })
+    ]
 });
 
 // Configure Stripe
@@ -37,8 +62,7 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY); // Use environment variabl
 // Connect to MongoDB
 const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/eetcafe';
 mongoose.connect(mongoUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // Removed useNewUrlParser and useUnifiedTopology as they are deprecated
 });
 mongoose.connection.on('connected', () => console.log('Verbonden met MongoDB'));
 mongoose.connection.on('error', err => console.error('MongoDB-verbinding mislukt:', err));
@@ -87,7 +111,16 @@ const feedbackSchema = new mongoose.Schema({
 
 const Feedback = mongoose.model('Feedback', feedbackSchema);
 
-app.use(bodyParser.json());
+// In-memory database (for simplicity)
+const menu = [
+    { id: '1', name: 'Kenitra Classic', price: 6.5 },
+    { id: '2', name: 'Homestyle Crispy Chicken', price: 6.5 },
+    { id: '3', name: 'Cheesy Deluxe', price: 7.5 },
+    { id: '4', name: 'Bacon Lover', price: 8.5 },
+    { id: '5', name: 'Bleu Royale', price: 8.5 },
+    { id: '6', name: 'Double Trouble', price: 10.5 },
+];
+const orders = [];
 
 // Apply security middlewares
 app.use(helmet()); // Set security headers
@@ -121,8 +154,8 @@ const validateItems = (items) => {
 
 // Configure VAPID keys
 const vapidKeys = {
-    publicKey: 'YOUR_PUBLIC_VAPID_KEY_HERE', // Replace with your VAPID public key
-    privateKey: 'YOUR_PRIVATE_VAPID_KEY_HERE', // Replace with your VAPID private key
+    publicKey: process.env.VAPID_PUBLIC_KEY,
+    privateKey: process.env.VAPID_PRIVATE_KEY,
 };
 webPush.setVapidDetails('mailto:admin@eetcafekenitra.nl', vapidKeys.publicKey, vapidKeys.privateKey);
 
@@ -132,11 +165,58 @@ const subscriptions = [];
 // Wrap API endpoints with error logging
 const wrapAsync = (fn) => (req, res, next) => {
     Promise.resolve(fn(req, res, next)).catch((error) => {
-        logger.error(`${error.message} - ${req.method} ${req.url} - ${req.ip}`);
+        logger.error({
+            message: error.message,
+            method: req.method,
+            url: req.url,
+            ip: req.ip,
+        });
         console.error(`[DEBUG] Error in ${req.method} ${req.url}:`, error);
         next(error);
     });
 };
+
+// Routes
+// Fetch menu items
+app.get('/api/menu', wrapAsync(async (req, res) => {
+    try {
+        console.log('[DEBUG] Fetching menu items');
+        res.status(200).json(menu);
+    } catch (error) {
+        logger.error({ message: error.message, method: req.method, url: req.url, ip: req.ip });
+        res.status(500).json({ message: 'Failed to fetch menu items.' });
+    }
+}));
+
+// Submit an order
+app.post('/api/order', wrapAsync(async (req, res) => {
+    try {
+        console.log('[DEBUG] Incoming order request:', req.body);
+        const { name, address, phone, items, total } = req.body;
+
+        if (!name || !address || !phone || !items || !total) {
+            return res.status(400).json({ message: 'Invalid order data' });
+        }
+
+        const newOrder = {
+            id: uuidv4(),
+            name,
+            address,
+            phone,
+            items,
+            total,
+            status: 'Pending',
+            createdAt: new Date(),
+        };
+
+        orders.push(newOrder);
+        console.log('[DEBUG] Order successfully created:', newOrder);
+        res.status(201).json({ message: 'Order placed successfully', orderId: newOrder.id });
+    } catch (error) {
+        logger.error({ message: error.message, method: req.method, url: req.url, ip: req.ip });
+        res.status(500).json({ message: 'Failed to place order.' });
+    }
+}));
 
 // API Endpoint: Nieuwe bestelling plaatsen
 app.post('/api/order', wrapAsync(async (req, res) => {
@@ -207,20 +287,26 @@ app.post('/api/order', wrapAsync(async (req, res) => {
 
 // API Endpoint: Validate Discount Code
 app.post('/api/validate-discount', wrapAsync(async (req, res) => {
-    const { code } = req.body;
+    try {
+        console.log('[DEBUG] Validating discount code:', req.body);
+        const { code } = req.body;
 
-    if (!code) {
-        return res.status(400).json({ message: 'Kortingscode is verplicht.' });
+        if (!code) {
+            return res.status(400).json({ message: 'Discount code is required.' });
+        }
+
+        const discount = await Discount.findOne({ code, isActive: true, expirationDate: { $gte: new Date() } });
+
+        if (!discount) {
+            return res.status(404).json({ message: 'Invalid or expired discount code.' });
+        }
+
+        console.log('[DEBUG] Valid discount code:', discount);
+        res.status(200).json({ discountPercentage: discount.discountPercentage });
+    } catch (error) {
+        logger.error({ message: error.message, method: req.method, url: req.url, ip: req.ip });
+        res.status(500).json({ message: 'Failed to validate discount code.' });
     }
-
-    const discount = await Discount.findOne({ code, isActive: true, expirationDate: { $gte: new Date() } });
-
-    if (!discount) {
-        return res.status(404).json({ message: 'Ongeldige of verlopen kortingscode.' });
-    }
-
-    console.log(`[DEBUG] Valid discount code:`, discount);
-    res.status(200).json({ discountPercentage: discount.discountPercentage });
 }));
 
 // API Endpoint: Betaling starten
@@ -409,11 +495,20 @@ const notifyOrderStatus = (orderId, status) => {
 
 // Middleware for logging errors
 app.use((err, req, res, next) => {
-    logger.error(`${err.message} - ${req.method} ${req.url} - ${req.ip}`);
+    logger.error({
+        message: err.message,
+        method: req.method,
+        url: req.url,
+        ip: req.ip,
+    });
     res.status(500).json({ message: 'Er is een fout opgetreden.' });
 });
 
-// Replace `app.listen` with `server.listen`
-server.listen(3000, () => {
-    console.log('Server draait op http://localhost:3000');
-});
+// Replace `app.listen` with conditional `appServer.listen`
+if (process.env.NODE_ENV !== 'test') {
+    appServer.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+    });
+} // Closing brace added here
+
+module.exports = { app, appServer }; // Export the app and server for testing

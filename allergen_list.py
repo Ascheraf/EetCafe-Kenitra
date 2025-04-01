@@ -5,6 +5,9 @@ GLUTEN_STOKBROOD = "Gluten (stokbrood)"
 MELK_GOUDSE_KAAS = "Melk (goudse kaas)"
 MELK_CHEDDAR = "Melk (cheddar)"
 MOSTERD_HUISGEMAAKTE_SAUS = "Mosterd (in huisgemaakte saus)"
+PEANUTS = "Pinda's"
+SESAME = "Sesamzaad"
+SHELLFISH = "Schaaldieren"
 
 allergen_list = {
     # Burgers
@@ -132,11 +135,6 @@ allergen_list = {
     ],
     "Milkshake": [
         "Soja (in Oreo variant)"
-    ],
-    "Smashed Taco's": [
-        "Melk (in saus)", 
-        "Ei (in saus)"
-    ]
 }
 
 # Additional Warnings

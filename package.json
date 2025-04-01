@@ -3,9 +3,35 @@
     "version": "1.0.0",
     "description": "Digital menu for Eetcafé Kenitra",
     "scripts": {
-        "generate-icons": "node generate-icons.js"
+        "generate-icons": "node generate-icons.js",
+        "test": "jest"
     },
     "dependencies": {
-        "canvas": "^2.11.0"
+        "body-parser": "^2.2.0",
+        "canvas": "^3.1.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^5.1.0",
+        "express-mongo-sanitize": "^2.2.0",
+        "express-rate-limit": "^7.5.0",
+        "helmet": "^8.1.0",
+        "mongoose": "^8.13.1",
+        "socket.io": "^4.8.1",
+        "stripe": "^17.7.0",
+        "uuid": "^11.1.0",
+        "web-push": "^3.6.7",
+        "winston": "^3.17.0",
+        "xss-clean": "^0.1.4"
+    },
+    "devDependencies": {
+        "jest": "^29.0.0",
+        "puppeteer": "^24.5.0",
+        "supertest": "^7.1.0"
+    },
+    "jest": {
+        "rootDir": "c:/Users/hicha/OneDrive/Bureaublad/Eetcafe-Kenitra",
+        "testMatch": [
+            "**/*.test.js"
+        ]
     }
-} 
+}
