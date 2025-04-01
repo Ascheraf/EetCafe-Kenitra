@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 menuItems.forEach(item => {
                     const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
                     const description = item.querySelector('.description')?.textContent.toLowerCase() || '';
-                    const isMatch = title.includes(searchTerm) || description.includes(searchTerm);
+                    const isMatch = title.includes(searchTerm) || description.includes(searchTerm;
                     
                     item.style.display = isMatch ? 'block' : 'none';
                     if (isMatch) {
@@ -246,7 +246,78 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Add functionality for the ordering process
+        document.querySelectorAll('.order-btn').forEach((button) => {
+            button.addEventListener('click', () => {
+                const item = button.dataset.item;
+                const price = button.dataset.price;
+                const orderSummary = document.getElementById('order-summary');
+                orderSummary.innerHTML = `<p><strong>Item:</strong> ${item}</p><p><strong>Prijs:</strong> €${price}</p>`;
+                document.getElementById('order-modal').classList.remove('hidden');
+            });
+        });
+
+        document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('order-modal').classList.add('hidden');
+        });
+
+        document.getElementById('order-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const orderData = Object.fromEntries(formData);
+            const items = [{ name: orderData.itemName, price: parseFloat(orderData.itemPrice) }];
+            const totalPrice = items.reduce((sum, item) => sum + item.price, 0);
+
+            try {
+                // Start betaling
+                const paymentResponse = await fetch('/api/payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ amount: totalPrice }),
+                });
+                const paymentData = await paymentResponse.json();
+
+                // Stripe-betaling uitvoeren
+                const stripe = Stripe('pk_test_51R8rYsQtcxXeIxZwMkRH9LZaUIMwtivrx2w7B5IKJxXqUUyRFJstG4CWOdrIpcz9GxVsBA6XEipGh7C0FCkNnjFo00BNvxzGGy'); // Publishable Key
+                const { error } = await stripe.confirmCardPayment(paymentData.clientSecret, {
+                    payment_method: {
+                        card: document.querySelector('#card-element'),
+                        billing_details: { name: orderData.name },
+                    },
+                });
+
+                if (error) {
+                    alert('Betaling mislukt: ' + error.message);
+                    return;
+                }
+
+                // Bestelling plaatsen
+                const orderResponse = await fetch('/api/order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        ...orderData,
+                        items,
+                        totalPrice,
+                        paymentIntentId: paymentData.clientSecret,
+                    }),
+                });
+
+                const orderResult = await orderResponse.json();
+                if (orderResponse.ok) {
+                    alert('Bestelling geplaatst! Order ID: ' + orderResult.orderId);
+                    document.getElementById('order-modal').classList.add('hidden');
+                } else {
+                    alert('Fout bij het plaatsen van bestelling: ' + orderResult.message);
+                }
+            } catch (error) {
+                console.error('Fout:', error);
+                alert('Er is een fout opgetreden.');
+            }
+        });
+
     } catch (error) {
         console.error('Error initializing menu:', error);
     }
-}); 
+});

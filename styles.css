@@ -1178,6 +1178,72 @@ iframe.location-map {
     color: var(--primary-color);
 }
 
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    z-index: 1000;
+    display: none;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal h2 {
+    margin-bottom: 1rem;
+}
+
+.modal label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+}
+
+.modal input,
+.modal textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+.modal button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: var(--accent-color);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.modal button:hover {
+    background: var(--primary-color);
+}
+
+.order-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--accent-color); /* Gebruik de accentkleur */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px; /* Optioneel: voeg een lichte afronding toe */
+    transition: background-color 0.3s ease;
+}
+
+.order-btn:hover {
+    background-color: var(--primary-color); /* Gebruik de primaire kleur bij hover */
+}
+
 @media (min-width: 768px) {
   /* Niet-kritieke stijlen */
 }
