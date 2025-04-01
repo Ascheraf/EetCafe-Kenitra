@@ -1329,12 +1329,6 @@ iframe.location-map {
     cursor: pointer;
 }
 
-.cart-item-remove {
-    color: red;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
 .order-btn {
     margin-top: 10px;
     padding: 10px;
