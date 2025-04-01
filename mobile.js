@@ -1,6 +1,7 @@
 // Mobile Features and Optimizations
 class MobileEnhancer {
     constructor() {
+        console.log('[MobileEnhancer] Initializing mobile enhancements...');
         // Add error boundary
         this.errorCount = 0;
         this.maxErrors = 3;  // Maximum number of errors before disabling features
@@ -19,27 +20,12 @@ class MobileEnhancer {
     }
 
     handleError(error) {
-        console.error('MobileEnhancer error:', error);
+        console.error('[MobileEnhancer] Error encountered:', error);
         this.errorCount++;
         
         if (this.errorCount >= this.maxErrors) {
-            console.warn('Too many errors, disabling mobile enhancements');
+            console.warn('[MobileEnhancer] Too many errors, disabling mobile enhancements.');
             this.destroy();
-        }
-    }
-
-    // Add performance monitoring
-    measurePerformance(functionName, callback) {
-        const start = performance.now();
-        try {
-            callback();
-        } catch (error) {
-            this.handleError(error);
-        } finally {
-            const duration = performance.now() - start;
-            if (duration > 100) {  // Log slow operations
-                console.warn(`Slow operation detected: ${functionName} took ${duration}ms`);
-            }
         }
     }
 
@@ -83,6 +69,7 @@ class MobileEnhancer {
     }
 
     init() {
+        console.log('[MobileEnhancer] Running initialization logic...');
         // Initialize based on screen size
         this.isMobile = window.innerWidth <= 768;
         if (this.isMobile) {
@@ -146,6 +133,7 @@ class MobileEnhancer {
     }
 
     setupScrollToTop() {
+        console.log('[MobileEnhancer] Setting up scroll-to-top button...');
         const button = document.createElement('button');
         button.className = 'scroll-top';
         button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" transform="rotate(-90 12 12)"/></svg>';
@@ -153,30 +141,18 @@ class MobileEnhancer {
         document.body.appendChild(button);
 
         const handleScrollVisibility = () => {
-            if (window.scrollY > window.innerHeight / 2) {
+            if (window.scrollY > 200) {
                 button.classList.add('visible');
             } else {
                 button.classList.remove('visible');
             }
         };
 
-        this.addScrollHandler(handleScrollVisibility);
+        window.addEventListener('scroll', handleScrollVisibility, { passive: true });
 
         button.addEventListener('click', () => {
+            console.log('[MobileEnhancer] Scroll-to-top button clicked.');
             this.smoothScrollTo(0);
-        });
-
-        this.addScrollHandler();
-    }
-
-    addScrollHandler() {
-        window.addEventListener('scroll', () => {
-            const scrollToTopButton = document.querySelector('.scroll-to-top');
-            if (window.scrollY > 200) {
-                scrollToTopButton.classList.add('visible');
-            } else {
-                scrollToTopButton.classList.remove('visible');
-            }
         });
     }
 
@@ -209,7 +185,7 @@ class MobileEnhancer {
                 }
             };
         } catch (error) {
-            console.error('Error setting up mobile menu:', error);
+            this.handleError(error);
         }
     }
 
@@ -247,6 +223,7 @@ class MobileEnhancer {
     }
 
     setupStickyHeader() {
+        console.log('[MobileEnhancer] Setting up sticky header...');
         const header = document.querySelector('.menu-header');
         const nav = document.querySelector('.menu-nav');
         let lastScroll = 0;
@@ -281,11 +258,13 @@ class MobileEnhancer {
     }
 
     setupLazyLoading() {
+        console.log('[MobileEnhancer] Setting up lazy loading...');
         const images = document.querySelectorAll('img[data-src]');
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
+                    console.log('[MobileEnhancer] Lazy loading image:', img.dataset.src);
                     this.loadImage(img);
                     observer.unobserve(img);
                 }
@@ -298,32 +277,36 @@ class MobileEnhancer {
     }
 
     setupGestures() {
+        console.log('[MobileEnhancer] Setting up gestures...');
         let touchStartX = 0;
         let touchEndX = 0;
         const minSwipeDistance = 50;
 
         document.addEventListener('touchstart', (e) => {
             touchStartX = e.touches[0].clientX;
+            console.log('[MobileEnhancer] Touch start:', touchStartX);
         }, { passive: true });
 
         document.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].clientX;
+            console.log('[MobileEnhancer] Touch end:', touchEndX);
             this.handleSwipe();
         }, { passive: true });
 
         this.handleSwipe = () => {
             const swipeDistance = touchEndX - touchStartX;
-            
+            console.log('[MobileEnhancer] Swipe distance:', swipeDistance);
+
             if (Math.abs(swipeDistance) > minSwipeDistance) {
                 const categories = Array.from(document.querySelectorAll('.category-btn'));
                 const activeIndex = categories.findIndex(btn => btn.classList.contains('active'));
-                
+
                 if (activeIndex !== -1) {
                     if (swipeDistance > 0 && activeIndex > 0) {
-                        // Swipe right - go to previous category
+                        console.log('[MobileEnhancer] Swipe right, activating previous category.');
                         categories[activeIndex - 1].click();
                     } else if (swipeDistance < 0 && activeIndex < categories.length - 1) {
-                        // Swipe left - go to next category
+                        console.log('[MobileEnhancer] Swipe left, activating next category.');
                         categories[activeIndex + 1].click();
                     }
                 }
@@ -392,9 +375,10 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileEnhancer = new MobileEnhancer();
 });
 
-// Cleanup when page is unloaded
-window.addEventListener('unload', () => {
-    if (mobileEnhancer) {
-        mobileEnhancer.destroy();
-    }
+// Replace 'unload' with 'beforeunload' to avoid deprecated warnings
+window.addEventListener('beforeunload', (event) => {
+    // Custom logic before the page unloads
+    console.log('Page is about to be unloaded.');
+    // Optionally, set a returnValue to show a confirmation dialog
+    event.returnValue = '';
 });

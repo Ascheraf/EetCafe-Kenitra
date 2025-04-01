@@ -53,94 +53,39 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        function initializeMenuNavigation() {
-            let activeButton = null;  // Track active button
-            const headerOffset = document.querySelector('.menu-nav')?.offsetHeight || 0;
+        // Menu section switching functionality
+        const buttons = document.querySelectorAll('.category-btn');
+        const sections = document.querySelectorAll('.menu-section');
 
-            // Ensure only one section is active initially
-            const ensureOnlyOneActiveSection = () => {
-                const activeSections = document.querySelectorAll('.menu-section.active');
-                if (activeSections.length > 1) {
-                    // Keep only the first active section
-                    for (let i = 1; i < activeSections.length; i++) {
-                        activeSections[i].classList.remove('active');
-                    }
-                }
-            };
-
-            // Call once on initialization
-            ensureOnlyOneActiveSection();
-
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    try {
-                        // Prevent default behavior to avoid any browser quirks
-                        event.preventDefault();
-                        
-                        if (activeButton === button) return;  // Prevent unnecessary updates
-
-                        // Remove active class from previous button and section
-                        if (activeButton) {
-                            activeButton.classList.remove('active');
-                            activeButton.setAttribute('aria-pressed', 'false');
-                            const prevSection = document.getElementById(activeButton.dataset.category);
-                            if (prevSection) prevSection.classList.remove('active');
-                        }
-
-                        // Update active button
-                        button.classList.add('active');
-                        button.setAttribute('aria-pressed', 'true');
-                        activeButton = button;
-
-                        // Hide all sections first
-                        menuSections.forEach(section => {
-                            section.classList.remove('active');
-                        });
-
-                        // Show target section
-                        const targetSection = document.getElementById(button.dataset.category);
-                        if (targetSection) {
-                            targetSection.classList.add('active');
-                            
-                            // Use requestAnimationFrame for smooth scrolling
-                            requestAnimationFrame(() => {
-                                const elementPosition = targetSection.getBoundingClientRect().top;
-                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                                window.scrollTo({
-                                    top: offsetPosition,
-                                    behavior: 'smooth'
-                                });
-                            });
-                        } else {
-                            console.error(`Target section #${button.dataset.category} not found`);
-                        }
-                    } catch (error) {
-                        console.error('Error in menu navigation:', error);
+        // Add click handlers to all category buttons
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+                
+                // Update active states for buttons
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                });
+                button.classList.add('active');
+                button.setAttribute('aria-pressed', 'true');
+                
+                // Update visible section
+                sections.forEach(section => {
+                    if (section.id === category) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
                     }
                 });
-            });
 
-            // Set initial active button based on URL hash or default to first button
-            const setInitialActiveButton = () => {
-                const hash = window.location.hash.substring(1);
-                let initialButton;
-                
-                if (hash) {
-                    initialButton = document.querySelector(`.category-btn[data-category="${hash}"]`);
+                // Smooth scroll to section
+                const section = document.getElementById(category);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
                 }
-                
-                if (!initialButton) {
-                    initialButton = categoryButtons[0];
-                }
-                
-                if (initialButton) {
-                    initialButton.click();
-                }
-            };
-            
-            setInitialActiveButton();
-        }
+            });
+        });
 
         // Improve mobile scrolling with better touch handling
         let touchStartX = 0;
@@ -189,8 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }, { passive: true });
         }
 
-        // Initialize menu navigation
-        initializeMenuNavigation();
         initializeMobileSwipe();
 
         // Add intersection observer for lazy loading with error handling

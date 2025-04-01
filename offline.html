@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 2rem;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        h1 {
+            color: #ff9f43;
+        }
+        p {
+            margin-top: 1rem;
+        }
+        a {
+            color: #4a7a8a;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <h1>U bent offline</h1>
+    </header>
+    <main role="main" aria-live="polite">
+        <p>Het lijkt erop dat u geen internetverbinding heeft. Controleer uw verbinding en probeer het opnieuw.</p>
+        <p><a href="/" aria-label="Ga terug naar de startpagina" role="button" tabindex="0" aria-current="page">Ga terug naar de startpagina</a></p>
+    </main>
+    <footer role="contentinfo">
+        <p class="sr-only">Eetcafé Kenitra - Offline pagina</p>
+    </footer>
+</body>
+
+</html>
