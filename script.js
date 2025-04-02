@@ -18,10 +18,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Touch swipe functionality
         let touchStartX = 0;
         let touchEndX = 0;
+        let touchStartTime = 0;
         let currentIndex = 0;
+        let lastSwipeTime = 0;
 
         menuNav.addEventListener('touchstart', (e) => {
             touchStartX = e.touches[0].clientX;
+            touchStartTime = Date.now();
         }, { passive: true });
 
         menuNav.addEventListener('touchmove', (e) => {
@@ -29,19 +32,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, { passive: true });
 
         menuNav.addEventListener('touchend', () => {
-            const swipeThreshold = 50; // minimum distance for a swipe
+            const swipeThreshold = 100; // increased from 50 to 100 pixels
+            const minSwipeSpeed = 0.5; // pixels per millisecond
+            const swipeDebounce = 300; // milliseconds between swipes
+            
+            const currentTime = Date.now();
+            const swipeTime = currentTime - touchStartTime;
             const swipeDistance = touchEndX - touchStartX;
+            const swipeSpeed = Math.abs(swipeDistance) / swipeTime;
 
-            if (Math.abs(swipeDistance) > swipeThreshold) {
+            if (currentTime - lastSwipeTime < swipeDebounce) {
+                return; // Prevent rapid consecutive swipes
+            }
+
+            if (Math.abs(swipeDistance) > swipeThreshold && swipeSpeed > minSwipeSpeed) {
                 // Find current active button index
                 currentIndex = Array.from(categoryButtons).findIndex(btn => btn.classList.contains('active'));
 
                 if (swipeDistance > 0 && currentIndex > 0) {
                     // Swipe right - go to previous category
                     categoryButtons[currentIndex - 1].click();
+                    lastSwipeTime = currentTime;
                 } else if (swipeDistance < 0 && currentIndex < categoryButtons.length - 1) {
                     // Swipe left - go to next category
                     categoryButtons[currentIndex + 1].click();
+                    lastSwipeTime = currentTime;
                 }
             }
         });
