@@ -51,6 +51,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         // Menu section switching functionality
+        // Initialize menu sections
+        menuSections.forEach(section => {
+            section.style.display = section.id === 'specials' ? 'block' : 'none';
+        });
+
         categoryButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const category = button.getAttribute('data-category');
@@ -63,12 +68,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 button.setAttribute('aria-pressed', 'true');
 
                 menuSections.forEach(section => {
-                    section.classList.toggle('active', section.id === category);
+                    section.style.display = section.id === category ? 'block' : 'none';
                 });
 
                 const section = document.getElementById(category);
                 if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
+                    // Removed scrollIntoView function
                 }
             });
         });
