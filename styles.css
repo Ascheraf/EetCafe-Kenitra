@@ -118,11 +118,6 @@ body {
     outline: none;
 }
 
-.category-btn:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-    border-bottom-color: var(--accent-color);
-}
 
 /* Ensure focus styles are visible for keyboard navigation */
 .menu-nav:focus-within {
@@ -149,12 +144,6 @@ body {
     font-weight: 600;
 }
 
-.menu-items {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    align-items: start;
-}
 
 .menu-item {
     background: var(--card-background);
@@ -448,11 +437,6 @@ html {
         padding-bottom: 60px; /* Add some padding at the bottom */
     }
 
-    .menu-section {
-        height: auto;
-        overflow: visible;
-        contain: layout style paint;
-    }
 
     .menu-items {
         display: grid;
@@ -572,10 +556,6 @@ a:focus-visible, button:focus-visible {
     outline-offset: 3px;
 }
 
-/* Ensure focus styles are visible for keyboard navigation */
-.main-nav:focus-within {
-    box-shadow: 0 0 4px var(--accent-color);
-}
 
 /* Fix dark mode contrast */
 [data-theme="dark"] .upgrade-options li {
@@ -1092,13 +1072,6 @@ a:focus-visible, button:focus-visible {
     height: 350px;
 }
 
-.location-map {
-    width: 100%;
-    height: 400px;
-    border: 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
 .location-map {
     width: 100%;
@@ -1416,4 +1389,29 @@ iframe.location-map {
 
 @media (min-width: 768px) {
   /* Niet-kritieke stijlen */
+}
+
+/* Vervang dit: */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+}
+
+
+/* Door dit: */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 20px;
+    width: 100%;
+    -webkit-overflow-scrolling: touch; /* voor smooth scroll op iOS */
+}
+
+.allergenen-table {
+    /* behoud alle bestaande table styles */
+    width: 95%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    /* etc. */
 }
