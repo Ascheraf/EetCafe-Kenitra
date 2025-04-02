@@ -13,12 +13,13 @@ const mongoSanitize = require('express-mongo-sanitize');
 const winston = require('winston');
 const webPush = require('web-push');
 const cors = require('cors');
+const compression = require('compression');
 const { v4: uuidv4 } = require('uuid');
 
-const app = express(); // Initialize the app directly here
+const app = express();
 const appServer = http.createServer(app);
 const io = new Server(appServer);
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -122,27 +123,41 @@ const menu = [
 ];
 const orders = [];
 
-// Apply security middlewares
-app.use(helmet()); // Set security headers
-app.use(xss()); // Prevent XSS attacks
-app.use(mongoSanitize()); // Prevent NoSQL injection attacks
+// Security middleware
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+            styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+            imgSrc: ["'self'", 'data:', 'https:'],
+            fontSrc: ["'self'", 'https://fonts.gstatic.com'],
+            connectSrc: ["'self'"],
+        },
+    },
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
+app.use(compression()); // Compress all responses
+app.use(xss());
+app.use(mongoSanitize());
 
 // Rate limiting
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // Limit each IP to 100 requests per windowMs
-    message: 'Te veel verzoeken vanaf dit IP-adres. Probeer het later opnieuw.',
+    max: 100 // limit each IP to 100 requests per windowMs
 });
-app.use(limiter);
+app.use('/api/', limiter);
 
-// Middleware for authentication (placeholder for real implementation)
-const authenticate = (req, res, next) => {
-    // Example: Check if user is authenticated
-    if (!req.headers.authorization) {
-        return res.status(401).json({ message: 'Unauthorized' });
+// Static files with caching
+app.use(express.static('public', {
+    maxAge: '1d',
+    setHeaders: (res, path) => {
+        if (path.endsWith('.html')) {
+            res.setHeader('Cache-Control', 'no-cache');
+        }
     }
-    next();
-};
+}));
 
 // Validate items array
 const validateItems = (items) => {
@@ -331,7 +346,7 @@ app.post('/api/payment', wrapAsync(async (req, res) => {
 }));
 
 // API Endpoint: Haal ordergeschiedenis op
-app.get('/api/orders', authenticate, wrapAsync(async (req, res) => {
+app.get('/api/orders', wrapAsync(async (req, res) => {
     console.log('[DEBUG] Fetching orders for userId:', req.query.userId);
     const { userId } = req.query; // Assume userId is passed in query params
     if (!userId) {
@@ -344,7 +359,7 @@ app.get('/api/orders', authenticate, wrapAsync(async (req, res) => {
 }));
 
 // API Endpoint: Annuleer bestelling
-app.post('/api/order/:id/cancel', authenticate, wrapAsync(async (req, res) => {
+app.post('/api/order/:id/cancel', wrapAsync(async (req, res) => {
     const { id } = req.params;
     const order = await Order.findById(id);
 
@@ -365,14 +380,14 @@ app.post('/api/order/:id/cancel', authenticate, wrapAsync(async (req, res) => {
 }));
 
 // API Endpoint: Admin dashboard - Bekijk alle bestellingen
-app.get('/api/admin/orders', authenticate, wrapAsync(async (req, res) => {
+app.get('/api/admin/orders', wrapAsync(async (req, res) => {
     const orders = await Order.find().sort({ createdAt: -1 });
     console.log(`[DEBUG] Retrieved all orders:`, orders);
     res.status(200).json(orders);
 }));
 
 // API Endpoint: Update Order Status
-app.post('/api/admin/order/:id/status', authenticate, wrapAsync(async (req, res) => {
+app.post('/api/admin/order/:id/status', wrapAsync(async (req, res) => {
     const { id } = req.params;
     const { status } = req.body;
 
@@ -419,7 +434,7 @@ app.post('/api/feedback', wrapAsync(async (req, res) => {
 }));
 
 // API Endpoint: Get Feedback (Admin Only)
-app.get('/api/admin/feedback', authenticate, wrapAsync(async (req, res) => {
+app.get('/api/admin/feedback', wrapAsync(async (req, res) => {
     const feedback = await Feedback.find().sort({ createdAt: -1 });
     console.log(`[DEBUG] Retrieved feedback:`, feedback);
     res.status(200).json(feedback);
@@ -463,7 +478,7 @@ const sendPushNotification = (title, body, url) => {
 };
 
 // Example usage: Notify users of order updates
-app.post('/api/notify-order-update', authenticate, wrapAsync((req, res) => {
+app.post('/api/notify-order-update', wrapAsync((req, res) => {
     const { orderId, status } = req.body;
 
     if (!orderId || !status) {
@@ -509,6 +524,6 @@ if (process.env.NODE_ENV !== 'test') {
     appServer.listen(PORT, () => {
         console.log(`Server is running on http://localhost:${PORT}`);
     });
-} // Closing brace added here
+} 
 
 module.exports = { app, appServer }; // Export the app and server for testing

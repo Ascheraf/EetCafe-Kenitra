@@ -16,23 +16,37 @@
     <meta property="og:title" content="Eetcafe Kenitra - Welkom bij Eetcafé Kenitra">
     <meta property="og:description" content="Geniet van verse burgers, pasta's, kapsalon, broodjes en meer bij Eetcafe Kenitra in Den Haag. Dagspecials en combo deals beschikbaar.">
     <meta property="og:url" content="https://eetcafekenitra.nl/">
-    <meta property="og:image" content="https://eetcafekenitra.nl/images/restaurant-preview.jpg" alt="Restaurant Preview">
+    <meta property="og:image" content="https://eetcafekenitra.nl/images/restaurant-preview.jpg">
     <meta property="og:locale" content="nl_NL">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Eetcafe Kenitra - Welkom bij Eetcafé Kenitra">
     <meta name="twitter:description" content="Geniet van verse burgers, pasta's, kapsalon, broodjes en meer bij Eetcafe Kenitra in Den Haag. Dagspecials en combo deals beschikbaar.">
-    <meta name="twitter:image" content="https://eetcafekenitra.nl/images/restaurant-preview.jpg" alt="Restaurant Preview">
+    <meta name="twitter:image" content="https://eetcafekenitra.nl/images/restaurant-preview.jpg">
     
     <link rel="canonical" href="https://eetcafekenitra.nl/">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
     <title>Welkom bij Eetcafé Kenitra | Menu</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Critical CSS inline -->
+    <style>
+        :root{--primary-color:#4a7a8a;--accent-color:#ff9f43;--background-color:#1a1a1a;--text-color:#e0e0e0;--border-color:#333;--card-background:#2d2d2d}
+        body{margin:0;padding:0;font-family:'Playfair Display',serif;background-color:var(--background-color);color:var(--text-color)}
+        .menu-container{max-width:1200px;margin:0 auto;padding:1rem}
+        .menu-header{text-align:center;margin-bottom:2rem}
+        .menu-nav{position:sticky;top:0;background:var(--background-color);z-index:100;display:flex;overflow-x:auto}
+        .category-btn{padding:.75rem 1rem;border:none;background:none;color:var(--text-color);cursor:pointer}
+        .category-btn.active{color:var(--accent-color);border-bottom:2px solid var(--accent-color)}
+    </style>
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtXK-F2qC0s.woff2" type="font/woff2" crossorigin>
 </head>
 <body>
     <style>body{font-size:16px;line-height:1.5;margin:0;padding:0}.menu-container{padding:10px}.menu-nav button{display:block;padding:10px;text-align:center;width:100%}.menu-content{padding:10px}.footer-container{display:flex;flex-direction:column;gap:20px;padding:10px}.footer-section{text-align:center}.site-footer{text-align:center}</style>
