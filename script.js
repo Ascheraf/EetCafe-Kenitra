@@ -8,11 +8,43 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Mobile menu navigation
         const categoryButtons = document.querySelectorAll('.category-btn');
         const menuSections = document.querySelectorAll('.menu-section');
+        const menuNav = document.querySelector('.menu-nav');
 
         if (!categoryButtons.length || !menuSections.length) {
             console.warn('Menu navigation elements not found');
             return;
         }
+
+        // Touch swipe functionality
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let currentIndex = 0;
+
+        menuNav.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        menuNav.addEventListener('touchmove', (e) => {
+            touchEndX = e.touches[0].clientX;
+        }, { passive: true });
+
+        menuNav.addEventListener('touchend', () => {
+            const swipeThreshold = 50; // minimum distance for a swipe
+            const swipeDistance = touchEndX - touchStartX;
+
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                // Find current active button index
+                currentIndex = Array.from(categoryButtons).findIndex(btn => btn.classList.contains('active'));
+
+                if (swipeDistance > 0 && currentIndex > 0) {
+                    // Swipe right - go to previous category
+                    categoryButtons[currentIndex - 1].click();
+                } else if (swipeDistance < 0 && currentIndex < categoryButtons.length - 1) {
+                    // Swipe left - go to next category
+                    categoryButtons[currentIndex + 1].click();
+                }
+            }
+        });
 
         // Handle category button clicks
         categoryButtons.forEach(button => {
