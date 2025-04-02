@@ -12,17 +12,54 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-touch-fullscreen" content="yes">
     
-    <link rel="canonical" href="https://eetcafekenitra.nl/over-ons">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-    <title>Over Ons - Eetcafé Kenitra Den Haag</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-</head>
-<body>
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" as="style">
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/playfairdisplay/v37/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2" type="font/woff2" crossorigin>
+    
+    <!-- Critical CSS -->
     <style>
+        /* Inline critical CSS */
+        :root {
+            --primary-color: #1a6340;
+            --accent-color: #ff9f43;
+            --background-color: #1a1a1a;
+            --text-color: #ffffff;
+            --border-color: #333;
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Playfair Display', serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .welcome-text {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            max-width: 800px;
+        }
+        
+        h1, h2, h3 {
+            color: var(--text-color);
+        }
+        
+        .high-contrast {
+            color: #ffffff;
+            background-color: var(--primary-color);
+        }
+        
+        .whatsapp-button {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
         /* Verbeterde mobielvriendelijkheid */
         body {
             font-size: 16px;
@@ -59,7 +96,108 @@
         .footer-section {
             text-align: center;
         }
+        
+        /* Verbeterde contrast ratio's */
+        .high-contrast {
+            color: #ffffff !important;
+            background-color: #1a6340 !important; /* Donkerder groen voor beter contrast */
+        }
+        
+        .whatsapp-button {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .whatsapp-button:hover,
+        .whatsapp-button:focus {
+            background-color: #134d31 !important; /* Nog donkerder voor hover/focus */
+        }
+        
+        /* Actieve navigatie link met verbeterd contrast */
+        .nav-link.active {
+            color: #ffffff !important;
+            background-color: #1a6340 !important;
+        }
+        
+        /* Verbeterde contrast ratio's */
+        .contact-link {
+            color: #ffffff;
+            background-color: #134d31;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 2px 0;
+        }
+
+        .whatsapp-button {
+            background-color: #134d31;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-button:hover,
+        .whatsapp-button:focus {
+            background-color: #0d3522;
+        }
+
+        .button-text {
+            font-size: 15px;
+            color: #ffffff;
+        }
+
+        .specialties-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 1rem 0;
+        }
+
+        .specialties-list li {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .opening-hours-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .opening-hours-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
     </style>
+    
+    <!-- Non-critical CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" 
+          media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap">
+    </noscript>
+    
+    <!-- Preconnect to required origins -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://upload.wikimedia.org" crossorigin>
+    
+    <link rel="canonical" href="https://eetcafekenitra.nl/over-ons">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>Over Ons - Eetcafé Kenitra Den Haag</title>
+</head>
+<body>
     <div class="menu-container" itemscope itemtype="http://schema.org/Restaurant">
         <header class="menu-header">
             <h1 itemprop="name">Eetcafé Kenitra</h1>
@@ -88,31 +226,33 @@
             <section class="about-section">
                 <h2>Over Eetcafé Kenitra</h2>
                 <div class="about-content">
-                    <p>Welkom bij Eetcafé Kenitra, een gezellige eetgelegenheid in het hart van Den Haag. Sinds onze opening hebben we ons gespecialiseerd in het serveren van heerlijke gerechten die een perfecte mix vormen van Marokkaanse en Nederlandse keuken.</p>
-                    
-                    <h3>Onze Passie</h3>
-                    <p>Bij Eetcafé Kenitra geloven we in het serveren van verse, kwalitatieve gerechten die met liefde worden bereid. Onze chef-koks combineren traditionele recepten met moderne smaken om een unieke culinaire ervaring te creëren. Van onze huisgemaakte burgers tot onze verse pasta's, elk gerecht wordt met zorg bereid met de beste ingrediënten.</p>
-                    
-                    <h3>Onze Specialiteiten</h3>
-                    <p>Onze menu biedt een gevarieerde selectie aan gerechten, waaronder:</p>
-                    <ul style="padding-left: 10px;"></ul>
-                        <li>Huisgemaakte burgers met verse ingrediënten</li>
-                        <li>Verse pasta's met diverse sauzen</li>
-                        <li>Traditionele kapsalon</li>
-                        <li>Heerlijke broodjes en sandwiches</li>
-                        <li>Verse desserts en milkshakes</li>
-                    </ul>
-                    <h3>Onze Service</h3>
-                    <p>Bij ons staat klanttevredenheid voorop. We bieden zowel afhaal- als bezorgservice aan, zodat u kunt genieten van onze gerechten waar u maar wilt. Ons vriendelijke team staat klaar om u te helpen met uw bestelling en eventuele vragen.</p>
-                    
-                    <h3>Bezorging</h3>
-                    <p>We bezorgen in de wijde omgeving van Den Haag. Bekijk onze <a href="bezorgen.html">bezorgpagina</a> voor meer informatie over bezorggebieden en kosten.</p>
-                    
-                    <h3>Afhalen</h3>
-                    <p>Liever zelf afhalen? Dat kan natuurlijk ook! Bekijk onze <a href="afhalen.html">afhaalpagina</a> voor meer informatie over openingstijden en het afhalen van uw bestelling.</p>
-                    
-                    <h3>Contact</h3>
-                    <p>Heeft u vragen of wilt u een bestelling plaatsen? Neem gerust contact met ons op via <a href="tel:+31612345678">06 12345678</a> of bezoek ons op<br> Hoefkade 782 in Den Haag.</p>
+                    <div class="welcome-text" itemprop="description">
+                        <h2>Welkom bij Eetcafé Kenitra</h2>
+                        <p>Een gezellige eetgelegenheid in het hart van Den Haag waar traditionele smaken samenkomen met moderne gerechten.</p>
+                    </div>
+
+                    <div class="about-sections">
+                        <section class="about-section">
+                            <h3>Onze Passie</h3>
+                            <p>Bij Eetcafé Kenitra geloven we in het serveren van verse, kwalitatieve gerechten die met liefde worden bereid. Onze chef-koks combineren traditionele recepten met moderne smaken om een unieke culinaire ervaring te creëren.</p>
+                            
+                            <section class="specialties">
+                                <h3>Onze Specialiteiten</h3>
+                                <ul class="specialties-list">
+                                    <li>Huisgemaakte burgers met verse ingrediënten</li>
+                                    <li>Verse pasta's met diverse sauzen</li>
+                                    <li>Traditionele kapsalon</li>
+                                    <li>Heerlijke broodjes en sandwiches</li>
+                                    <li>Verse desserts en milkshakes</li>
+                                </ul>
+                            </section>
+                        </section>
+
+                        <section class="about-section">
+                            <h3>Onze Service</h3>
+                            <p>Bij ons staat klanttevredenheid voorop. We bieden zowel afhaal- als bezorgservice aan, zodat u kunt genieten van onze gerechten waar u maar wilt.</p>
+                        </section>
+                    </div>
                 </div>
             </section>
         </main>
@@ -134,39 +274,41 @@
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h3>Eetcafé Kenitra</h3>
+                <h3>Contact</h3>
                 <address>
                     Hoefkade 782<br>
                     2526 CT Den Haag<br>
-                    Tel: <a href="tel:+31612345678">06 12345678</a>
+                    <a href="tel:+31612345678" class="contact-link">06 12345678</a>
                 </address>
             </div>
             <div class="footer-section">
                 <h3>Openingstijden</h3>
                 <ul class="opening-hours-list">
-                    <li>
-                        <span>Zo - Do</span><br>
-                        <span>12:00 - 23:00</span>
-                    </li>
-                    <li>
-                        <span>Vr - Za</span><br>
-                        <span>12:00 - 01:00</span>
-                    </li>
+                    <li><span>Zo - Do:</span> <span>12:00 - 23:00</span></li>
+                    <li><span>Vr - Za:</span> <span>12:00 - 01:00</span></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Informatie</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Menu</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="bezorgen.html">Bezorgen</a></li>
-                    <li><a href="afhalen.html">Afhalen</a></li>
-                    <li><a href="allergenen-voedingswaarden.html" target="_blank">Allergenen & Voedingswaarden</a></li>
-                </ul>
+                <h3>Bestel Direct</h3>
+                <div class="social-links">
+                    <a href="https://wa.me/31612345678?text=Hallo,%20ik%20wil%20iets%20bestellen!" 
+                       target="_blank" 
+                       rel="noopener"
+                       class="whatsapp-button"
+                       aria-label="Bestel direct via WhatsApp">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+                             alt="WhatsApp logo" 
+                             width="25" 
+                             height="25"
+                             loading="lazy"
+                             style="vertical-align:middle">
+                        <span class="button-text">Bestel Direct!</span>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; <span id="current-year">2025</span> Eetcafé Kenitra. Alle rechten voorbehouden.</p>
+            <p>&copy; <span id="current-year">2024</span> Eetcafé Kenitra. Alle rechten voorbehouden.</p>
         </div>
     </footer>
     

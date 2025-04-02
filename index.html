@@ -47,6 +47,25 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtXK-F2qC0s.woff2" type="font/woff2" crossorigin>
+    
+    <!-- Load Stripe only when needed -->
+    <script>
+        function loadStripe() {
+            if (!window.Stripe) {
+                const script = document.createElement('script');
+                script.src = 'https://js.stripe.com/v3/';
+                script.async = true;
+                document.body.appendChild(script);
+            }
+        }
+        // Load Stripe when user interacts with payment-related elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const paymentButtons = document.querySelectorAll('.payment-related-button');
+            paymentButtons.forEach(btn => {
+                btn.addEventListener('click', loadStripe);
+            });
+        });
+    </script>
 </head>
 <body>
     <style>body{font-size:16px;line-height:1.5;margin:0;padding:0}.menu-container{padding:10px}.menu-nav button{display:block;padding:10px;text-align:center;width:100%}.menu-content{padding:10px}.footer-container{display:flex;flex-direction:column;gap:20px;padding:10px}.footer-section{text-align:center}.site-footer{text-align:center}</style>
@@ -821,11 +840,8 @@
         <div class="footer-background"></div>
         <footer style="background: #1a1a1a; padding: 10px 20px; text-align: center;">
             <!-- WhatsApp Knop - Compactere versie -->
-            <a href="https://wa.me/31612345678?text=Hallo,%20ik%20wil%20iets%20bestellen!" 
-               target="_blank"
-               style="display: inline-block; background: #25D366; color: white; border-radius: 50px; padding: 10px 25px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); margin: 5px 0;">
-               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="25" style="vertical-align: middle;">
-               <span style="margin-left: 8px; font-size: 15px;">Bestel Direct!</span>
+            <a href="https://wa.me/31612345678" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">
+                <img src="/external-image/whatsapp" alt="WhatsApp" width="25" height="25" style="vertical-align:middle" loading="lazy">
             </a>
         </footer>
     </div>
@@ -871,9 +887,8 @@
         // Dynamically set the current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
-    <script src="script.js"></script>
-    <script src="mobile.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
+    <script src="script.js" defer></script>
+    <script src="mobile.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" defer></script>
 </body>
 </html>

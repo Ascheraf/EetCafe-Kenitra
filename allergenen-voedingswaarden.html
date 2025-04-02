@@ -1,371 +1,86 @@
 <!DOCTYPE html>
-<html lang="nl" data-theme="dark">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bekijk de Allergenen & Voedingswaarden van alle gerechten bij Eetcafé Kenitra. Gedetailleerde informatie over ingrediënten en voedingswaarden.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Allergenen & Voedingswaarden - Eetcafé Kenitra</title>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"></noscript>
+    
+    <!-- Critical CSS -->
+    <style>
+        :root {
+            --primary-color: #4a7a8a;
+            --accent-color: #ff9f43;
+            --background-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --border-color: #333;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Playfair Display', serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--text-color);
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+    
+    <!-- Non-critical CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></noscript>
+    
+    <!-- Preconnect to required origins -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <meta name="description" content="Bekijk de allergenen en voedingswaarden van onze gerechten bij Eetcafé Kenitra. Transparante informatie over calorieën, eiwitten, koolhydraten en vetten.">
     <meta name="keywords" content="allergenen, voedingswaarden, Eetcafé Kenitra, menu, ingrediënten, dieetbeperkingen">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Allergenen & Voedingswaarden - Eetcafé Kenitra">
-    <meta property="og:description" content="Bekijk de Allergenen & Voedingswaarden van alle gerechten bij Eetcafé Kenitra. Gedetailleerde informatie over ingrediënten en voedingswaarden.">
+    <meta property="og:description" content="Bekijk de allergenen en voedingswaarden van onze gerechten bij Eetcafé Kenitra. Transparante informatie over calorieën, eiwitten, koolhydraten en vetten.">
     <meta property="og:url" content="https://eetcafekenitra.nl/allergenen-voedingswaarden">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://eetcafekenitra.nl/images/allergenen.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Allergenen & Voedingswaarden - Eetcafé Kenitra">
-    <meta name="twitter:description" content="Bekijk de Allergenen & Voedingswaarden van alle gerechten bij Eetcafé Kenitra. Gedetailleerde informatie over ingrediënten en voedingswaarden.">
+    <meta name="twitter:description" content="Bekijk de allergenen en voedingswaarden van onze gerechten bij Eetcafé Kenitra. Transparante informatie over calorieën, eiwitten, koolhydraten en vetten.">
     <meta name="twitter:image" content="https://eetcafekenitra.nl/images/allergenen.jpg">
-    <title>Eetcafé Kenitra - Allergenen & Voedingswaarden</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-:root {
-    --primary-color: #ffffff;
-    --accent-color: #ff9f43;
-    --background-color: #1a1a1a;
-    --text-color: #e0e0e0;
-    --border-color: #333;
-    --card-background: #2d2d2d;
-    --card-shadow: rgba(0, 0, 0, 0.3);
-    --header-height: 60px;
-    --nav-height: 52px;
-    --container-padding: 1rem;
-    --hover-highlight: rgba(255, 159, 67, 0.2);
-}
-
-body {
-    font-family: 'Playfair Display', serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-weight: 400;
-}
-
-h1 {
-    color: var(--primary-color);
-    text-align: center;
-    padding: 50px 0;
-    border-bottom: 3px solid var(--accent-color);
-    margin-bottom: 40px;
-    font-weight: 700;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.table-container {
-    overflow-x: auto; /* Zorgt voor horizontaal scrollen op kleine schermen */
-    margin-bottom: 20px;
-    display: block;
-    width: 100%; /* Zorgt ervoor dat de container de volledige breedte gebruikt */
-}
-
-/* Algemene stijl voor de tabel */
-table {
-    width: 95%; /* Maak de tabel iets kleiner dan de container */
-    margin: 0 auto; /* Centreer de tabel */
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    background-color: var(--card-background);
-    box-shadow: 0 8px 16px var(--card-shadow);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-}
-
-/* Algemene stijl voor de cellen */
-th, td {
-    padding: 2px 4px; /* Nog minder padding voor dichte kolommen */
-    text-align: left;
-    border-bottom: 1px solid var(--border-color);
-    font-size: 0.9rem;
-    line-height: 1.4;
-    transition: all 0.3s ease;
-}
-
-td {
-    text-align: left; /* left-align numerical values */
-}
-
-th {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-td:first-child {
-    font-weight: 600;
-    color: var(--accent-color);
-}
-
-tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-tr:hover {
-    background-color: var(--hover-highlight);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transform: none; /* Remove scaling to avoid layout shifts */
-}
-
-.allergen-icon {
-    display: inline-block;
-    margin: 0 5px;
-    font-size: 1.2rem;
-    color: var(--accent-color);
-    cursor: help;
-    position: relative;
-}
-
-.allergen-icon:hover::after {
-    content: attr(data-allergen);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    white-space: nowrap;
-    z-index: 1000;
-    margin-bottom: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.allergen-icon:hover::before {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 5px solid transparent;
-    border-top-color: var(--primary-color);
-    margin-bottom: -5px;
-}
-
-.warning {
-    background-color: #fff3cd; /* Zachte gele achtergrond voor waarschuwingen */
-    color: #5a3d00; /* Darker text for better contrast */
-    border-left: 5px solid var(--accent-color); /* Accentkleur aan de linkerkant */
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.warning:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-}
-
-.warning h3 {
-    margin-bottom: 15px;
-    color: #856404; /* Zorg ervoor dat de koptekst dezelfde kleur heeft als de tekst */
-    border-bottom: 1px solid rgba(133, 100, 4, 0.2);
-    padding-bottom: 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.warning ul {
-    list-style-type: disc;
-    padding-left: 30px;
-    margin-top: 10px;
-}
-
-.warning li {
-    margin-bottom: 5px;
-}
-
-.site-footer {
-    background-color: var(--card-background);
-    color: var(--text-color);
-    padding: 2rem 0;
-    margin-top: 3rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--container-padding);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.footer-section h3 {
-    color: var(--accent-color);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
-}
-
-.footer-section address {
-    font-style: normal;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.footer-section a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section a:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
-}
-
-.opening-hours-list {
-    list-style: none;
-    padding: 0;
-}
-
-.opening-hours-list li {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 0.5rem;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.social-links a:hover {
-    background-color: var(--accent-color);
-    text-decoration: none;
-}
-
-.copyright {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-th:nth-child(3), th:nth-child(4), th:nth-child(5),
-td:nth-child(3), td:nth-child(4), td:nth-child(5) {
-    width: 8%; /* Verminder de breedte van deze kolommen */
-}
-
-th:nth-child(1), th:nth-child(2),
-td:nth-child(1), td:nth-child(2) {
-    width: 15%; /* Verminder de breedte van deze kolommen */
-}
-
-/* Specifieke stijl voor mobiele apparaten */
-@media screen and (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 2rem;
-        padding: 30px 0;
-    }
-
-    .table-container {
-        overflow-x: auto; /* Horizontaal scrollen voor kleinere schermen */
-    }
-
-    table {
-        width: 90%; /* Maak de tabel nog iets kleiner op tablets */
-        font-size: 0.85rem; /* Verklein de tekstgrootte */
-    }
-
-    th, td {
-        padding: 4px 8px; /* Verminder padding verder voor tablets */
-    }
-
-    .footer-container {
-        grid-template-columns: 1fr; /* Eén kolom op kleinere schermen */
-        gap: 20px;
-    }
-
-    .footer-section {
-        text-align: center; /* Centreer de tekst op mobiele apparaten */
-    }
-
-    .opening-hours-list li {
-        flex-direction: column; /* Zet de openingstijden onder elkaar */
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    table {
-        width: 85%; /* Maak de tabel nog kleiner op mobiele telefoons */
-        font-size: 0.8rem; /* Verklein de tekstgrootte verder */
-    }
-
-    th, td {
-        padding: 3px 6px; /* Minimale padding voor zeer kleine schermen */
-    }
-
-    th {
-        font-size: 0.75rem; /* Verklein de koptekstgrootte */
-    }
-
-    td:first-child {
-        font-size: 0.85rem; /* Zorg ervoor dat de eerste kolom leesbaar blijft */
-    }
-}
-    </style>
 </head>
 <body>
     <main class="content-page" role="main">
         <h1>Allergenen & Voedingswaarden</h1>
         
         <div class="table-container" role="table" aria-label="Allergenen & Voedingswaarden tabel">
-            <table>
+            <table aria-label="Allergenen en voedingswaarden overzicht">
                 <thead>
                     <tr>
-                        <th>Gerecht</th>
-                        <th>Kcal</th>
-                        <th>Eiwit (g)</th>
-                        <th>Koolh. (g)</th>
-                        <th>Vet (g)</th>
-                        <th>Allergenen</th>
+                        <th scope="col">Gerecht</th>
+                        <th scope="col">Kcal</th>
+                        <th scope="col">Eiwit (g)</th>
+                        <th scope="col">Koolh. (g)</th>
+                        <th scope="col">Vet (g)</th>
+                        <th scope="col">Allergenen</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1064,18 +779,36 @@ td:nth-child(1), td:nth-child(2) {
         </div>
     </main>
 
-                    <div class="footer">
-                        <div class="footer-background"></div>
-                        <footer style="background: #1a1a1a; padding: 10px 20px; text-align: center;">
-                            <!-- WhatsApp Knop - Compactere versie -->
-                            <a href="https://wa.me/31612345678?text=Hallo,%20ik%20wil%20iets%20bestellen!" 
-                               target="_blank"
-                               style="display: inline-block; background: #25D366; color: white; border-radius: 50px; padding: 10px 25px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); margin: 5px 0;">
-                               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="25" style="vertical-align: middle;">
-                               <span style="margin-left: 8px; font-size: 15px;">Bestel Direct!</span>
-                            </a>
-                        </footer>
-                    </div>
+    <div class="footer">
+        <div class="footer-background"></div>
+        <footer style="background: #1a1a1a; padding: 10px 20px; text-align: center;">
+            <!-- WhatsApp Knop - Compactere versie -->
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <address>
+                    Kenitra Straat 123<br>
+                    1234 AB Amsterdam<br>
+                    <a href="tel:+31612345678" class="high-contrast">06-12345678</a><br>
+                    <a href="mailto:info@eetcafekenitra.nl" class="high-contrast">info@eetcafekenitra.nl</a>
+                </address>
+                <div class="social-links">
+                    <a href="https://wa.me/31612345678?text=Hallo,%20ik%20wil%20iets%20bestellen!" 
+                       target="_blank" 
+                       rel="noopener"
+                       class="whatsapp-button high-contrast"
+                       aria-label="Bestel direct via WhatsApp">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+                             alt="WhatsApp logo" 
+                             width="25" 
+                             height="25"
+                             loading="lazy"
+                             style="vertical-align:middle">
+                        <span style="margin-left:8px;font-size:15px">Bestel Direct!</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <footer class="site-footer">
         <div class="footer-container">
