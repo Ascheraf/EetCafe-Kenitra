@@ -14,6 +14,39 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
+        // Handle category button clicks
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default action
+                
+                // Update active states
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                });
+                button.classList.add('active');
+                button.setAttribute('aria-pressed', 'true');
+
+                // Show/hide sections
+                const targetCategory = button.dataset.category;
+                menuSections.forEach(section => {
+                    if (section.id === targetCategory) {
+                        section.classList.add('active');
+                        section.style.display = 'block';
+                    } else {
+                        section.classList.remove('active');
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Show initial category
+        const initialCategory = categoryButtons[0];
+        if (initialCategory) {
+            initialCategory.click();
+        }
+
         // Restore search functionality
         const searchInput = document.getElementById('menu-search');
         const menuItemsElements = document.querySelectorAll('.menu-item');
@@ -49,29 +82,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }, 150);
             });
         }
-
-        // Menu section switching functionality
-        categoryButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const category = button.getAttribute('data-category');
-
-                categoryButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    btn.setAttribute('aria-pressed', 'false');
-                });
-                button.classList.add('active');
-                button.setAttribute('aria-pressed', 'true');
-
-                menuSections.forEach(section => {
-                    section.classList.toggle('active', section.id === category);
-                });
-
-                const section = document.getElementById(category);
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
 
         // Add cart functionality
         const cart = [];

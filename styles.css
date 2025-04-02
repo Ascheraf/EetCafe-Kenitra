@@ -131,9 +131,7 @@ body {
 
 .menu-section {
     display: none;
-    animation: fadeIn 0.5s ease;
-    content-visibility: auto;
-    contain-intrinsic-size: 0 500px;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
 .menu-section.active {
@@ -276,11 +274,9 @@ body {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
