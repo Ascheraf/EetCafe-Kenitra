@@ -29,7 +29,7 @@
 }
 
 body {
-    font-family: 'Playfair Display', 'Georgia', serif, sans-serif;
+    font-family: 'Playfair Display', serif;
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -118,12 +118,6 @@ body {
     outline: none;
 }
 
-
-/* Ensure focus styles are visible for keyboard navigation */
-.menu-nav:focus-within {
-    box-shadow: 0 0 6px var(--accent-color);
-}
-
 .menu-section {
     display: none;
     animation: fadeIn 0.5s ease;
@@ -144,6 +138,12 @@ body {
     font-weight: 600;
 }
 
+.menu-items {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: start;
+}
 
 .menu-item {
     background: var(--card-background);
@@ -294,17 +294,12 @@ body {
         background: var(--background-color);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        overscroll-behavior-x: contain;
-        -webkit-overflow-scrolling: touch;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
     }
     
     .category-btn {
         padding: 0.75rem;
         font-size: 0.9rem;
         min-height: 48px;
-        scroll-snap-align: start;
     }
 
     .menu-items {
@@ -342,39 +337,6 @@ body {
     }
 }
 
-/* Scroll-to-Top Button */
-.scroll-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--accent-color);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 6px var(--card-shadow);
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1000;
-}
-
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.scroll-top svg {
-    width: 24px;
-    height: 24px;
-    fill: #fff;
-}
-
 @media (hover: none) {
     .category-btn {
         padding: 0.75rem 1.25rem;
@@ -384,6 +346,34 @@ body {
         justify-content: flex-start;
         padding: 0.75rem;
     }
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: var(--container-padding);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--card-background);
+    box-shadow: 0 2px 4px var(--card-shadow);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    z-index: 1000;
+    touch-action: manipulation;
+    color: var(--text-color);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+[data-theme="dark"] .theme-toggle {
+    background: var(--primary-color);
 }
 
 /* Add smooth scrolling for better user experience */
@@ -437,6 +427,11 @@ html {
         padding-bottom: 60px; /* Add some padding at the bottom */
     }
 
+    .menu-section {
+        height: auto;
+        overflow: visible;
+        contain: layout style paint;
+    }
 
     .menu-items {
         display: grid;
@@ -541,22 +536,6 @@ html {
     outline-offset: -2px;
 }
 
-a:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-}
-
-button:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-}
-
-a:focus-visible, button:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 3px;
-}
-
-
 /* Fix dark mode contrast */
 [data-theme="dark"] .upgrade-options li {
     color: var(--text-color);
@@ -574,27 +553,18 @@ a:focus-visible, button:focus-visible {
 .site-footer {
     background-color: var(--card-background);
     color: var(--text-color);
-    padding: 2rem 1rem;
+    padding: 2rem 0;
     margin-top: 3rem;
     border-top: 1px solid var(--border-color);
-    text-align: center; /* Center-align footer text */
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    padding: 0 var(--container-padding);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    flex-direction: column; /* Stack footer sections vertically */
-    align-items: center; /* Center-align content */
-}
-
-.footer-section {
-    flex: 1 1 250px;
-    min-width: 200px;
-    text-align: center; /* Center-align individual footer sections */
 }
 
 .footer-section h3 {
@@ -604,17 +574,14 @@ a:focus-visible, button:focus-visible {
     font-weight: 500;
 }
 
-.footer-section address,
-.footer-section ul {
+.footer-section address {
     font-style: normal;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    margin-bottom: 1rem;
 }
 
 .footer-section a {
-    color: var(--text-color);
+    color: #ffffff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -624,10 +591,20 @@ a:focus-visible, button:focus-visible {
     text-decoration: underline;
 }
 
+.opening-hours-list {
+    list-style: none;
+    padding: 0;
+}
+
 .opening-hours-list li {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
 }
 
 .footer-links li {
@@ -636,13 +613,12 @@ a:focus-visible, button:focus-visible {
 
 .social-links {
     display: flex;
-    justify-content: center;
     gap: 1rem;
 }
 
 .social-links a {
     display: inline-block;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     background-color: var(--primary-color);
     color: var(--text-color);
     border-radius: 4px;
@@ -651,25 +627,16 @@ a:focus-visible, button:focus-visible {
 
 .social-links a:hover {
     background-color: var(--accent-color);
+    text-decoration: none;
 }
 
 .copyright {
+    text-align: center;
     margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
     font-size: 0.9rem;
     opacity: 0.8;
-}
-
-/* Responsive footer adjustments */
-@media screen and (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .footer-section {
-        flex: 1 1 100%;
-    }
 }
 
 /* Restaurant Info Styles */
@@ -1025,16 +992,6 @@ a:focus-visible, button:focus-visible {
     color: #fff;
 }
 
-.main-nav a:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-}
-
-/* Ensure focus styles are visible for keyboard navigation */
-.main-nav:focus-within {
-    box-shadow: 0 0 4px var(--accent-color);
-}
-
 @media (max-width: 768px) {
     .main-nav {
         overflow-x: auto;
@@ -1072,7 +1029,6 @@ a:focus-visible, button:focus-visible {
     height: 350px;
 }
 
-
 .location-map {
     width: 100%;
     height: 100%;
@@ -1096,49 +1052,23 @@ iframe.location-map {
 @media (max-width: 768px) {
     .map-image-wrapper,
     .map-container {
-        height: 50px;
-    }
-
-    .map-container,
-    .contact-map {
-        height: 300px; /* Increase height for better visibility */
-    }
-
-    .map-image-wrapper,
-    .contact-map-wrapper {
-        height: 500px; /* Match the container height */
-    }
-
-    iframe.location-map {
-        height: 100%; /* Ensure iframe fills the container */
+        height: 250px;
     }
 }
 
 /* Specifieke styling voor de kaart op de contactpagina */
 .contact-section .map-container,
 .contact-map {
-    height: 100%;
-    max-height: 500px; /* Ensure the map doesn't exceed a reasonable height */
-    position: relative;
-    display: block; /* Ensure the container is visible */
+    height: 250px;
 }
 
 .contact-section .map-image-wrapper,
 .contact-map-wrapper {
-    height: 100%;
-    max-height: 250px;
-    position: relative;
-    display: block; /* Ensure the wrapper is visible */
+    height: 200px;
 }
 
 .contact-map-iframe {
     height: 100%;
-    width: 100%;
-    border: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block; /* Ensure the iframe is visible */
 }
 
 /* Verbeterde styling voor Over Ons pagina links en telefoonnummer */
@@ -1202,216 +1132,4 @@ iframe.location-map {
     height: auto; /* Maintain aspect ratio */
     vertical-align: middle; /* Align with text */
     margin: 0 5px; /* Add spacing around the logo */
-}
-
-[role="table"] {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-[role="table"] th, [role="table"] td {
-    border: 1px solid var(--border-color);
-    padding: 8px;
-    text-align: left;
-}
-
-[role="table"] th {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-}
-
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--card-background);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px var(--card-shadow);
-    z-index: 1000;
-    display: none;
-}
-
-.modal.hidden {
-    display: none;
-}
-
-.modal h2 {
-    margin-bottom: 1rem;
-}
-
-.modal label {
-    display: block;
-    margin: 0.5rem 0 0.2rem;
-}
-
-.modal input,
-.modal textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background: var(--background-color);
-    color: var(--text-color);
-}
-
-.modal button {
-    padding: 0.5rem 1rem;
-    border: none;
-    background: var(--accent-color);
-    color: #fff;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.3s ease;
-}
-
-.modal button:hover {
-    background: var(--primary-color);
-}
-
-.order-btn {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #28a745; /* Nieuwe kleur: groen */
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px; /* Optioneel: lichte afronding */
-    transition: background-color 0.3s ease;
-}
-
-.order-btn:hover {
-    background-color: #218838; /* Donkerder groen bij hover */
-}
-
-.admin-dashboard {
-    padding: 20px;
-    background-color: var(--card-background);
-    color: var(--text-color);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px var(--card-shadow);
-}
-
-.admin-dashboard h2 {
-    color: var(--accent-color);
-    margin-bottom: 20px;
-}
-
-.order-history {
-    padding: 20px;
-    background-color: var(--card-background);
-    color: var(--text-color);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px var(--card-shadow);
-}
-
-.order-history h2 {
-    color: var(--accent-color);
-    margin-bottom: 20px;
-}
-
-.order-item {
-    padding: 10px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.order-item:last-child {
-    border-bottom: none;
-}
-
-.order-item h3 {
-    color: var(--accent-color);
-    margin-bottom: 5px;
-}
-
-.order-item p {
-    margin: 0;
-    color: var(--text-color);
-    opacity: 0.8;
-}
-
-/* Order Tracking Section */
-.order-tracking {
-    padding: 20px;
-    background-color: var(--card-background);
-    color: var(--text-color);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px var(--card-shadow);
-    margin-top: 20px;
-}
-
-.order-tracking h2 {
-    color: var(--accent-color);
-    margin-bottom: 20px;
-}
-
-.order-tracking form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.order-tracking input {
-    padding: 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: var(--background-color);
-    color: var(--text-color);
-}
-
-.order-tracking button {
-    padding: 10px;
-    background-color: var(--accent-color);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.order-tracking button:hover {
-    background-color: var(--primary-color);
-}
-
-.order-tracking-result {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: var(--background-color);
-    border-radius: 4px;
-    box-shadow: 0 2px 4px var(--card-shadow);
-}
-
-.order-tracking-result.hidden {
-    display: none;
-}
-
-@media (min-width: 768px) {
-  /* Niet-kritieke stijlen */
-}
-
-/* Vervang dit: */
-.table-container {
-    overflow-x: auto;
-    margin-bottom: 20px;
-    display: block;
-    width: 100%;
-}
-
-
-/* Door dit: */
-.table-responsive {
-    overflow-x: auto;
-    margin-bottom: 20px;
-    width: 100%;
-    -webkit-overflow-scrolling: touch; /* voor smooth scroll op iOS */
-}
-
-.allergenen-table {
-    /* behoud alle bestaande table styles */
-    width: 95%;
-    margin: 0 auto;
-    border-collapse: collapse;
-    /* etc. */
 }
