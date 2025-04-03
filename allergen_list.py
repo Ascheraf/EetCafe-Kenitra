@@ -13,18 +13,18 @@ allergen_list = {
     # Burgers
     "Kenitra Classic": [
         MELK_CHEDDAR, 
+        MOSTERD_HUISGEMAAKTE_SAUS,
         MOSTERD_HUISGEMAAKTE_SAUS
-        "Mosterd (in huisgemaakte saus)"
     ],
     "Homestyle Crispy Chicken": [
         GLUTEN_BROOD, 
-        "Melk (cheddar)", 
+        MELK_CHEDDAR, 
         "Ei (in honing-mosterdsaus)", 
         "Mosterd"
     ],
     "Cheesy Deluxe": [
         GLUTEN_BROOD, 
-        "Melk (cheddar)", 
+        MELK_CHEDDAR, 
         "Ei (in saus)", 
         "Mosterd (in huisgemaakte saus)"
     ],
@@ -134,7 +134,8 @@ allergen_list = {
         "Ei"
     ],
     "Milkshake": [
-        "Soja (in Oreo variant)"
+                    "Soja (in Oreo variant)"
+                ]
 }
 
 # Additional Warnings

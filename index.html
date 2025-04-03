@@ -73,8 +73,8 @@
             <section class="menu-section active" id=specials aria-labelledby=specials-heading>
                 <h2 id=specials-heading>Dagspecials & Combo's</h2>
                 <div class=menu-items>
-                    <article class="menu-item special-item" itemprop="hasMenuItem" itemscope itemtype="http://schema.org/MenuItem" aria-labelledby="burger-dag-title"></article>
-                    <div class=item-header>
+                    <article class="menu-item special-item" itemprop="hasMenuItem" itemscope itemtype="http://schema.org/MenuItem" aria-labelledby="burger-dag-title">
+                        <div class=item-header>
                             <h3 itemprop=name id=burger-dag-title>Maandag: Burger Dag</h3>
                             <span class=price itemprop=price>€9,50</span>
                         </div>
@@ -86,7 +86,7 @@
                                 <li>Twister Fries +€1,00</li>
                             </ul>
                         </div>
-                    </div>
+                    </article>
                     <div class="menu-item special-item">
                         <div class=item-header>
                             <h3>Dinsdag: Milkshake Dag</h3>
@@ -850,47 +850,49 @@
             </a>
         </footer>
     </div>
-    <footer class=site-footer>
-        <div class=footer-container>
-            <div class=footer-section>
-                <h3>Eetcafé Kenitra</h3>
-                <address>
-                    Hoefkade 782<br>
-                    2526 CT Den Haag<br>
-                    Tel: <a href=tel:+31612345678>06 12345678</a>
-                </address>
-            </div>
-            <div class=footer-section>
-                <h3>Openingstijden</h3>
-                <ul class=opening-hours-list>
-                    <li>
-                        <span>Zo - Do</span>
-                        <span>10:00 - 23:00</span>
-                    </li>
-                    <li>
-                        <span>Vr - Za</span>
-                        <span>10:00 - 00:00</span>
-                    </li>
-                </ul>
-            </div>
-            <div class=footer-section>
-                <h3>Informatie</h3>
-                <ul class=footer-links>
-                    <li><a href=over-ons.html>Over Ons</a></li>
-                    <li><a href=contact.html>Contact</a></li>
-                    <li><a href=bezorgen.html>Bezorgen</a></li>
-                    <li><a href=afhalen.html>Afhalen</a></li>
-                    <li><a href=allergenen-voedingswaarden.html target=_blank>Allergenen & Voedingswaarden</a></li>
-                </ul>
-            </div>
+    <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Eetcafé Kenitra</h3>
+            <address>
+                Hoefkade 782<br>
+                2526 CT Den Haag<br>
+                Tel: <a href="tel:+31612345678">06 12345678</a>
+            </address>
         </div>
-        <div class=copyright>
-            <p>&copy; <span id=current-year></span> Eetcafé Kenitra. Alle rechten voorbehouden.</p>
+        <div class="footer-section">
+            <h3>Openingstijden</h3>
+            <ul class="opening-hours-list">
+                <li>
+                    <span>Zo - Do</span>
+                    <span>10:00 - 23:00</span>
+                </li>
+                <li>
+                    <span>Vr - Za</span>
+                    <span>10:00 - 00:00</span>
+                </li>
+            </ul>
         </div>
-    </footer>
+        <div class="footer-section">
+            <h3>Informatie</h3>
+            <ul class="footer-links">
+                <li><a href="over-ons.html">Over Ons</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="bezorgen.html">Bezorgen</a></li>
+                <li><a href="afhalen.html">Afhalen</a></li>
+                <li><a href="allergenen-voedingswaarden.html" target="_blank">Allergenen & Voedingswaarden</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; <span id="current-year"></span> Eetcafé Kenitra. Alle rechten voorbehouden.</p>
+    </div>
+</footer>
+<script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
     <script>document.getElementById("current-year").textContent=(new Date).getFullYear()</script>
     <script src=script.js></script>
     <script src=mobile.js></script>
-    <script src=https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js></script>
-    <script src=https://js.stripe.com/v3/ ></script>
-
+</body>
+</html>

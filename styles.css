@@ -427,11 +427,7 @@ html {
         padding-bottom: 60px; /* Add some padding at the bottom */
     }
 
-    .menu-section {
-        height: auto;
-        overflow: visible;
-        contain: layout style paint;
-    }
+    /* Removed duplicate .menu-section definition */
 
     .menu-items {
         display: grid;
@@ -544,99 +540,96 @@ html {
 }
 
 /* Remove duplicate code */
-.menu-items {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
 
 /* Footer Styles */
 .site-footer {
     background-color: var(--card-background);
-    color: var(--text-color);
-    padding: 2rem 0;
-    margin-top: 3rem;
+    padding: 40px 20px;
+    margin-top: 60px;
     border-top: 1px solid var(--border-color);
+    color: var(--text-color);
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--container-padding);
+    padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr); /* Drie kolommen op grotere schermen */
+    gap: 40px;
 }
 
 .footer-section h3 {
-    color: var(--accent-color);
+    color: var(--primary-color);
     font-size: 1.2rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
-.footer-section address {
+.footer-section address,
+.footer-section ul {
     font-style: normal;
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .footer-section a {
-    color: #ffffff;
+    color: var(--accent-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-    color: var(--accent-color);
+    color: #d35400;
     text-decoration: underline;
-}
-
-.opening-hours-list {
-    list-style: none;
-    padding: 0;
 }
 
 .opening-hours-list li {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
+    margin-bottom: 10px;
 }
 
 .footer-links li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 10px;
 }
 
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
+.footer-links a {
     color: var(--text-color);
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.social-links a:hover {
-    background-color: var(--accent-color);
-    text-decoration: none;
+.footer-links a:hover {
+    color: var(--accent-color);
 }
 
 .copyright {
     text-align: center;
-    margin-top: 2rem;
-    padding-top: 1rem;
+    margin-top: 40px;
+    padding-top: 20px;
     border-top: 1px solid var(--border-color);
     font-size: 0.9rem;
     opacity: 0.8;
+}
+
+/* Responsieve stijl voor mobiele apparaten */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Eén kolom op kleinere schermen */
+        gap: 20px;
+    }
+
+    .footer-section {
+        text-align: center; /* Centreer de tekst op mobiele apparaten */
+    }
+
+    .opening-hours-list li {
+        flex-direction: column; /* Zet de openingstijden onder elkaar */
+        text-align: center;
+    }
 }
 
 /* Restaurant Info Styles */
