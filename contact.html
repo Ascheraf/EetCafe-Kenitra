@@ -138,12 +138,12 @@
                         <p><a href="tel:+31687662199">06 87662199</a></p>
                         
                         <h3>Openingstijden</h3>
-                        <ul class="opening-hours-list">
-                            <li><span>Zondag - Donderdag:</span> <span>10:00 - 23:00</span></li>
-                            <li><span>Vrijdag - Zaterdag:</span> <span>10:00 - 00:00</span></li>
+                        <ul class="opening-hours-list" style="text-align: left; padding-left: 0; list-style-position: inside;">
+                            <li>Zondag - Donderdag: <span>10:00 - 23:00</span></li>
+                            <li>Vrijdag & Zaterdag: <span>10:00 - 00:00</span></li>
                         </ul> 
 
-                    <div class="pickup-location">
+                    <div class="pickup-location" style="text-align: left;"></div>
                         <h3>Onze Locatie</h3>
                         <div class="map-container">
                             <iframe 
@@ -175,6 +175,7 @@
         </footer>
     </div>
     
+    <!-- Updated footer section -->
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-section">
@@ -182,20 +183,19 @@
                 <address>
                     Hoefkade 782<br>
                     2526 CT Den Haag<br>
-                    Tel: <a href="tel:+31687662199">06 87662199</a>
+                    Tel: <a href="tel:+31612345678">06 12345678</a>
                 </address>
             </div>
             <div class="footer-section">
                 <h3>Openingstijden</h3>
                 <ul class="opening-hours-list">
                     <li>
-                        <span>Zo - Do</span>
-                        <br>
+                        <span>Zondag - Donderdag</span>
                         <span>10:00 - 23:00</span>
                     </li>
+                    <br>
                     <li>
-                        <span>Vr - Za</span>
-                        <br>
+                        <span>Vrijdag & Zaterdag</span>
                         <span>10:00 - 00:00</span>
                     </li>
                 </ul>
@@ -205,8 +205,8 @@
                 <ul class="footer-links">
                     <li><a href="index.html">Menu</a></li>
                     <li><a href="over-ons.html">Over Ons</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li><a href="bezorgen.html">Bezorgen</a></li>
-                    <li><a href="afhalen.html">Afhalen</a></li>
                     <li><a href="allergenen-voedingswaarden.html" target="_blank">Allergenen & Voedingswaarden</a></li>
                 </ul>
             </div>
@@ -215,7 +215,6 @@
             <p>&copy; <span id="current-year">2025</span> Eetcafé Kenitra. Alle rechten voorbehouden.</p>
         </div>
     </footer>
-    
     <script>
         // Update copyright year automatically
         document.getElementById('current-year').textContent = new Date().getFullYear();

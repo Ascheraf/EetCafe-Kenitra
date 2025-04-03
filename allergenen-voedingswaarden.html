@@ -762,38 +762,50 @@
                         </footer>
                     </div>
 
-    <footer class=site-footer>
-        <div class=footer-container>
-            <div class=footer-section>
-                <h3>Eetcafé Kenitra</h3>
-                <address>
-                    Hoefkade 782<br>
-                    2526 CT Den Haag<br>
-                    Tel: <a href=tel:+31612345678>06 12345678</a>
-                </address>
-            </div>
-            <div class=footer-section>
-                <h3>Openingstijden</h3>
-                <ul class=opening-hours-list>
-                    <li><span>Zo - Do:</span> <span>10:00 - 23:00</span></li>
-                    <li><span>Vr - Za:</span> <span>10:00 - 00:00</span></li>
-                </ul>
-            </div>
-            <div class=footer-section>
-                <h3>Informatie</h3>
-                <ul class=footer-links>
-                    <li><a href=index.html>Menu</a></li>
-                    <li><a href=over-ons.html>Over Ons</a></li>
-                    <li><a href=contact.html>Contact</a></li>
-                    <li><a href=bezorgen.html>Bezorgen</a></li>
-                    <li><a href=afhalen.html>Afhalen</a></li>
-                </ul>
-            </div>
+<!-- Updated footer section -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Eetcafé Kenitra</h3>
+            <address>
+                Hoefkade 782<br>
+                2526 CT Den Haag<br>
+                Tel: <a href="tel:+31612345678">06 12345678</a>
+            </address>
         </div>
-        <div class=copyright>
-            <p>&copy; <span id=current-year>2025</span> Eetcafé Kenitra. Alle rechten voorbehouden.</p>
+        <div class="footer-section">
+            <h3>Openingstijden</h3>
+            <ul class="opening-hours-list">
+                <li>
+                    <span>Zondag - Donderdag</span>
+                    <span>10:00 - 23:00</span>
+                </li>
+                <br>
+                <li>
+                    <span>Vrijdag & Zaterdag</span>
+                    <span>10:00 - 00:00</span>
+                </li>
+            </ul>
         </div>
-    </footer>
-    
-    <script>document.getElementById("current-year").textContent=(new Date).getFullYear()</script>
+        <div class="footer-section">
+            <h3>Informatie</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">Menu</a></li>
+                <li><a href="over-ons.html">Over Ons</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="bezorgen.html">Bezorgen</a></li>
+                <li><a href="allergenen-voedingswaarden.html" target="_blank">Allergenen & Voedingswaarden</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; <span id="current-year">2025</span> Eetcafé Kenitra. Alle rechten voorbehouden.</p>
+    </div>
+</footer>
+<script>
+    // Update copyright year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
 

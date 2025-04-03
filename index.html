@@ -864,11 +864,12 @@
             <h3>Openingstijden</h3>
             <ul class="opening-hours-list">
                 <li>
-                    <span>Zo - Do</span>
+                    <span>Zondag - Donderdag</span>
                     <span>10:00 - 23:00</span>
                 </li>
+                <br>
                 <li>
-                    <span>Vr - Za</span>
+                    <span>Vrijdag & Zaterdag</span>
                     <span>10:00 - 00:00</span>
                 </li>
             </ul>
@@ -876,18 +877,22 @@
         <div class="footer-section">
             <h3>Informatie</h3>
             <ul class="footer-links">
+                <li><a href="index.html">Menu</a></li>
                 <li><a href="over-ons.html">Over Ons</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="bezorgen.html">Bezorgen</a></li>
-                <li><a href="afhalen.html">Afhalen</a></li>
                 <li><a href="allergenen-voedingswaarden.html" target="_blank">Allergenen & Voedingswaarden</a></li>
             </ul>
         </div>
     </div>
     <div class="copyright">
-        <p>&copy; <span id="current-year"></span> Eetcafé Kenitra. Alle rechten voorbehouden.</p>
+        <p>&copy; <span id="current-year">2025</span> Eetcafé Kenitra. Alle rechten voorbehouden.</p>
     </div>
 </footer>
+<script>
+    // Update copyright year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
 <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
 </script>
