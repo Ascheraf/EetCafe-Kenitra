@@ -137,15 +137,37 @@ class MobileEnhancer {
         console.log('[MobileEnhancer] Setting up scroll-to-top button...');
         const button = document.createElement('button');
         button.className = 'scroll-top';
-        button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" transform="rotate(-90 12 12)"/></svg>';
+        button.innerHTML = '<svg viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" transform="rotate(-90 12 12)"/></svg>';
         button.setAttribute('aria-label', 'Scroll naar boven');
+        button.style.position = 'fixed';
+        button.style.bottom = '20px';
+        button.style.right = '20px';
+        button.style.width = '50px';
+        button.style.height = '50px';
+        button.style.borderRadius = '50%';
+        button.style.backgroundColor = '#4a7a8a';
+        button.style.color = 'white';
+        button.style.border = 'none';
+        button.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+        button.style.cursor = 'pointer';
+        button.style.display = 'none';
+        button.style.zIndex = '1000';
+        button.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
         document.body.appendChild(button);
 
         const handleScrollVisibility = () => {
             if (window.scrollY > 200) {
-                button.classList.add('visible');
+                button.style.display = 'block';
+                button.style.opacity = '1';
+                button.style.transform = 'scale(1)';
             } else {
-                button.classList.remove('visible');
+                button.style.opacity = '0';
+                button.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    if (window.scrollY <= 200) {
+                        button.style.display = 'none';
+                    }
+                }, 300);
             }
         };
 
@@ -153,7 +175,10 @@ class MobileEnhancer {
 
         button.addEventListener('click', () => {
             console.log('[MobileEnhancer] Scroll-to-top button clicked.');
-            this.smoothScrollTo(0);
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 
