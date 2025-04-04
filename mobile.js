@@ -158,8 +158,6 @@ class MobileEnhancer {
 
     setupMobileMenu() {
         const menuContainer = document.querySelector('.menu-container');
-        const categoryButtons = document.querySelectorAll('.category-btn');
-        let isScrolling = false;
         
         try {
             // Enable smooth scrolling only for non-iOS devices
@@ -376,8 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Replace 'unload' with 'beforeunload' to avoid deprecated warnings
 window.addEventListener('beforeunload', (event) => {
-    // Custom logic before the page unloads
     console.log('Page is about to be unloaded.');
-    // Optionally, set a returnValue to show a confirmation dialog
-    event.returnValue = '';
+    // Optionally, set a confirmation dialog using modern standards
+    event.preventDefault();
 });
