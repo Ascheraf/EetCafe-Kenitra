@@ -28,18 +28,35 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Basislettergrootte */
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px; /* Kleinere lettergrootte voor tablets */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 12px; /* Kleinere lettergrootte voor mobiele apparaten */
+    }
+}
+
 body {
     font-family: 'Playfair Display', serif;
     line-height: 1.6;
-    background-color: var(--background-color);
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
+    background-color: var(--background-color);
+    max-width: 100%; /* Zorgt ervoor dat de website niet breder is dan het scherm */
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
 }
 
 .menu-container {
@@ -48,7 +65,6 @@ body {
     padding: var(--container-padding);
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
 }
 
 .menu-header {
@@ -340,6 +356,51 @@ body {
     .menu-section:not(.active) {
         display: none;
     }
+
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        padding: 30px 0;
+    }
+
+    .table-container {
+        overflow-x: auto;
+        margin-bottom: 20px;
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        width: 100%; /* Zorgt ervoor dat de tabel zich aanpast aan de breedte */
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        background-color: var(--card-background);
+        box-shadow: 0 8px 16px var(--card-shadow);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+    }
+
+    td, th {
+        padding: 4px 8px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .opening-hours-list li {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 @media (hover: none) {
@@ -379,11 +440,6 @@ body {
 
 [data-theme="dark"] .theme-toggle {
     background: var(--primary-color);
-}
-
-/* Add smooth scrolling for better user experience */
-html {
-    scroll-behavior: smooth;
 }
 
 /* Improve dark mode text contrast */
@@ -562,11 +618,6 @@ html {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Drie kolommen op grotere schermen */
     gap: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px;
-    text-align: center;
 }
 
 .footer-section h3 {
@@ -792,7 +843,6 @@ html {
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px var(--card-shadow);
-    height: 350px;
 }
 
 .map-placeholder {
@@ -818,10 +868,6 @@ html {
     display: grid;
     grid-template-columns: 3fr 2fr;
     gap: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px;
 }
 
 .delivery-info, 
@@ -906,10 +952,6 @@ html {
     display: grid;
     grid-template-columns: 3fr 2fr;
     gap: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px;
 }
 
 .pickup-info,
@@ -995,9 +1037,6 @@ html {
     padding: 0.5rem 1rem;
     border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    display: block;
-    padding: 10px;
-    text-align: center;
 }
 
 .main-nav a:hover,
@@ -1057,9 +1096,7 @@ html {
 iframe.location-map {
     border: 0;
     width: 100%;
-    height: 400px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 100%;
 }
 
 .location-map:hover {
@@ -1149,4 +1186,23 @@ iframe.location-map {
     height: auto; /* Maintain aspect ratio */
     vertical-align: middle; /* Align with text */
     margin: 0 5px; /* Add spacing around the logo */
+}
+
+@media screen and (max-width: 480px) {
+    table {
+        width: 85%;
+        font-size: 0.8rem;
+    }
+
+    td, th {
+        padding: 3px 6px;
+    }
+
+    th {
+        font-size: 0.75rem;
+    }
+
+    td:first-child {
+        font-size: 0.85rem;
+    }
 }
