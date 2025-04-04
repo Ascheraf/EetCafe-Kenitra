@@ -7,7 +7,8 @@ class MobileEnhancer {
         this.maxErrors = 3;  // Maximum number of errors before disabling features
 
         // Initialize instance properties
-        this.addScrollHandler = this.addScrollHandler.bind(this);
+        this.scrollHandlers = new Set(); // Use a Set to store handlers
+        this.handleScroll = this.handleScroll.bind(this);
         this.sectionObserver = null;
         this.imageObserver = null;
         this.ticking = false;
@@ -47,7 +48,7 @@ class MobileEnhancer {
     handleScroll() {
         if (!this.ticking) {
             window.requestAnimationFrame(() => {
-                this.addScrollHandler.forEach(handler => handler());
+                this.scrollHandlers.forEach(handler => handler()); // Use the Set of handlers
                 this.ticking = false;
             });
             this.ticking = true;
@@ -55,15 +56,15 @@ class MobileEnhancer {
     }
 
     addScrollHandler(handler) {
-        this.addScrollHandler.add(handler);
-        if (this.addScrollHandler.size === 1) {
+        this.scrollHandlers.add(handler); // Add handler to the Set
+        if (this.scrollHandlers.size === 1) {
             window.addEventListener('scroll', this.handleScroll, { passive: true });
         }
     }
 
     removeScrollHandler(handler) {
-        this.addScrollHandler.delete(handler);
-        if (this.addScrollHandler.size === 0) {
+        this.scrollHandlers.delete(handler); // Remove handler from the Set
+        if (this.scrollHandlers.size === 0) {
             window.removeEventListener('scroll', this.handleScroll);
         }
     }
