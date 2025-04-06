@@ -237,6 +237,8 @@ body {
     min-height: 0;
 }
 
+/* Removed duplicate selector */
+
 .section-subtitle {
     font-family: 'Playfair Display', serif;
     color: var(--text-color);
@@ -315,6 +317,7 @@ body {
         background: var(--background-color);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
+        justify-content: space-between;
     }
     
     .category-btn {
@@ -412,6 +415,12 @@ body {
         justify-content: flex-start;
         padding: 0.75rem;
     }
+}
+
+/* Lazy loading optimizations */
+img {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 300px;
 }
 
 .theme-toggle {

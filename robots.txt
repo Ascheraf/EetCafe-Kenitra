@@ -18,4 +18,4 @@ Allow: /*.jpeg$
 Allow: /*.png$
 Allow: /*.gif$
 Allow: /*.svg$
-Allow: /*.webp$ 
+Allow: /*.webp$

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang=nl>
+<html lang="nl">
 <head>
     <meta charset=UTF-8>
     <meta name=viewport content="width=device-width,initial-scale=1">
@@ -11,6 +11,7 @@
     <meta name=apple-mobile-web-app-status-bar-style content=default>
     <meta name=format-detection content="telephone=no">
     <meta name=apple-touch-fullscreen content=yes>
+    <meta name="robots" content="index, follow">
     
     <meta property=og:type content=website>
     <meta property=og:title content="Eetcafé Kenitra - Welkom bij Eetcafé Kenitra">
@@ -21,7 +22,7 @@
     
     <meta name=twitter:card content=summary_large_image>
     <meta name=twitter:title content="Eetcafé Kenitra - Welkom bij Eetcafé Kenitra">
-    <meta name=twitter:description content="Geniet van ons ontbij, verse burgers, pasta's, kapsalon, broodjes en meer bij Eetcafé Kenitra in Den Haag. Dagspecials en combo deals beschikbaar.">
+    <meta name=twitter:description content="Geniet van ons ontbijt, verse burgers, pasta's, kapsalon, broodjes en meer bij Eetcafé Kenitra in Den Haag.">
     <meta name=twitter:image content=https://eetcafekenitra.nl/images/restaurant-preview.jpg>
     
     <link rel=canonical href=https://eetcafekenitra.nl/ >
@@ -71,17 +72,28 @@
             </div>
         </header>
 
-        <nav class="menu-nav" role="navigation" aria-label="Menu categorieën" style="overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch;"></nav>
-            <button class="category-btn active" data-category=specials aria-pressed=true aria-controls=specials aria-label="Bekijk Dagspecials">Dagspecials</button>
-            <button class=category-btn data-category=ontbijt aria-pressed=false aria-controls=ontbijt aria-label="Bekijk Burgers">Ontbijt</button>
-            <button class=category-btn data-category=burgers aria-pressed=false aria-controls=burgers aria-label="Bekijk Burgers">Burgers</button>
-            <button class=category-btn data-category=pasta aria-pressed=false aria-controls=pasta aria-label="Bekijk Pasta's">Pasta's</button>
-            <button class=category-btn data-category=broodjes aria-pressed=false aria-controls=broodjes aria-label="Bekijk Broodjes">Broodjes</button>
-            <button class=category-btn data-category=kapsalon aria-pressed=false aria-controls=kapsalon aria-label="Bekijk Kapsalon">Kapsalon</button>
-            <button class=category-btn data-category=sides aria-pressed=false aria-controls=sides aria-label="Bekijk Bijgerechten">Bijgerechten</button>
-            <button class=category-btn data-category=desserts aria-pressed=false aria-controls=desserts aria-label="Bekijk Desserts">Dessert</button>
-            <button class=category-btn data-category=drinks aria-pressed=false aria-controls=drinks aria-label="Bekijk Dranken">Dranken</button>
+        <nav class="menu-nav" role="navigation" aria-label="Menu categories" style="overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch;">
+            <button class="category-btn active" data-category=specials aria-pressed=true aria-controls=specials aria-label="Bekijk Dagspecials" onclick="switchCategory('specials')">Dagspecials</button>
+            <button class=category-btn data-category=ontbijt aria-pressed=false aria-controls=ontbijt aria-label="Bekijk Ontbijt" onclick="switchCategory('ontbijt')">Ontbijt</button>
+            <button class=category-btn data-category=burgers aria-pressed=false aria-controls=burgers aria-label="Bekijk Burgers" onclick="switchCategory('burgers')">Burgers</button>
+            <button class=category-btn data-category=pasta aria-pressed=false aria-controls=pasta aria-label="Bekijk Pasta's" onclick="switchCategory('pasta')">Pasta's</button>
+            <button class=category-btn data-category=broodjes aria-pressed=false aria-controls=broodjes aria-label="Bekijk Broodjes" onclick="switchCategory('broodjes')">Broodjes</button>
+            <button class=category-btn data-category=kapsalon aria-pressed=false aria-controls=kapsalon aria-label="Bekijk Kapsalon" onclick="switchCategory('kapsalon')">Kapsalon</button>
+            <button class=category-btn data-category=sides aria-pressed=false aria-controls=sides aria-label="Bekijk Bijgerechten" onclick="switchCategory('sides')">Bijgerechten</button>
+            <button class=category-btn data-category=desserts aria-pressed=false aria-controls=desserts aria-label="Bekijk Desserts" onclick="switchCategory('desserts')">Dessert</button>
+            <button class=category-btn data-category=drinks aria-pressed=false aria-controls=drinks aria-label="Bekijk Dranken" onclick="switchCategory('drinks')">Dranken</button>
         </nav>
+        <script>
+            function switchCategory(category) {
+            document.querySelectorAll('.menu-section').forEach(section => {
+                section.classList.toggle('active', section.id === category);
+            });
+            document.querySelectorAll('.category-btn').forEach(button => {
+                button.classList.toggle('active', button.getAttribute('data-category') === category);
+                button.setAttribute('aria-pressed', button.getAttribute('data-category') === category);
+            });
+            }
+        </script>
         <main class=menu-content id=main-content itemscope itemtype=http://schema.org/Menu>
             <section class="menu-section active" id=specials aria-labelledby=specials-heading>
                 <h2 id=specials-heading>Dagspecials & Combo's</h2>
@@ -91,7 +103,7 @@
                             <h3 itemprop=name id=burger-dag-title>Maandag: Burger Dag</h3>
                             <span class=price itemprop=price>€9,50</span>
                         </div>
-                        <p class=description itemprop=description>Kenitra Classic | Homestyle Crispy Chicken | Cheesy Deluxe | <br>Bacon Lover | Bleu Royale <br><br>Geserveerd met Franse Friet.</p>
+                        <p class=description itemprop=description>Kenitra Classic | Homestyle Crispy Chicken | Cheesy Deluxe | Bacon Lover | Bleu Royale <br><br>Geserveerd met Franse Friet.</p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
@@ -133,7 +145,7 @@
                             <h3>Donderdag: Taco's Dag</h3>
                             <span class=price>€10,00</span>
                         </div>
-                        <p class=description>2 Smashed Taco's | Sla | Ui | Huisgemaakte Saus | <br>Franse Friet | Saus naar Keuze<br><br> <strong>Alléén op Do Verkrijgbaar.</strong></p>
+                        <p class=description>2 Smashed Taco's | Sla | Ui | Huisgemaakte Saus | Franse Friet | Saus naar Keuze<br><br> <strong>Alléén op Do Verkrijgbaar.</strong></p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
@@ -150,8 +162,8 @@
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
-                                <li>Extra Kip | Extra Garnalen +€2,00</li>
-                                <li>Extra Kaas +€1,00</li>
+                                <li>Extra Kip +€1,50</li>
+                                <li>Extra Garnalen +€2,50</li>
                             </ul>
                         </div>
                     </div>
@@ -207,8 +219,8 @@
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
-                                <li>Extra Kip | Extra Garnalen +€2,00</li>
-                                <li>Extra Kaas +€1,00</li>
+                                <li>Extra Kip +€1,50</li>
+                                <li>Extra Garnalen +€2,50</li>
                             </ul>
                         </div>
                     </div>
@@ -224,7 +236,7 @@
                             <h3>Klassieke Ontbijt</h3>
                             <span class=price>€8,50</span>
                         </div>
-                        <p class=description>Een klassiek ontbijt met Jus d'Orange | Thee/Koffie | Tesnif | <br>2 Eieren | Kaas | Olijfolie </p>
+                        <p class=description>Een klassiek ontbijt met Jus d'Orange | <br>Thee/Koffie | Tesnif | 2 Eieren | Kaas | Olijfolie </p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
@@ -238,7 +250,7 @@
                             <h3>Luxe Marokkaans Ontbijt</h3>
                             <span class=price>€10,50</span>
                         </div>
-                        <p class=description>Een uitgebreid ontbijt met Jus d'Orange | Thee/Koffie | Tesnif | Msemen | Croissant | 2 Eieren | Kaas | Chaatar | Olijfolie | Honing</p>
+                        <p class=description>Een uitgebreid ontbijt met Jus d'Orange | Thee/Koffie | Tesnif | Msemen | Croissant | 2 Eieren | Kaas | Chaatar | Olijfolie | Honing | Jam</p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
@@ -279,7 +291,7 @@
                                 <meta itemprop=priceCurrency content=EUR>
                             </span>
                         </div>
-                        <p class=description itemprop=description>Chickenburger | Cheddar | Sla | Ui | Honing-Mosterdsaus</p>
+                        <p class=description itemprop=description>Chickenburger | Cheddar | Sla | Ui |<br> Honing-Mosterdsaus</p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
@@ -311,7 +323,7 @@
                             <h3>Bacon Lover</h3>
                             <span class=price>€8,50</span>
                         </div>
-                        <p class=description>100% Rundvlees | Krokante Bacon (Halal) | Cheddar | Sla | <br>Gebakken Ui | Augurk | BBQ Saus</p>
+                        <p class=description>100% Rundvlees | Krokante Bacon (Halal) | Cheddar | Sla | Gebakken Ui | Augurk | BBQ Saus</p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
@@ -341,7 +353,7 @@
                             <h3>Double Trouble</h3>
                             <span class=price>€10,50</span>
                         </div>
-                        <p class=description>Dubbel Rundvlees | Dubbel Kaas | Dubbel Bacon | Sla | Ui | <br>Augurk | Huisgemaakte Burgersaus</p>
+                        <p class=description>Dubbel Rundvlees | Dubbel Kaas | Dubbel Bacon | Sla | Ui | Augurk | Huisgemaakte Burgersaus</p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
@@ -361,13 +373,13 @@
                     <div class=menu-item>
                         <div class=item-header>
                             <h3>Pasta Bolognese</h3>
-                            <span class=price>€10,50</span>
+                            <span class=price>€9,50</span>
                         </div>
                         <p class=description>Huisgemaakte Bolognesesaus | Rundergehakt | Parmezaanse Kaas | Verse Basilicum</p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
-                                <li>Extra Gehakt +€2,00</li>
+                                <li>Extra Vlees +€2,00</li>
                                 <li>Extra Kaas +€1,00</li>
                             </ul>
                         </div>
@@ -375,7 +387,7 @@
                     <div class=menu-item>
                         <div class=item-header>
                             <h3>Pasta Carbonara</h3>
-                            <span class=price>€10,50</span>
+                            <span class=price>€9,50</span>
                         </div>
                         <p class=description>Romige Saus met Bacon (Halal) | Ei | Parmezaanse Kaas</p>
                         <div class=upgrade-options>
@@ -389,21 +401,21 @@
                     <div class=menu-item>
                         <div class=item-header>
                             <h3>Pasta Arrabbiata</h3>
-                            <span class=price>€10,50</span>
+                            <span class=price>€9,50</span>
                         </div>
                         <p class=description>Pasta met een kruidige Tomatensaus | Knoflook | Rode Peper | Paprika</p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
-                                <li>Extra Paprika +€1,00</li>
                                 <li>Extra Kaas +€1,00</li>
+                                <li>Extra Pesto +€1,00</li>
                             </ul>
                         </div>
                     </div>
                     <div class=menu-item>
                         <div class=item-header>
                             <h3>Pasta Chicken Pesto</h3>
-                            <span class=price>€10,50</span>
+                            <span class=price>€9,50</span>
                         </div>
                         <p class=description>Pasta Kip | Pesto | Cherrytomaten | Parmezaanse Kaas</p>
                         <div class=upgrade-options>
@@ -416,22 +428,8 @@
                     </div>
                     <div class=menu-item>
                         <div class=item-header>
-                            <h3>Pasta Chicken Cajun</h3>
-                            <span class=price>€10,50</span>
-                        </div>
-                        <p class=description>Kip met een pittige Cajun-kruidenmix | Knoflook | Rode Ui | <br>Paprika | Cayennepeper</p>
-                        <div class=upgrade-options>
-                            <p><strong>Extra opties:</strong></p>
-                            <ul>
-                                <li>Extra Kip +€2,00</li>
-                                <li>Extra Kaas +€1,00</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class=menu-item>
-                        <div class=item-header>
                             <h3>Pasta Scampi Curry</h3>
-                            <span class=price>€10,50</span>
+                            <span class=price>€9,50</span>
                         </div>
                         <p class=description>Garnalen in Romige Kerriesaus</p>
                         <div class=upgrade-options>
@@ -481,11 +479,11 @@
                             <h3>Köfte Sandwich</h3>
                             <span class=price>€4,50</span>
                         </div>
-                        <p class=description>Gebakken Köfte | Sla | Komkommer | Ui | Saus naar Keuze</p>
+                        <p class=description>Gebakken Köfte | Sla | Komkommer | Ui |<br> Saus naar Keuze</p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
-                                <li>Extra Köfte +€1,00</li>
+                                <li>Extra Köfte +€1,50</li>
                                 <li>Met Franse Friet +€3,50</li>
                             </ul>
                         </div>
@@ -495,7 +493,7 @@
                             <h3>Hot Chicken Sandwich</h3>
                             <span class=price>€4,50</span>
                         </div>
-                        <p class=description>Pittige Kipfilet | Sla  | Komkommer | Ui | Saus naar Keuze</p>
+                        <p class=description>Pittige Kipfilet | Sla  | Komkommer | Ui | <br> Saus naar Keuze</p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
@@ -575,7 +573,7 @@
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
-                                <li>Extra Kipfilet +€2,50</li>
+                                <li>Extra Vlees +€2,50</li>
                                 <li>Twister Fries +€1,00</li>
                             </ul>
                         </div>
@@ -589,7 +587,7 @@
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
-                                <li>Extra Shoarma +€2,50</li>
+                                <li>Extra Vlees +€2,50</li>
                                 <li>Twister Fries +€1,00</li>
                             </ul>
                         </div>
@@ -633,12 +631,12 @@
                             <h3>Onion Rings</h3>
                             <span class=price>€3,50</span>
                         </div>
-                        <p class=description>6 Krokante Uienringen | Saus naar Keuze</p>
+                        <p class=description>8 Krokante Uienringen | Saus naar Keuze</p>
                         <div class=upgrade-options>
                             <p><strong>Extra opties:</strong></p>
                             <ul>
-                                <li>9 Stuks +€1,50</li>
-                                <li>12 Stuks +€2,50</li>
+                                <li>12 Stuks +€1,50</li>
+                                <li>16 Stuks +€2,50</li>
                             </ul>
                         </div>
                     </div>
@@ -731,7 +729,7 @@
                             <h3>Sauzen</h3>
                             <span class=price>€0,50</span>
                         </div>
-                        <p class=description>Mayonaise | Ketchup | Curry | Andalouse | Samurai | <br>Katjang | Knoflook | Chili | Mosterd</p>
+                        <p class=description>Mayonaise | Ketchup | Curry | Andalouse | Samurai | Katjang | Knoflook | Chili | Mosterd</p>
                     </div>
                 </div>
             </section>
@@ -789,7 +787,7 @@
                             <h3>Frisdrank</h3>
                             <span class=price>€2,50</span>
                         </div>
-                        <p class=description>Cola | Fanta | Sprite | Ice Tea | Fernandes | Hawaii | Poms</p>
+                        <p class=description>Cola | Fanta | Sprite | Ice Tea | Fernandes |<br> Hawaii | Poms</p>
                     </div>
                     <div class=menu-item>
                         <div class=item-header>
