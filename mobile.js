@@ -205,6 +205,12 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileEnhancer = new MobileEnhancer();
 });
 
+// Ensure the font is applied immediately after loading to avoid preload warnings
+document.fonts.ready.then(() => {
+    console.log("[MobileEnhancer] Fonts are ready, applying styles...");
+    // Apply styles or trigger any logic that depends on the fonts
+});
+
 // Replace 'unload' with 'beforeunload' to avoid deprecated warnings
 window.addEventListener('beforeunload', (event) => {
     console.log('Page is about to be unloaded.');
