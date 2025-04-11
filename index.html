@@ -1,25 +1,1051 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang=nl>
 <head>
-  <title>Tijdelijk offline</title>
-  <style>
-    body {
-      background-color: #000;
-      color: #fff;
-      font-family: sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-    }
-  </style>
-</head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta name=description content="Eetcafé Kenitra in Den Haag - Welkom bij Eetcafé Kenitra. Geniet van ons ontbijt, verse burgers, pasta's, kapsalon, broodjes en meer. Dagspecials en combo deals beschikbaar.">
+    <meta name=keywords content="Eetcafé Kenitra, Den Haag restaurant, Marokaanse ontbijt, Marokkaanse keuken, burgers, pasta, kapsalon, broodjes, dagspecials, halal eten, afhalen, bezorgen">
+    <meta name=theme-color content=#000000>
+    <meta name=mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=default>
+    <meta name=format-detection content="telephone=no">
+    <meta name=apple-touch-fullscreen content=yes>
+    <meta name=robots content="index, follow">
+    
+    <meta property=og:type content=website>
+    <meta property=og:title content="Eetcafé Kenitra - Welkom bij Eetcafé Kenitra">
+    <meta property=og:description content="Geniet van ons ontbijt, verse burgers, pasta's, kapsalon, broodjes en meer bij Eetcafé Kenitra in Den Haag. Dagspecials en combo deals beschikbaar.">
+    <meta property=og:url content=https://eetcafekenitra.nl/ >
+    <meta property=og:image content=https://eetcafekenitra.nl/images/restaurant-preview.jpg>
+    <meta property=og:locale content=nl_NL>
+    
+    <meta name=twitter:card content=summary_large_image>
+    <meta name=twitter:title content="Eetcafé Kenitra - Welkom bij Eetcafé Kenitra">
+    <meta name=twitter:description content="Geniet van ons ontbijt, verse burgers, pasta's, kapsalon, broodjes en meer bij Eetcafé Kenitra in Den Haag.">
+    <meta name=twitter:image content=https://eetcafekenitra.nl/images/restaurant-preview.jpg>
+    
+    <link rel=canonical href=https://eetcafekenitra.nl/ >
+    <link rel=dns-prefetch href=https://fonts.googleapis.com>
+    <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel=stylesheet>
+    <link rel=manifest href=/manifest.json>
+    <link rel=apple-touch-icon href=/icons/icon-192x192.png>
+    <link rel=apple-touch-icon href=apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png">
+    <title>Welkom bij Eetcafé Kenitra | Menu</title>
+    
+    
+    <style>:root{--primary-color:#4a7a8a;--accent-color:#ff9f43;--background-color:#1a1a1a;--text-color:#e0e0e0;--border-color:#333;--card-background:#2d2d2d}body{margin:0;padding:0;font-family:'Playfair Display',serif;background-color:var(--background-color);color:var(--text-color)}.menu-container{max-width:1200px;margin:0 auto;padding:1rem}.menu-header{text-align:center;margin-bottom:2rem}.menu-nav{position:sticky;top:0;background:var(--background-color);z-index:100;display:flex;overflow-x:auto}.category-btn{padding:.75rem 1rem;border:none;background:0 0;color:var(--text-color);cursor:pointer}.category-btn.active{color:var(--accent-color);border-bottom:2px solid var(--accent-color)}</style>
+    <style>
+        /* Prevent horizontal scrolling */
+        body {
+            overflow-x: hidden;
+        }
+
+        .menu-nav {
+            scroll-snap-type: none; /* Disable horizontal swipe navigation */
+            overflow-x: auto; /* Allow smooth horizontal scrolling for better usability */
+            -webkit-overflow-scrolling: touch; /* Enable momentum scrolling on mobile */
+        }
+
+        .category-btn {
+            scroll-snap-align: none; /* Remove snap alignment */
+            padding: 0.75rem 1.5rem; /* Increase padding for better touch targets */
+            font-size: 1rem; /* Improve readability */
+        }
+
+        /* Accessibility: Ensure focus is visible */
+        .category-btn:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* Smooth scrolling for better navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Back-to-top button styling */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0; /* Hidden by default */
+            visibility: hidden; /* Prevent interaction when hidden */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .back-to-top.show {
+            opacity: 1; /* Show when scrolled down */
+            visibility: visible;
+        }
+
+        /* Improve button hover and focus states */
+        .back-to-top:hover,
+        .back-to-top:focus {
+            background: darken(var(--accent-color), 10%);
+    <link rel=stylesheet href=styles.css media=print onload='this.media="all"'>
+    <link rel=icon type=image/x-icon href=favicon.ico>
+    </style>
+    <link rel=stylesheet href=styles.css media=print onload='this.media="all"'>
+    <link rel=preload as=font href=https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtXK-F2qC0s.woff2 type=font/woff2 crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",//fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtXK-F2qC0s.woff2 type=font/woff2 crossorigin>
+        "@type": "Menu",ation/ld+json">
+        "name": "Eetcafé Kenitra Menu",
+        "url": "https://eetcafekenitra.nl/",
+        "hasMenuSection": [
+            {": "Eetcafé Kenitra Menu",
+                "@type": "MenuSection",nl/",
+                "name": "Dagspecials",
+                "hasMenuItem": [
+                    {e": "MenuSection",
+                        "@type": "MenuItem",
+                        "name": "Burger Dag",
+                        "description": "Kenitra Classic | Homestyle Crispy Chicken | Cheesy Deluxe | BBQ Bacon Crunch | Bleu Royale",
+                        "offers": {enuItem",
+                            "@type": "Offer",
+                            "price": "9.50",tra Classic | Homestyle Crispy Chicken | Cheesy Deluxe | BBQ Bacon Crunch | Bleu Royale",
+                            "priceCurrency": "EUR"
+                        }   "@type": "Offer",
+                    }       "price": "9.50",
+                ]           "priceCurrency": "EUR"
+            }           }
+        ]           }
+    }           ]
+    </script>
+</head> ]
 <body>
-  <div>
-    <h1>We zijn even offline</h1>
-    <p>We zijn snel terug.</p>
-  </div>
-</body>
+    <style>body{font-size:16px;line-height:1.5;margin:0;padding:0}.menu-container{padding:10px}.menu-nav button{display:block;padding:10px;text-align:center;width:100%}.menu-content{padding:10px}.footer-container{display:flex;flex-direction:column;gap:20px;padding:10px}.footer-section{text-align:center}.site-footer{text-align:center}</style>
+    <div class=menu-container itemscope itemtype=http://schema.org/Restaurant>
+        <header class="menu-header" style="text-align:center;margin-bottom:3rem">
+            <img src="/icons/icon-192x192.png" alt="Eetcafé Kenitra Logo" style="width:100px;height:auto;">isplay:block;padding:10px;text-align:center;width:100%}.menu-content{padding:10px}.footer-container{display:flex;flex-direction:column;gap:20px;padding:10px}.footer-section{text-align:center}.site-footer{text-align:center}</style>
+            <h1 itemprop=name style=font-size:3rem;font-weight:700;color:var(--accent-color)>Eetcafé Kenitra</h1>
+            <p class=restaurant-description itemprop=description>Welkom bij Eetcafé Kenitra</p>=text-align:center;margin-bottom:3rem>
+            <div class=restaurant-info>Eetcafé Kenitra</h1>
+                <address itemprop=address itemscope itemtype=http://schema.org/PostalAddress>bij Eetcafé Kenitra</p>
+                    <span itemprop=streetAddress>Hoefkade 782</span><br>
+                    <span itemprop=postalCode>2526 CT</span> <span itemprop=addressLocality>Den Haag</span><br>
+                    <span>Tel: <a href=tel:+31612345678 itemprop=telephone>06 12345678</a></span>itemprop=streetAddress>Hoefkade 782</span><br>
+                </address>Code>2526 CT</span> <span itemprop=addressLocality>Den Haag</span><br>
+                <div class=opening-hours>
+                    <p>Open: Zo-Do <strong>10:00-23:00</strong> | Vr-Za <strong>10:00-00:00</strong></p>ess>
+                </div> class=opening-hours>
+                <br>10:00-23:00</strong> | Vr-Za <strong>10:00-00:00</strong></p>
+                <div class=whatsapp-button>
+                    <a href="https://wa.me/31612345678?text=Hallo,%20ik%20wil%20iets%20bestellen!" target=_blank rel=noopener style="display:inline-block;background:#25d366;color:#fff;border-radius:50px;padding:10px 25px;box-shadow:0 3px 6px rgba(0,0,0,.1);margin:5px 0">
+                    <img src=https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg width=29 style=vertical-align:middle alt="WhatsApp logo" aria-hidden=true>                               <span style=margin-left:8px;font-size:15px>Bestel Direct via WhatsApp!</span>class=whatsapp-button>
+                 </a> href="https://wa.me/31612345678?text=Hallo,%20ik%20wil%20iets%20bestellen!" target=_blank rel=noopener style="display:inline-block;background:#25d366;color:#fff;border-radius:50px;padding:10px 25px;box-shadow:0 3px 6px rgba(0,0,0,.1);margin:5px 0">
+                </div>  <img src=https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg width=29 style=vertical-align:middle alt="WhatsApp logo" aria-hidden=true>                               <span style=margin-left:8px;font-size:15px>Bestel Direct via WhatsApp!</span>
+            </div></a>
+        </header>                </div>
+
+        <nav class=menu-nav role=navigation aria-label="Menu categories" style=overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch>
+            <button class="category-btn active" data-category=specials aria-pressed=true aria-controls=specials aria-label="Bekijk Dagspecials" onclick='switchCategory("specials", event)'>Dagspecials</button>
+            <button class=category-btn data-category=ontbijt aria-pressed=false aria-controls=ontbijt aria-label="Bekijk Ontbijt" onclick='switchCategory("ontbijt", event)'>Ontbijt</button>
+            <button class=category-btn data-category=burgers aria-pressed=false aria-controls=burgers aria-label="Bekijk Burgers" onclick='switchCategory("burgers", event)'>Burgers</button>nt)'>Dagspecials</button>
+            <button class=category-btn data-category=pasta aria-pressed=false aria-controls=pasta aria-label="Bekijk Pasta's" onclick='switchCategory("pasta", event)'>Pasta's</button>
+            <button class=category-btn data-category=broodjes aria-pressed=false aria-controls=broodjes aria-label="Bekijk Broodjes" onclick='switchCategory("broodjes", event)'>Broodjes</button>
+            <button class=category-btn data-category=kapsalon aria-pressed=false aria-controls=kapsalon aria-label="Bekijk Kapsalon" onclick='switchCategory("kapsalon", event)'>Kapsalon</button>
+            <button class=category-btn data-category=sides aria-pressed=false aria-controls=sides aria-label="Bekijk Bijgerechten" onclick='switchCategory("sides", event)'>Bijgerechten</button>>
+            <button class=category-btn data-category=desserts aria-pressed=false aria-controls=desserts aria-label="Bekijk Desserts" onclick='switchCategory("desserts", event)'>Dessert</button>/button>
+            <button class=category-btn data-category=drinks aria-pressed=false aria-controls=drinks aria-label="Bekijk Dranken" onclick='switchCategory("drinks", event)'>Dranken</button>utton class=category-btn data-category=sides aria-pressed=false aria-controls=sides aria-label="Bekijk Bijgerechten" onclick='switchCategory("sides", event)'>Bijgerechten</button>
+        </nav>ton class=category-btn data-category=desserts aria-pressed=false aria-controls=desserts aria-label="Bekijk Desserts" onclick='switchCategory("desserts", event)'>Dessert</button>
+        <script>rinks aria-pressed=false aria-controls=drinks aria-label="Bekijk Dranken" onclick='switchCategory("drinks", event)'>Dranken</button>
+            function switchCategory(category, event) {
+                if (event) event.preventDefault(); // Prevent default action        <script>
+ent) {
+                // Scroll to the top of the pagent.preventDefault(); // Prevent default action
+                scrollToTop();
+page
+                // Verberg alle menu-secties
+                document.querySelectorAll(".menu-section").forEach(section => {
+                    section.classList.toggle("active", section.id === category);Verberg alle menu-secties
+                });                document.querySelectorAll(".menu-section").forEach(section => {
+ion.id === category);
+                // Reset de actieve status van alle knoppen
+                document.querySelectorAll(".category-btn").forEach(button => {
+                    const isActive = button.getAttribute("data-category") === category;
+                    button.classList.toggle("active", isActive);(button => {
+                    button.setAttribute("aria-pressed", isActive); const isActive = button.getAttribute("data-category") === category;
+                });       button.classList.toggle("active", isActive);
+            }                    button.setAttribute("aria-pressed", isActive);
+
+            // Back-to-top button functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+
+            window.addEventListener('scroll', () => {t.querySelector('.back-to-top');
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('show');entListener('scroll', () => {
+                } else {
+                    backToTopButton.classList.remove('show');   backToTopButton.classList.add('show');
+                } } else {
+            });                    backToTopButton.classList.remove('show');
+
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }ion scrollToTop() {
+        </script>
+        <main class=menu-content id=main-content itemscope itemtype=http://schema.org/Menu>
+            <section class="menu-section active" id=specials aria-labelledby=specials-heading>
+                <h2 id=specials-heading>Dagspecials & Combo's</h2>in-content itemscope itemtype=http://schema.org/Menu>
+                <div class=menu-items>
+                    <article class="menu-item special-item" itemprop=hasMenuItem itemscope itemtype=http://schema.org/MenuItem aria-labelledby=burger-dag-title>ials & Combo's</h2>
+                        <div class=item-header>
+                            <h3 itemprop=name id=burger-dag-title>Maandag: Burger Dag</h3>enuItem itemscope itemtype=http://schema.org/MenuItem aria-labelledby=burger-dag-title>
+                            <span class=price itemprop=price>€9,50</span>lass=item-header>
+                        </div>
+                        <p class=description itemprop=description>Kenitra Classic | Homestyle Crispy Chicken | Cheesy Deluxe | <br> BBQ Bacon Crunch | Bleu Royale <br><br>Geserveerd met Franse Friet.</p>rop=price>€9,50</span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description itemprop=description>Kenitra Classic | Homestyle Crispy Chicken | Cheesy Deluxe | <br> BBQ Bacon Crunch | Bleu Royale <br><br>Geserveerd met Franse Friet.</p>
+                            <ul>
+                                <li>Double Trouble +€3,00</li></p>
+                                <li>Twister Fries +€1,00</li>
+                            </ul>  <li>Double Trouble +€3,00</li>
+                        </div>  <li>Twister Fries +€1,00</li>
+                    </article>
+                    <div class="menu-item special-item">
+                        <div class=item-header>
+                            <h3>Dinsdag: Milkshake Dag</h3>
+                            <span class=price>€4,00</span>lass=item-header>
+                        </div>
+                        <p class=description>Aardbei  |  Banaan  |  Chocolade  |  Vanille  |  Oreo  |  Pistache  |  Stroopwafel  |  <br>Salted Caramel  |  Chocolate Peanut Butter  |  Cherry Vanilla</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Aardbei  |  Banaan  |  Chocolade  |  Vanille  |  Oreo  |  Pistache  |  Stroopwafel  |  <br>Salted Caramel  |  Chocolate Peanut Butter  |  Cherry Vanilla</p>
+                            <ul>
+                                <li>Slagroom +€0,50</li>/strong></p>
+                                <li>Large +€1,00</li>
+                            </ul>  <li>Slagroom +€0,50</li>
+                        </div>      <li>Large +€1,00</li>
+                    </div>
+                    <div class="menu-item special-item">
+                        <div class=item-header>
+                            <h3>Woensdag: Sandwich Dag</h3>
+                            <span class=price>€6,50</span>lass=item-header>
+                        </div>
+                        <p class=description><em>Broodje naar Keuze + Franse Friet</em></p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description><em>Broodje naar Keuze + Franse Friet</em></p>
+                            <ul>
+                                <li>Twister Fries +€1,00</li>ong></p>
+                                <li>Frisdrank +€2,50</li>
+                            </ul>  <li>Twister Fries +€1,00</li>
+                        </div>      <li>Frisdrank +€2,50</li>
+                    </div>
+                    <div class="menu-item special-item">
+                        <div class=item-header>
+                            <h3>Donderdag: Taco's Dag</h3>
+                            <span class=price>€10,00</span>lass=item-header>
+                        </div>
+                        <p class=description>2 Smashed Taco's | Sla | Ui | Huisgemaakte Saus | <br>Franse Friet | Saus naar Keuze<br><br> <strong>Alléén op Do Verkrijgbaar.</strong></p>0</span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>2 Smashed Taco's | Sla | Ui | Huisgemaakte Saus | <br>Franse Friet | Saus naar Keuze<br><br> <strong>Alléén op Do Verkrijgbaar.</strong></p>
+                            <ul>
+                                <li>Twister Fries +€1,00</li>trong>Extra opties:</strong></p>
+                            </ul>l>
+                        </div>      <li>Twister Fries +€1,00</li>
+                    </div>
+                    <div class="menu-item special-item">
+                        <div class=item-header>
+                            <h3>Vrijdag: Pasta Dag</h3>
+                            <span class=price>€11,50</span>lass=item-header>
+                        </div>
+                        <p class=description><em>Pasta naar Keuze + Frisdrank</em></p>0</span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description><em>Pasta naar Keuze + Frisdrank</em></p>
+                            <ul>
+                                <li>Extra Kipfilet +€2,00</li>/p>
+                                <li>Extra Garnalen +€2,50</li>
+                            </ul>  <li>Extra Kipfilet +€2,00</li>
+                        </div>      <li>Extra Garnalen +€2,50</li>
+                    </div>
+                    <div class="menu-item special-item">
+                        <div class=item-header>
+                            <h3>Weekend: Kapsalon Special</h3>
+                            <span class=price>€8,50</span>lass=item-header>
+                        </div>
+                        <p class=description><em>Kapsalon naar Keuze + Frisdrank</em></p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description><em>Kapsalon naar Keuze + Frisdrank</em></p>
+                            <ul>
+                                <li>Large +€2,00</li></p>
+                                <li>Twister Fries +€1,00</li>
+                            </ul>  <li>Large +€2,00</li>
+                        </div>      <li>Twister Fries +€1,00</li>
+                    </div>
+                    <div class="menu-item combo-item">
+                        <div class=item-header>
+                            <h3>Burger Combo</h3>
+                            <span class=price>€12,50</span>lass=item-header>
+                        </div>
+                        <p class=description><em>Burger naar Keuze + Franse Friet + Frisdrank</em></p>0</span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description><em>Burger naar Keuze + Franse Friet + Frisdrank</em></p>
+                            <ul>
+                                <li>Double Trouble +€3,00</li>
+                                <li>Extra Kaas | Extra Bacon +€1,00</li>
+                                <li>Twister Fries +€1,00</li>li>Double Trouble +€3,00</li>
+                            </ul>  <li>Extra Kaas | Extra Bacon +€1,00</li>
+                        </div>      <li>Twister Fries +€1,00</li>
+                    </div>
+                    <div class="menu-item combo-item">
+                        <div class=item-header>
+                            <h3>Sandwich Combo</h3>
+                            <span class=price>€9,50</span>lass=item-header>
+                        </div>
+                        <p class=description><em>Sandwich naar Keuze + Franse Friet + Frisdrank</em></p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description><em>Sandwich naar Keuze + Franse Friet + Frisdrank</em></p>
+                            <ul>
+                                <li>Twister Fries +€1,00</li>ng></p>
+                                <li>Extra Saus +€0,50</li>
+                            </ul>  <li>Twister Fries +€1,00</li>
+                        </div>      <li>Extra Saus +€0,50</li>
+                    </div>
+                    <div class="menu-item combo-item">
+                        <div class=item-header>
+                            <h3>Pasta Combo</h3>
+                            <span class=price>€11,50</span>lass=item-header>
+                        </div>
+                        <p class=description><em>Pasta naar Keuze + Frisdrank</em></p>0</span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description><em>Pasta naar Keuze + Frisdrank</em></p>
+                            <ul>
+                                <li>Extra Kipfilet +€2,00</li>/p>
+                                <li>Extra Garnalen +€2,50</li>
+                            </ul>  <li>Extra Kipfilet +€2,00</li>
+                        </div>      <li>Extra Garnalen +€2,50</li>
+                    </div>      </ul>
+                </div>  </div>
+            </section>                    </div>
+
+            <section class=menu-section id=ontbijt aria-labelledby=ontbijt-heading>
+                <h2 id=ontbijt-heading>Ontbijt</h2>
+                <p class=section-subtitle>Ontbijt wordt geserveerd tot <strong>15:00.</strong></p>n id=ontbijt aria-labelledby=ontbijt-heading>
+                <div class=menu-items>tbijt</h2>
+                    <div class=menu-item>jt wordt geserveerd tot <strong>15:00.</strong></p>
+                        <div class=item-header>
+                            <h3>Klassieke Ontbijt</h3>
+                            <span class=price>€8,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Een klassiek ontbijt met Jus d'Orange | Thee/Koffie | Tesnif | <br>2 Eieren | Kaas | Olijven | Olijfolie </p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Een klassiek ontbijt met Jus d'Orange | Thee/Koffie | Tesnif | <br>2 Eieren | Kaas | Olijven | Olijfolie </p>
+                            <ul>
+                                <li>Extra Ei +€1,00</li>g></p>
+                                <li>Extra Beleg +€1,00</li>
+                            </ul>  <li>Extra Ei +€1,00</li>
+                        </div>      <li>Extra Beleg +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Luxe Marokkaans Ontbijt</h3>
+                            <span class=price>€10,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Een uitgebreid Marokkaans ontbijt met Jus d'Orange | Thee/Koffie | Tesnif | Msemen | Croissant | 2 Eieren | Kaas | Chaatar | Olijven | Olijfolie | Honing | Jam</p>0</span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Een uitgebreid Marokkaans ontbijt met Jus d'Orange | Thee/Koffie | Tesnif | Msemen | Croissant | 2 Eieren | Kaas | Chaatar | Olijven | Olijfolie | Honing | Jam</p>
+                            <ul>
+                                <li>Extra Ei +€1,00</li>g></p>
+                                <li>Extra Beleg +€1,00</li>
+                            </ul>  <li>Extra Ei +€1,00</li>
+                        </div>      <li>Extra Beleg +€1,00</li>
+                    </div>      </ul>
+                </div>  </div>
+            </section>                    </div>
+
+            <section class=menu-section id=burgers aria-labelledby=burgers-heading>
+                <h2 id=burgers-heading>Burgers</h2>
+                <div class=menu-items>
+                    <div class=menu-item itemprop=hasMenuItem itemscope itemtype=http://schema.org/MenuItem>/h2>
+                        <div class=item-header>
+                            <h3 itemprop=name>Kenitra Classic</h3>em>
+                            <span class=price itemprop=offers itemscope itemtype=http://schema.org/Offer>
+                                <span itemprop=price>€6,50</span>
+                                <meta itemprop=priceCurrency content=EUR>lass=price itemprop=offers itemscope itemtype=http://schema.org/Offer>
+                            </span>  <span itemprop=price>€6,50</span>
+                        </div>
+                        <p class=description itemprop=description>100% Rundvlees | Cheddar | Sla | Tomaat | Ui | Augurk | <br>Huisgemaakte Burgersaus</p>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description itemprop=description>100% Rundvlees | Cheddar | Sla | Tomaat | Ui | Augurk | <br>Huisgemaakte Burgersaus</p>
+                            <ul>
+                                <li>Extra Cheddar +€1,00</li>g></p>
+                                <li>Extra Bacon +€1,50</li>
+                                <li>Franse Friet +€3,50</li>li>Extra Cheddar +€1,00</li>
+                            </ul>  <li>Extra Bacon +€1,50</li>
+                        </div>      <li>Franse Friet +€3,50</li>
+                    </div>
+                    <div class=menu-item itemprop=hasMenuItem itemscope itemtype=http://schema.org/MenuItem>
+                        <div class=item-header>
+                            <h3 itemprop=name>Homestyle Crispy Chicken</h3>em>
+                            <span class=price itemprop=offers itemscope itemtype=http://schema.org/Offer>
+                                <span itemprop=price>€6,50</span>3>
+                                <meta itemprop=priceCurrency content=EUR>lass=price itemprop=offers itemscope itemtype=http://schema.org/Offer>
+                            </span>  <span itemprop=price>€6,50</span>
+                        </div>
+                        <p class=description itemprop=description>100% Chickenburger | Cheddar | Sla | Tomaat | Ui |<br> Honing-Mosterdsaus</p>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description itemprop=description>100% Chickenburger | Cheddar | Sla | Tomaat | Ui |<br> Honing-Mosterdsaus</p>
+                            <ul>
+                                <li>Extra Cheddar +€1,00</li>></p>
+                                <li>Franse Friet +€3,50</li>
+                                <li>Double Chicken +€3,00</li>                                <li>Extra Cheddar +€1,00</li>
+li>Franse Friet +€3,50</li>
+                            </ul>  <li>Double Chicken +€3,00</li>
+                        </div>
+                    </div>
+                    <div class=menu-item itemprop=hasMenuItem itemscope itemtype=http://schema.org/MenuItem>
+                        <div class=item-header>
+                            <h3 itemprop=name>Cheesy Deluxe</h3>em>
+                            <span class=price itemprop=offers itemscope itemtype=http://schema.org/Offer>
+                                <span itemprop=price>€7,50</span>
+                                <meta itemprop=priceCurrency content=EUR>lass=price itemprop=offers itemscope itemtype=http://schema.org/Offer>
+                            </span>  <span itemprop=price>€7,50</span>
+                        </div>
+                        <p class=description itemprop=description>100% Rundvlees | Dubbel Cheddar | Sla | Tomaat | Ui |<br> Augurk | Huisgemaakte Burgersaus</p>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description itemprop=description>100% Rundvlees | Dubbel Cheddar | Sla | Tomaat | Ui |<br> Augurk | Huisgemaakte Burgersaus</p>
+                            <ul>
+                                <li>Extra Cheddar +€1,00</li>g></p>
+                                <li>Extra Bacon +€1,50</li>
+                                <li>Franse Friet +€3,50</li>li>Extra Cheddar +€1,00</li>
+                            </ul>  <li>Extra Bacon +€1,50</li>
+                        </div>      <li>Franse Friet +€3,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>BBQ Bacon Crunch</h3>
+                            <span class=price>€8,50</span>lass=item-header>
+                        </div>
+                        <p class=description>100% Rundvlees | Krokante Bacon (Halal) | Cheddar | Sla | Tomaat | Gebakken Ui | Augurk | Mayonaise | BBQ Saus</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>100% Rundvlees | Krokante Bacon (Halal) | Cheddar | Sla | Tomaat | Gebakken Ui | Augurk | Mayonaise | BBQ Saus</p>
+                            <ul>
+                                <li>Extra Cheddar +€1,00</li>g></p>
+                                <li>Extra Bacon +€1,50</li>
+                                <li>Franse Friet +€3,50</li>li>Extra Cheddar +€1,00</li>
+                            </ul>  <li>Extra Bacon +€1,50</li>
+                        </div>      <li>Franse Friet +€3,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Bleu Royale</h3>
+                            <span class=price>€8,50</span>lass=item-header>
+                        </div>
+                        <p class=description>100% Rundvlees | Blauwe Kaas | Rucola | Geroosterde Paprika | Gekarameliseerde Uien | Honing-Mosterdsaus</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>100% Rundvlees | Blauwe Kaas | Rucola | Geroosterde Paprika | Gekarameliseerde Uien | Honing-Mosterdsaus</p>
+                            <ul>
+                                <li>Extra Blauwe Kaas +€1,50</li>
+                                <li>Extra Gekarameliseerde Uien +€1,00</li>
+                                <li>Franse Friet +€3,50</li>li>Extra Blauwe Kaas +€1,50</li>
+                            </ul>  <li>Extra Gekarameliseerde Uien +€1,00</li>
+                        </div>      <li>Franse Friet +€3,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Double Trouble</h3>
+                            <span class=price>€10,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Dubbel Rundvlees | Dubbel Kaas | Dubbel Bacon | Sla | Tomaat | Ui | Augurk | Huisgemaakte Burgersaus</p>0</span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Dubbel Rundvlees | Dubbel Kaas | Dubbel Bacon | Sla | Tomaat | Ui | Augurk | Huisgemaakte Burgersaus</p>
+                            <ul>
+                                <li>Extra Cheddar +€1,00</li>g></p>
+                                <li>Extra Bacon +€1,50</li>
+                                <li>Franse Friet +€3,50</li>li>Extra Cheddar +€1,00</li>
+                            </ul>  <li>Extra Bacon +€1,50</li>
+                        </div>      <li>Franse Friet +€3,50</li>
+                    </div>      </ul>
+                </div>  </div>
+            </section>                    </div>
+
+            <section class=menu-section id=pasta aria-labelledby=pasta-heading>
+                <h2 id=pasta-heading>Pasta's</h2>
+                <p class=section-subtitle>Keuze uit: Penne of Spaghetti</p>n id=pasta aria-labelledby=pasta-heading>
+                <div class=menu-items>a's</h2>
+                    <div class=menu-item> uit: Penne of Spaghetti</p>
+                        <div class=item-header>
+                            <h3>Pasta Bolognese</h3>
+                            <span class=price>€9,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Pasta Huisgemaakte Bolognesesaus | Rundergehakt | <br>Parmezaanse Kaas | Verse Basilicum</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Pasta Huisgemaakte Bolognesesaus | Rundergehakt | <br>Parmezaanse Kaas | Verse Basilicum</p>
+                            <ul>
+                                <li>Extra Gehakt +€2,00</li>ng></p>
+                                <li>Extra Kaas +€1,00</li>
+                            </ul>  <li>Extra Gehakt +€2,00</li>
+                        </div>      <li>Extra Kaas +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Pasta Carbonara</h3>
+                            <span class=price>€9,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Pasta Romige Saus Bacon (Halal) | Ei | Parmezaanse Kaas</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Pasta Romige Saus Bacon (Halal) | Ei | Parmezaanse Kaas</p>
+                            <ul>
+                                <li>Extra Bacon +€2,00</li>ng></p>
+                                <li>Extra Kaas +€1,00</li>
+                            </ul>  <li>Extra Bacon +€2,00</li>
+                        </div>      <li>Extra Kaas +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Pasta Arrabbiata</h3>
+                            <span class=price>€9,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Pasta Kruidige Tomatensaus | Knoflook | Rode Peper | Paprika</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Pasta Kruidige Tomatensaus | Knoflook | Rode Peper | Paprika</p>
+                            <ul>
+                                <li>Extra Kaas +€1,00</li>g></p>
+                                <li>Extra Pesto +€1,00</li>
+                            </ul>  <li>Extra Kaas +€1,00</li>
+                        </div>      <li>Extra Pesto +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Pasta Chicken Pesto</h3>
+                            <span class=price>€9,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Pasta Kip | Pesto | Cherrytomaten | Parmezaanse Kaas</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Pasta Kip | Pesto | Cherrytomaten | Parmezaanse Kaas</p>
+                            <ul>
+                                <li>Extra Kipfilet +€2,00</li>ng></p>
+                                <li>Extra Kaas +€1,00</li>
+                            </ul>  <li>Extra Kipfilet +€2,00</li>
+                        </div>      <li>Extra Kaas +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Pasta Chicken Cajun</h3>
+                            <span class=price>€9,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Pasta Hete Kip | Cajunkruiden | Zongedroogde Tomaten | Parmezaanse Kaas</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Pasta Hete Kip | Cajunkruiden | Zongedroogde Tomaten | Parmezaanse Kaas</p>
+                            <ul>
+                                <li>Extra Kipfilet +€2,00</li>ng></p>
+                                <li>Extra Kaas +€1,00</li>
+                            </ul>  <li>Extra Kipfilet +€2,00</li>
+                        </div>      <li>Extra Kaas +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Pasta Scampi Curry</h3>
+                            <span class=price>€9,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Pasta Garnalen in Romige Kerriesaus</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Pasta Garnalen in Romige Kerriesaus</p>
+                            <ul>
+                                <li>Extra Garnalen +€2,50</li>ng></p>
+                                <li>Extra Kaas +€1,00</li>
+                            </ul>  <li>Extra Garnalen +€2,50</li>
+                        </div>      <li>Extra Kaas +€1,00</li>
+                    </div>      </ul>
+                </div>  </div>
+            </section>                    </div>
+
+            <section class=menu-section id=broodjes>
+                <h2>Broodjes</h2>
+                <div class=menu-items>d=broodjes>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Grilled Cheese Deluxe</h3>
+                            <span class=price>€3,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Goudse Kaas | Cheddar | Gekarameliseerde Uien</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Goudse Kaas | Cheddar | Gekarameliseerde Uien</p>
+                            <ul>
+                                <li>Extra Kaas +€1,00</li>>
+                                <li>Met Franse Friet +€3,50</li>
+                            </ul>  <li>Extra Kaas +€1,00</li>
+                        </div>      <li>Met Franse Friet +€3,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Grilled Cheese Tuna Melt</h3>
+                            <span class=price>€4,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Huisgemaakte Tonijnsalade | Goudse Kaas | Cheddar | Rode Ui</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Huisgemaakte Tonijnsalade | Goudse Kaas | Cheddar | Rode Ui</p>
+                            <ul>
+                                <li>Extra Kaas +€1,00</li>>
+                                <li>Met Franse Friet +€3,50</li>
+                            </ul>  <li>Extra Kaas +€1,00</li>
+                        </div>      <li>Met Franse Friet +€3,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Köfte Sandwich</h3>
+                            <span class=price>€4,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Gebakken Köfte | Sla | Komkommer | Ui | Saus naar Keuze</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Gebakken Köfte | Sla | Komkommer | Ui | Saus naar Keuze</p>
+                            <ul>
+                                <li>Extra Köfte +€1,50</li>>
+                                <li>Met Franse Friet +€3,50</li>
+                            </ul>  <li>Extra Köfte +€1,50</li>
+                        </div>      <li>Met Franse Friet +€3,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Hot Chicken Sandwich</h3>
+                            <span class=price>€4,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Pittige Kipfilet | Sla  | Komkommer | Ui | Saus naar Keuze</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Pittige Kipfilet | Sla  | Komkommer | Ui | Saus naar Keuze</p>
+                            <ul>
+                                <li>Extra Kipfilet +€2,00</li>>
+                                <li>Met Franse Friet +€3,50</li>
+                            </ul>  <li>Extra Kipfilet +€2,00</li>
+                        </div>      <li>Met Franse Friet +€3,50</li>
+                    </div>      </ul>
+                </div>  </div>
+            </section>                    </div>
+
+            <section class=menu-section id=kapsalon>
+                <h2>Kapsalon</h2>
+                <div class=menu-items>d=kapsalon>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Kapsalon Kipfilet</h3>
+                            <span class=price>€6,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Franse Friet | Kipfilet | Goudse Kaas | Sla | Komkommer | Ui | <br>Knoflooksaus | Andalouse</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Franse Friet | Kipfilet | Goudse Kaas | Sla | Komkommer | Ui | <br>Knoflooksaus | Andalouse</p>
+                            <ul>
+                                <li>Extra Kaas +€1,00</li></p>
+                                <li>Twister Fries +€1,00</li>
+                            </ul>  <li>Extra Kaas +€1,00</li>
+                        </div>      <li>Twister Fries +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Kapsalon Hete Kipfilet</h3>
+                            <span class=price>€6,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Franse Friet | Hete Kipfilet | Goudse Kaas | Sla | Komkommer | Ui | Knoflooksaus | Samurai</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Franse Friet | Hete Kipfilet | Goudse Kaas | Sla | Komkommer | Ui | Knoflooksaus | Samurai</p>
+                            <ul>
+                                <li>Extra Kaas +€1,00</li></p>
+                                <li>Twister Fries +€1,00</li>
+                            </ul>  <li>Extra Kaas +€1,00</li>
+                        </div>      <li>Twister Fries +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Kapsalon Shoarma</h3>
+                            <span class=price>€7,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Franse Friet | Shoarma | Goudse Kaas | Sla | Komkommer | Ui | <br>knoflooksaus | Andalouse</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Franse Friet | Shoarma | Goudse Kaas | Sla | Komkommer | Ui | <br>knoflooksaus | Andalouse</p>
+                            <ul>
+                                <li>Extra Kaas +€1,00</li></p>
+                                <li>Twister Fries +€1,00</li>
+                            </ul>  <li>Extra Kaas +€1,00</li>
+                        </div>      <li>Twister Fries +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Kapsalon Kipfilet XL</h3>
+                            <span class=price>€8,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Franse Friet | Kipfilet | Extra Kaas | Sla | Komkommer  | Ui | <br>Knoflooksaus | Samurai</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Franse Friet | Kipfilet | Extra Kaas | Sla | Komkommer  | Ui | <br>Knoflooksaus | Samurai</p>
+                            <ul>
+                                <li>Extra Kipfilet +€2,00</li></p>
+                                <li>Twister Fries +€1,00</li>
+                            </ul>  <li>Extra Kipfilet +€2,00</li>
+                        </div>      <li>Twister Fries +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Kapsalon Shoarma XL</h3>
+                            <span class=price>€9,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Franse Friet | Shoarma | Extra Kaas | Sla | Komkommer  | Ui | <br>Knoflooksaus | Andalouse</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Franse Friet | Shoarma | Extra Kaas | Sla | Komkommer  | Ui | <br>Knoflooksaus | Andalouse</p>
+                            <ul>
+                                <li>Extra Shoarma +€2,50</li></p>
+                                <li>Twister Fries +€1,00</li>
+                            </ul>  <li>Extra Shoarma +€2,50</li>
+                        </div>      <li>Twister Fries +€1,00</li>
+                    </div>      </ul>
+                </div>  </div>
+            </section>                    </div>
+
+            <section class=menu-section id=sides>
+                <h2>Bijgerechten</h2>
+                <div class=menu-items>d=sides>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Franse Friet</h3>
+                            <span class=price>€3,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Knapperige Franse Friet | Saus naar Keuze</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Knapperige Franse Friet | Saus naar Keuze</p>
+                            <ul>
+                                <li>Grote Portie +€1,00</li>ng></p>
+                                <li>Extra Saus +€0,50</li>
+                            </ul>  <li>Grote Portie +€1,00</li>
+                        </div>      <li>Extra Saus +€0,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Twister Fries</h3>
+                            <span class=price>€4,00</span>lass=item-header>
+                        </div>
+                        <p class=description>Krokante Twister Fries | Saus naar Keuze</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Krokante Twister Fries | Saus naar Keuze</p>
+                            <ul>
+                                <li>Grote Portie +€1,00</li>ng></p>
+                                <li>Extra Saus +€0,50</li>
+                            </ul>  <li>Grote Portie +€1,00</li>
+                        </div>      <li>Extra Saus +€0,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Onion Rings</h3>
+                            <span class=price>€3,50</span>lass=item-header>
+                        </div>
+                        <p class=description>6 Krokante Uienringen | Saus naar Keuze</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>6 Krokante Uienringen | Saus naar Keuze</p>
+                            <ul>
+                                <li>12 Stuks +€2,50</li>rong></p>
+                                <li>20 Stuks +€4,50</li>
+                            </ul>  <li>12 Stuks +€2,50</li>
+                        </div>      <li>20 Stuks +€4,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Kipnuggets</h3>
+                            <span class=price>€3,50</span>lass=item-header>
+                        </div>
+                        <p class=description>6 Kipnuggets | Normaal of Pittig | Saus naar Keuze</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>6 Kipnuggets | Normaal of Pittig | Saus naar Keuze</p>
+                            <ul>
+                                <li>12 Stuks +€2,50</li>rong></p>
+                                <li>20 Stuks +€4,50</li>
+                            </ul>  <li>12 Stuks +€2,50</li>
+                        </div>      <li>20 Stuks +€4,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Mini Loempia's</h3>
+                            <span class=price>€3,50</span>lass=item-header>
+                        </div>
+                        <p class=description>8 Krokante Mini Loempia's | Saus naar Keuze</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>8 Krokante Mini Loempia's | Saus naar Keuze</p>
+                            <ul>
+                                <li>12 Stuks +€1,50</li>rong></p>
+                                <li>20 Stuks +€3,50</li>
+                            </ul>  <li>12 Stuks +€1,50</li>
+                        </div>      <li>20 Stuks +€3,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Kaassoufflé</h3>
+                            <span class=price>€4,00</span>lass=item-header>
+                        </div>
+                        <p class=description>2 Krokante Kaassoufflés | Saus naar Keuze</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>2 Krokante Kaassoufflés | Saus naar Keuze</p>
+                            <ul>
+                                <li>3 stuks +€2,00</li>ng></p>
+                                <li>Extra Saus +€0,50</li>
+                            </ul>  <li>3 stuks +€2,00</li>
+                        </div>      <li>Extra Saus +€0,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Bamischijf</h3>
+                            <span class=price>€4,00</span>lass=item-header>
+                        </div>
+                        <p class=description>2 Krokante Bamischijven | Saus naar Keuze</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>2 Krokante Bamischijven | Saus naar Keuze</p>
+                            <ul>
+                                <li>3 stuks +€2,00</li>ng></p>
+                                <li>Extra Saus +€0,50</li>
+                            </ul>  <li>3 stuks +€2,00</li>
+                        </div>      <li>Extra Saus +€0,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Nacho's met Kaasdip</h3>
+                            <span class=price>€4,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Krokante tortillachips met Verse Kaasdip.</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Krokante tortillachips met Verse Kaasdip.</p>
+                            <ul>
+                                <li>Extra Kaassaus +€1,00</li>>
+                                <li>Extra Jalapeno's +€0,50</li>
+                            </ul>  <li>Extra Kaassaus +€1,00</li>
+                        </div>      <li>Extra Jalapeno's +€0,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Mixed Bar Bites</h3>
+                            <span class=price>€5,00</span>lass=item-header>
+                        </div>
+                        <p class=description>Mix van Mini Loempia's, Mini Frikandellen, Kipnuggets, Onion Rings <br>(12 Stuks) | 2 Sauzen naar Keuze</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Mix van Mini Loempia's, Mini Frikandellen, Kipnuggets, Onion Rings <br>(12 Stuks) | 2 Sauzen naar Keuze</p>
+                            <ul>
+                                <li>18 Stuks +€2,50</li>rong></p>
+                                <li>24 Stuks +€4,50</li>
+                            </ul>  <li>18 Stuks +€2,50</li>
+                        </div>      <li>24 Stuks +€4,50</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Sauzen</h3>
+                            <span class=price>€0,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Mayonaise | Ketchup | Curry | Andalouse | Samurai | Katjang | <br>Knoflook | Chili | Mosterd</p>  <span class=price>€0,50</span>
+                    </div>  </div>
+                </div>  <p class=description>Mayonaise | Ketchup | Curry | Andalouse | Samurai | Katjang | <br>Knoflook | Chili | Mosterd</p>
+            </section>                    </div>
+
+            <section class=menu-section id=desserts>
+                <h2>Desserts</h2>
+                <div class=menu-items>d=desserts>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Crème Brûlée</h3>
+                            <span class=price>€4,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Klassieke Franse Vanille Crème Brûlée met Gekarameliseerde Suikerlaag</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Klassieke Franse Vanille Crème Brûlée met Gekarameliseerde Suikerlaag</p>
+                            <ul>
+                                <li>Extra Bolletje IJs +€1,00</li>trong>Extra opties:</strong></p>
+                            </ul>l>
+                        </div>      <li>Extra Bolletje IJs +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Biscoff Cheesecake</h3>
+                            <span class=price>€4,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Rijke en romige cheesecake met een smeuïge Lotus Biscoff-topping, op een krokante Biscoff-koekkruimelbodem.</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Rijke en romige cheesecake met een smeuïge Lotus Biscoff-topping, op een krokante Biscoff-koekkruimelbodem.</p>
+                            <ul>
+                                <li>Extra Biscoff Saus +€1,00</li>trong>Extra opties:</strong></p>
+                            </ul>l>
+                        </div>      <li>Extra Biscoff Saus +€1,00</li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Dolce Tiramisu</h3>
+                            <span class=price>€4,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Klassieke Italiaanse Tiramisu met Lagen van Mascarpone, Koffie en Cacao</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Klassieke Italiaanse Tiramisu met Lagen van Mascarpone, Koffie en Cacao</p>
+                            <ul>
+                                <li>Extra Cacao +€1,00</li>trong>Extra opties:</strong></p>
+                            </ul>l>
+                        </div>      <li>Extra Cacao +€1,00</li>
+                    </div>      </ul>
+                </div>  </div>
+            </section>                    </div>
+
+            <section class=menu-section id=drinks>
+                <h2>Dranken</h2>
+                <div class=menu-items>d=drinks>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Frisdrank</h3>
+                            <span class=price>€2,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Cola | Fanta | Sprite | Ice Tea | Fernandes | Hawaii | Poms</p>  <span class=price>€2,50</span>
+                    </div>
+                    <div class=menu-item>la | Fanta | Sprite | Ice Tea | Fernandes | Hawaii | Poms</p>
+                        <div class=item-header>
+                            <h3>Water</h3>
+                            <span class=price>€2,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Spa Blauw | Spa Rood</p>pan class=price>€2,50</span>
+                    </div>    
+                    <div class=menu-item>a Blauw | Spa Rood</p>
+                        <div class=item-header>
+                            <h3>Warme Dranken</h3>
+                            <span class=price>€2,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Koffie | Thee | Espresso | Cappuccino</p>  <span class=price>€2,50</span>
+                    </div>
+                    <div class=menu-item>ffie | Thee | Espresso | Cappuccino</p>
+                        <div class=item-header>
+                            <h3>Red Bull</h3>
+                            <span class=price>€3,00</span>lass=item-header>
+                        </div>
+                        <p class=description>Regular | Sugarfree | Limited Edition</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Regular | Sugarfree | Limited Edition</p>
+                            <ul>
+                                <li><strong>4-Pack +€7,00</strong></li>trong>Extra opties:</strong></p>
+                            </ul>l>
+                        </div>  <li><strong>4-Pack +€7,00</strong></li>
+                    </div>    
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Jus d'Orange</h3>
+                            <span class=price>€4,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Vers Geperste Jus d'Orange</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Vers Geperste Jus d'Orange</p>
+                            <ul>
+                                <li><strong>Large +€1,00</strong></li>trong>Extra opties:</strong></p>
+                            </ul>l>
+                        </div>      <li><strong>Large +€1,00</strong></li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Smoothie</h3>
+                            <span class=price>€5,00</span>lass=item-header>
+                        </div>
+                        <p class=description>Vraag naar Onze Selectie Dagsmoothie's</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Vraag naar Onze Selectie Dagsmoothie's</p>
+                            <ul>
+                                <li><strong>Large +€1,00</strong></li>trong>Extra opties:</strong></p>
+                            </ul>l>
+                        </div>      <li><strong>Large +€1,00</strong></li>
+                    </div>
+                    <div class=menu-item>
+                        <div class=item-header>
+                            <h3>Verse Milkshake</h3>
+                            <span class=price>€4,50</span>lass=item-header>
+                        </div>
+                        <p class=description>Aardbei  |  Banaan  |  Chocolade  |  Vanille  |  Oreo  |  Pistache  |  Stroopwafel  |  <br>Salted Caramel  |  Chocolate Peanut Butter  |  Cherry Vanilla</p></span>
+                        <div class=upgrade-options>
+                            <p><strong>Extra opties:</strong></p>=description>Aardbei  |  Banaan  |  Chocolade  |  Vanille  |  Oreo  |  Pistache  |  Stroopwafel  |  <br>Salted Caramel  |  Chocolate Peanut Butter  |  Cherry Vanilla</p>
+                            <ul>
+                                <li><strong>Slagroom +€0,50</strong></li>
+                                <li><strong>Large +€1,00</strong></li>
+                            </ul>  <li><strong>Slagroom +€0,50</strong></li>
+                        </div>      <li><strong>Large +€1,00</strong></li>
+                    </div>      </ul>
+                </div>  </div>
+            </section>        </div>
+             </div>
+        </main>  </section>
+    </div>            
+
+    <button class="back-to-top" aria-label="Scroll naar boven" onclick="scrollToTop()">↑</button>    </div>
+
+    <div class=footer>"Scroll naar boven" onclick="scrollToTop()">↑</button>
+        <div class=footer-background></div>
+        <footer style="background:#1a1a1a;padding:10px 20px;text-align:center">ss=footer>
+            
+            <a href="https://wa.me/31612345678?text=Hallo,%20ik%20wil%20iets%20bestellen!" target=_blank rel=noopener style="display:inline-block;background:#25d366;color:#fff;border-radius:50px;padding:10px 25px;box-shadow:0 3px 6px rgba(0,0,0,.1);margin:5px 0">
+                <img src=https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg width=29 style=vertical-align:middle alt="WhatsApp logo" aria-hidden=true>               <span style=margin-left:8px;font-size:15px>Bestel Direct!</span>
+            </a>ef="https://wa.me/31612345678?text=Hallo,%20ik%20wil%20iets%20bestellen!" target=_blank rel=noopener style="display:inline-block;background:#25d366;color:#fff;border-radius:50px;padding:10px 25px;box-shadow:0 3px 6px rgba(0,0,0,.1);margin:5px 0">
+        </footer>      <img src=https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg width=29 style=vertical-align:middle alt="WhatsApp logo" aria-hidden=true>               <span style=margin-left:8px;font-size:15px>Bestel Direct!</span>
+    </div>
+    <footer class=site-footer>
+    <div class=footer-container>
+        <div class=footer-section>
+            <h3>Eetcafé Kenitra</h3>-container>
+            <address>n>
+                Hoefkade 782<br>
+                2526 CT Den Haag<br>
+                Tel: <a href=tel:+31612345678>06 12345678</a>de 782<br>
+            </address>  2526 CT Den Haag<br>
+        </div>31612345678>06 12345678</a>
+        <div class=footer-section>
+            <h3>Openingstijden</h3>
+            <ul class=opening-hours-list>ooter-section>
+                <li>
+                    <span>Zondag - Donderdag</span>
+                    <span>10:00 - 23:00</span>
+                </li><span>Zondag - Donderdag</span>
+                <br><span>10:00 - 23:00</span>
+                <li>
+                    <span>Vrijdag & Zaterdag</span>
+                    <span>10:00 - 00:00</span>
+                </li>   <span>Vrijdag & Zaterdag</span>
+            </ul>      <span>10:00 - 00:00</span>
+        </div>
+        <div class=footer-section>
+            <h3>Informatie</h3>
+            <ul class=footer-links>
+                <li><a href=over-ons.html>Over Ons</a></li>
+                <li><a href=contact.html>Contact</a></li>
+                <li><a href=bezorgen.html>Bezorgen</a></li>i>
+                <li><a href=afhalen.html>Afhalen</a></li>
+                <li><a href=allergenen-voedingswaarden.html target=_blank>Allergenen & Voedingswaarden</a></li>li><a href=bezorgen.html>Bezorgen</a></li>
+            </ul>  <li><a href=afhalen.html>Afhalen</a></li>
+        </div>      <li><a href=allergenen-voedingswaarden.html target=_blank>Allergenen & Voedingswaarden</a></li>
+    </div>
+    <div class=copyright>
+        <p>&copy; <span id=current-year>2025</span> Eetcafé Kenitra. Alle rechten voorbehouden.</p>
+    </div>class=copyright>
+</footer>n.</p>
+<script>document.getElementById("current-year").textContent=(new Date).getFullYear()</script>
+<script>document.getElementById("current-year").textContent=(new Date).getFullYear()</script>
+    <script>document.getElementById("current-year").textContent=(new Date).getFullYear()</script>rrent-year").textContent=(new Date).getFullYear()</script>
+    <script src=script.js></script>rrent-year").textContent=(new Date).getFullYear()</script>
+    <script src=mobile.js></script>document.getElementById("current-year").textContent=(new Date).getFullYear()</script>
+    <script>
+        // Back-to-top button functionality
+        const backToTopButton = document.querySelector('.back-to-top');    <script>
+
+        window.addEventListener('scroll', () => {t.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');entListener('scroll', () => {
+            } else {
+                backToTopButton.classList.remove('show');   backToTopButton.classList.add('show');
+            } } else {
+        });                backToTopButton.classList.remove('show');
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }ion scrollToTop() {
+    </script>     window.scrollTo({ top: 0, behavior: 'smooth' });
+</html>        }
+    </script>
 </html>
+
+
+
